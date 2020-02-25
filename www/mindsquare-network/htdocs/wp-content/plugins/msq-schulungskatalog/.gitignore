@@ -1,7 +1,0 @@
-schulungskatalog.pdf
-previews/**
-# Erhalte den Ordner, in dem die PDFs erzeugt werden sollen
-!previews/index.php
-
-# Aus irgendeinem Grund ignoriert git den Ordner wp-sync-task (vielleicht wegen der geschachtelten Repo?)
-!vendor/techcrunch/wp-async-task/wp-async-task.php

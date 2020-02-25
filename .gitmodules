@@ -1,0 +1,4 @@
+[submodule "www/mindsquare-network/htdocs"]
+	path = www/mindsquare-network/htdocs
+	url = git@gitlab.com:mindsquare/mindsquare-network.git
+	branch = develop
