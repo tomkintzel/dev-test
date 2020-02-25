@@ -1,0 +1,11 @@
+{
+    "name": "msq/update-manager",
+    "type": "library",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Msq\\": "src/"
+        }
+    },
+    "description": "Ein Plugin, um die Versionen von Features zu verwalten."
+}

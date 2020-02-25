@@ -1,0 +1,56 @@
+
+.card {
+	&.card-angebot {
+		background-color: $dark-gray;
+		height: 100%;
+		color: $white;
+		position: relative;
+		padding-right: 0;
+		padding-left: 0;
+		margin-left: 0;
+		margin-right: 0;
+		border: none;
+
+		img {
+			display: block;
+			height: 100%;
+			object-fit: cover;
+		}
+		.card-image{
+			height: 143px;
+		}
+		.card-title-wrapper {
+			background-color: $light-gray;
+			text-align: center;
+			width: 100%;
+			padding: $spacer / 2 $spacer;
+			line-height: 1.1;
+			height:66px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			a {
+				color: $dark-gray;
+				letter-spacing: -1px;
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+				margin: 0;
+				font-weight: bold;
+			}
+		}
+
+		.card-body {
+			font-size: 12px;
+			line-height: 1.2;
+			padding: $spacer / 2 $spacer;
+		}
+
+		.card-footer {
+			border: none;
+			background: none;
+			text-align: center;
+		}
+	}
+}

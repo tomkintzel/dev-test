@@ -1,0 +1,13 @@
+.buttons {
+	&.justify-content-start,
+	&.justify-content-end,
+	&.justify-content-center,
+	&.justify-content-between,
+	&.justify-content-around {
+		a.btn {
+			margin-top: 15px;
+			margin-left: 7.5px;
+			margin-right: 7.5px;
+		}
+	}
+}

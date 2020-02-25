@@ -1,0 +1,92 @@
+.JobTeaser {
+	display: block;
+	position: relative;
+
+	margin-bottom: 20px;
+	padding: 19px;
+
+	transition: background-color 300ms linear, color 300ms linear;
+	border: 1px solid $dark-gray;
+	background-color: $dark-gray;
+	color: $white;
+	text-decoration: none;
+
+
+	&::after {
+		content: ' ';
+		display: block;
+		clear: both;
+	}
+
+	&:hover {
+		background-color: $white;
+
+		color: $dark-gray;
+		text-decoration: none;
+	}
+
+	&-Header {
+		margin-bottom: 10px;
+
+		@include media-breakpoint-up(md) {
+			display: table;
+			direction: rtl;
+		}
+	}
+
+	&-Title {
+		display: block;
+		direction: ltr;
+
+		@include media-breakpoint-up(md) {
+			display: table-cell;
+			width: 100%;
+		}
+	}
+
+	&-Location {
+		display: block;
+		margin-bottom: 10px;
+
+		text-align: center;
+		vertical-align: top;
+
+		@include media-breakpoint-up(md) {
+			display: table-cell;
+			width: auto;
+			margin-top: 0;
+			padding-left: 10px;
+
+			text-align: right;
+		}
+	}
+
+	&-Body {
+		@include media-breakpoint-up(md) {
+			display: table;
+		}
+	}
+
+	&-Description {
+		@include media-breakpoint-up(md) {
+			display: table-cell;
+			width: 100%;
+		}
+	}
+
+	&-Button {
+		margin-top: 20px;
+
+		text-align: center;
+		vertical-align: bottom;
+
+		@include media-breakpoint-up(md) {
+			display: table-cell;
+			width: auto;
+			margin-top: 0;
+			padding-left: 10px;
+
+			text-align: right;
+		}
+	}
+}

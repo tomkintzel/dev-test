@@ -1,0 +1,90 @@
+$error-color: #f00;
+
+.re-Editor {
+	box-sizing: border-box;
+	height: 100%;
+	padding: 1em 1.61803398875em;
+
+	overflow: auto;
+}
+
+.re-FieldGroup {
+	display: flex;
+	flex-wrap: wrap;
+
+	max-height: 1000px;
+	margin-bottom: 1em;
+
+	transition: all .3s ease;
+	opacity: 1;
+
+	$p: &;
+
+	&.hide {
+		visibility: hidden;
+		max-height: 0;
+		opacity: 0;
+	}
+
+	&-vertical {
+		flex-direction: column;
+
+		#{$p}-Label {
+			flex: auto;
+			align-self: flex-start;
+			margin: 0;
+			text-align: left;
+		}
+
+		#{$p}-Description {
+			flex: auto;
+			order: 2;
+		}
+
+		#{$p}-Field {
+			flex: auto;
+			order: 3;
+			width: 100%;
+
+			&[type='checkbox'] {
+				width: auto;
+			}
+
+			&[type='text'] {
+				padding: .35em .56631189606em;
+			}
+		}
+	}
+
+	&-Label {
+		flex: 0 0 6em;
+		align-self: center;
+		order: 1;
+		margin-right: 1em;
+		text-align: right;
+	}
+
+	&-Description {
+		flex-basis: 100%;
+		order: 3;
+
+		margin-top: .1em;
+
+		opacity: .8;
+		font-size: .85em;
+
+		&-error {
+			color: $error-color;
+		}
+	}
+
+	&-Field {
+		flex-grow: 1;
+		align-self: center;
+		order: 2;
+	}
+
+	&-Field[type='checkbox'] {
+		flex-grow: 0;
+	}
+}

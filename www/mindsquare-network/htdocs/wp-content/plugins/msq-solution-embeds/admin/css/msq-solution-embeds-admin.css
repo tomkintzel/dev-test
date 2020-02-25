@@ -1,0 +1,44 @@
+.msq-plugin-solution-embeds.window {
+	padding: 10px;
+	position: relative;
+}
+
+.msq-plugin-solution-embeds label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.msq-plugin-solution-embeds input,
+.msq-plugin-solution-embeds select {
+	display: block;
+	width: 100%;
+	height: 30px;
+	padding: 4px 8px;
+	font-size: 14px;
+	color: #555;
+	border: 1px solid #ccc;
+	background-image: none;
+	border-radius: 2px;
+	margin: 0;
+	box-sizing: border-box;
+	margin-bottom: 12px;
+}
+.msq-plugin-solution-embeds input[type="checkbox"] {
+	width: 18px;
+	height: 18px;
+	margin: 4px 0;
+	margin-right: 7px;
+	display: inline-block;
+	padding-top: 1px !important;
+	padding-left: 1px !important;
+}
+.msq-plugin-solution-embeds .description {
+	white-space: pre-wrap;
+	margin-bottom: 5px;
+	font-size: 13px;
+}
+.mce-i-fa {
+	font-family: FontAwesome !important;
+}

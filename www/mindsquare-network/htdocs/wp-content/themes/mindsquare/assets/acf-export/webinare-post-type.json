@@ -1,0 +1,396 @@
+[
+    {
+        "key": "group_5b07e160ee374",
+        "title": "Webinare",
+        "fields": [
+            {
+                "key": "field_5b1649305b16f",
+                "label": "Bild oder Video",
+                "name": "webinar_img_or_media",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Soll ein Bild oder ein Video angezeigt werden?",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Bild",
+                "ui_off_text": "Video"
+            },
+            {
+                "key": "field_5b07e57836241",
+                "label": "Bild",
+                "name": "webinar_img",
+                "type": "image",
+                "instructions": "Das Bild sollte eine Größe von 630x400px haben",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5b1649305b16f",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_5b07e5cb36242",
+                "label": "Video",
+                "name": "webinar_media",
+                "type": "oembed",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5b1649305b16f",
+                            "operator": "!=",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "width": 630,
+                "height": 400
+            },
+            {
+                "key": "field_5b07e16536240",
+                "label": "Kurzbeschreibung \/ Einleitung",
+                "name": "webinar_text_top",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5b07e5fa36243",
+                "label": "Das Wissen Sie nach dem Webinar",
+                "name": "webinar_bullet_points",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5b0810cafc3ac",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5b0810cafc3ac",
+                        "label": "Text",
+                        "name": "webinar_bullet_text",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5b080e90fc3a8",
+                "label": "Inhalt des Webinars",
+                "name": "webinar_text_bottom",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5b07e73c36246",
+                "label": "Termine",
+                "name": "webinar_appointments",
+                "type": "repeater",
+                "instructions": "Wenn keine Termine eingestellt werden, werden die Standard-Termine von der Einstellungsseite verwendet.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5b080fa4fc3aa",
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Termin hinzufügen",
+                "sub_fields": [
+                    {
+                        "key": "field_5b080fa4fc3aa",
+                        "label": "Wochentag",
+                        "name": "webinar_weekday",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "60",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": [
+                            "Montag",
+                            "Dienstag",
+                            "Mittwoch",
+                            "Donnerstag",
+                            "Freitag",
+                            "Samstag",
+                            "Sonntag"
+                        ],
+                        "default_value": [],
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "return_format": "value",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_5b081005fc3ab",
+                        "label": "Uhrzeit",
+                        "name": "webinar_time_h",
+                        "type": "number",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "acf-timepick",
+                            "id": ""
+                        },
+                        "default_value": 0,
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": 0,
+                        "max": 23,
+                        "step": 1
+                    },
+                    {
+                        "key": "field_5b150713e4ad9",
+                        "label": " ",
+                        "name": "webinar_time_i",
+                        "type": "number",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "acf-timepick",
+                            "id": ""
+                        },
+                        "default_value": "00",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "Uhr",
+                        "min": 0,
+                        "max": 59,
+                        "step": 1
+                    }
+                ]
+            },
+            {
+                "key": "field_5b4ef102d335a",
+                "label": "Dauer",
+                "name": "webinar_duration",
+                "type": "number",
+                "instructions": "Die Dauer des Webinars in Minuten.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "Minuten",
+                "min": 0,
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5b07e62d36244",
+                "label": "Webinaris ID",
+                "name": "webinar_api_id",
+                "type": "text",
+                "instructions": "Die ID findest du im jeweiligen Webinaris-Projekt unter Kommunikation > API > Webinar ID",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5b07e64d36245",
+                "label": "Webinaris API Passwort",
+                "name": "webinar_api_key",
+                "type": "text",
+                "instructions": "Das API Passwort findest du im jeweiligen Webinaris-Projekt unter Kommunikation > API > API Passwort",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5b07ea24d3673",
+                "label": "Pardot Formular",
+                "name": "webinar_pardot",
+                "type": "pardot",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "allow_null": 0,
+                "ui": 1,
+                "ajax": 0,
+                "multiple": 0,
+                "choices": [],
+                "placeholder": "",
+                "disabled": 0,
+                "readonly": 0,
+                "default_value": []
+            },
+            {
+                "key": "field_5b07e77e36247",
+                "label": "Ähnliche Webinare",
+                "name": "webinar_similar",
+                "type": "post_object",
+                "instructions": "Diese Webinare werden nur ausgespielt, wenn keine Webinarreihe ausgewählt wurde",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "webinare"
+                ],
+                "taxonomy": [],
+                "allow_null": 1,
+                "multiple": 1,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_5d318e8889d84",
+                "label": "",
+                "name": "",
+                "type": "clone",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "clone": [
+                    "field_5d14bf43b8cb2"
+                ],
+                "display": "seamless",
+                "layout": "block",
+                "prefix_label": 0,
+                "prefix_name": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "webinare"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
+]

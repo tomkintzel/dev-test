@@ -1,0 +1,367 @@
+.Navigation {
+	$block: #{&};
+
+	@include media-breakpoint-down(lg) {
+		display: flex;
+		align-items: flex-end;
+	}
+
+	&-Icon {
+		padding: 15px;
+		display: inline-block;
+		cursor: pointer;
+		font-size: 32px;
+		line-height: 1;
+		align-self: center;
+
+		@at-root .Masthead-scroll & {
+			font-size: 27px;
+			padding: 10px;
+		}
+
+		@include media-breakpoint-up(xl) {
+			display: none;
+		}
+
+		&.hamburger {
+			@at-root .Masthead-scroll & {
+				transform: scale(0.9, 0.9);
+			}
+
+			&:hover {
+				opacity: 1;
+			}
+
+			&.is-active .hamburger-inner {
+				&::after, &::before {
+					background-color: #565656;
+				}
+			}
+		}
+
+		.hamburger-inner {
+			&, &::after, &::before {
+				background-color: #565656;
+			}
+		}
+	}
+
+	&-List {
+		display: none;
+		width: 100%;
+		left: 0;
+		list-style: none;
+		padding-left: 0;
+		margin-bottom: 0;
+
+		@at-root #{$block}-active & {
+			display: block;
+		}
+
+		@include media-breakpoint-down(lg) {
+			overflow-x: hidden;
+			overflow-y: auto;
+			height: calc(100% - 100px);
+			position: fixed;
+			margin-top: 2px;
+			color: #ffffff;
+
+			@at-root .Masthead-scroll & {
+				height: calc(100% - 50px);
+			}
+
+			@at-root .admin-bar & {
+				height: calc(100% - 100px - 46px);
+			}
+
+			@at-root .Masthead-scroll.admin-bar & {
+				height: calc(100% - 50px - 46px);
+			}
+		}
+
+		@include media-breakpoint-up(xl) {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			text-align: center;
+		}
+	}
+
+	&-Item {
+		@at-root #{$block}-secondary & {
+			align-items: center;
+		}
+
+		@include media-breakpoint-down(lg) {
+			background-color: #565656;
+		}
+
+		@include media-breakpoint-up(xl) {
+			display: flex;
+			position: relative;
+			align-items: flex-start;
+
+			&-fullWidth {
+				position: static;
+			}
+
+			@at-root #{$block}-primary & {
+				height: 85px;
+			}
+		
+			@at-root .Masthead-scroll & {
+				height: 48px;
+			}
+		}
+
+		&.menu-item-has-children {
+			#{$block}-ItemLink #{$block}-Title::after {
+				content: '\f0d7';
+				display: inline-block;
+				font: normal normal normal 14px/1 FontAwesome;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				margin-left: 5px;
+			}
+
+			@include media-breakpoint-up(xl) {
+				&:not(.Navigation-touch):hover,
+				&.Navigation-touch.Navigation-Item-active {
+
+					#{$block}-ItemLink {
+						background-color: #ebebea;
+
+						#{$block}-Title::after {
+							content: '\f0d8';
+						}
+					}
+
+					#{$block}-Menu {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+			}
+
+			&.Navigation-Item-active {
+				@include media-breakpoint-down(lg) {
+					#{$block}-Menu {
+						max-height: 1000px;
+						padding-top: 15px;
+						padding-bottom: 15px;
+					}
+
+					#{$block}-ItemLink {
+						#{$block}-Title::after {
+							content: '\f0d8';
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&-ItemLink {
+		padding: 15px 15px;
+		user-select: none;
+		cursor: pointer;
+		font-size: 18px;
+		font-weight: bold;
+		transition: background-color 0.1s ease;
+
+		&:focus {
+			color: inherit;
+			outline: none;
+		}
+
+		#{$block}-Title {
+			white-space: nowrap;
+		}
+
+		@include media-breakpoint-down(lg) {
+			display: block;
+		}
+
+		@include media-breakpoint-up(xl) {
+			padding-top: 10px;
+			padding-bottom: 10px;
+
+			@at-root #{$block}-primary & {
+				height: 85px + 3px;
+			}
+
+			@at-root .Masthead-scroll & {
+				height: 48px + 2px;
+			}
+		}
+	}
+
+	&-ItemLink,
+	&-MenuItemLink,
+	&-SubItemLink,
+	&-secondary a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			color: inherit;
+			text-decoration: underline;
+		}
+	}
+
+	&-MenuItemLink,
+	&-SubItemLink {
+		display: inline-block;
+		margin-bottom: 5px;
+	}
+
+	&-Title {
+		font-weight: inherit;
+		line-height: normal;
+		display: block;
+	}
+
+	&-Description {
+		font-size: 13px;
+		font-weight: normal;
+		line-height: normal;
+		display: block;
+
+		@include media-breakpoint-up(xl) {
+			@at-root .Masthead-scroll & {
+				visibility: hidden;
+			}
+		}
+	}
+
+	&-Menu {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		margin: 0;
+		background-color: #ebebea;
+		transition: all 0.1s ease;
+
+		@include media-breakpoint-down(lg) {
+			transition: all 0.3s ease;
+			max-height: 0;
+			overflow: hidden;
+			padding-top: 0;
+			padding-bottom: 0;
+			color: #565656;
+			flex-direction: column;
+			flex-wrap: nowrap;
+
+			.col-auto {
+				padding: 0;
+			}
+		}
+
+		@include media-breakpoint-up(xl) {
+			position: absolute;
+			opacity: 0;
+			visibility: hidden;
+			left: 0;
+			width: auto;
+			min-width: 25vw;
+			margin-top: 85px + 3px;
+			flex-wrap: nowrap;
+
+
+			@at-root #{$block}-Item-fullWidth & {
+				width: 100%;
+			}
+
+			@at-root #{$block}-Item:last-child & {
+				left: auto;
+				right: 0;
+			}
+
+			@at-root .Masthead-scroll & {
+				margin-top: 50px;
+			}
+
+			.col-lg + .col-lg {
+				border-left: 1px solid #cfcfcf;
+			}
+		}
+	}
+
+	&-MenuList,
+	&-SubList {
+		list-style: none;
+		text-align: left;
+		margin-left: 0;
+		padding-left: 15px;
+	}
+
+	&-MenuItem {
+		font-weight: bold;
+	}
+
+	&-OwnItem {
+		@include media-breakpoint-up(xl) {
+			display: none;
+	
+			@at-root .Navigation-touch & {
+				display: list-item;
+			}
+		}
+	}
+
+	&-SubItem {
+		font-weight: normal;
+		font-size: 13px;
+	}
+
+	&-primary {
+		&::before {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			background: #ebebea;
+			background: linear-gradient(to right, rgba(235, 235, 234, 0), #ebebea);
+
+			@at-root .Masthead-scroll & {
+				display: none;
+			}
+			@include media-breakpoint-down(lg) {
+				display: none;
+			}
+		}
+	}
+
+	&-secondary {
+		display: flex;
+
+		@include media-breakpoint-up(xl) {
+			display: block;
+			padding: 10px 0;
+			font-size: 13px;
+			transition: all 0.3s ease;
+
+			@at-root .Masthead-scroll & {
+				visibility: hidden;
+				margin-top: -50px;
+				padding: 0;
+			}
+
+			.fa {
+				color: #cccccc;
+			}
+		}
+
+		img {
+			height: 30px;
+		}
+	}
+
+	&-scroll {
+		&, & body {
+			overflow: hidden;
+			position: relative;
+			height: 100%;
+		}
+	}
+}

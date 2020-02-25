@@ -1,0 +1,419 @@
+
+#pardot-form .submit button,
+#pardot-form .submit input {
+	&:hover,
+	&:target {
+		border-color: #b94809;
+		background-color: #c54d09;
+	}
+}
+
+html body form#pardot-form.Form.Form {
+	&.LayoutTemplate-MsqSchnellbewerbung {
+		display: flex;
+		flex-wrap: wrap;
+
+		p {
+			flex: 1 0 100%;
+		}
+
+		.pd-checkbox {
+			.value {
+				line-height: 2;
+
+				> span {
+					display: block;
+					position: relative;
+				}
+				input {
+					position: relative;
+					top: 3px;
+					width: 20px;
+					height: 20px;
+					min-height: auto;
+					visibility: hidden;
+					margin: 0 10px 0 0;
+					vertical-align: baseline;
+
+					&:checked ~ label {
+						&:before {
+							border-color: #7DC398;
+							background-color: #7DC398;
+						}
+
+						&:hover:before {
+							opacity: 0.7;
+						}
+					}
+				}
+				label {
+					&:before {
+						content: '';
+						display: block;
+						cursor: pointer;
+						position: absolute;
+						width: 20px;
+						height: 20px;
+						left: 0;
+						top: 8px;
+						border: 1px solid #707070;
+						background-color: transparent;
+						box-sizing: border-box;
+					}
+
+					&:hover:before {
+						opacity: 0.7;
+					}
+				}
+			}
+
+			.Schnellbewerbung-InputField {
+				flex: 0 0 100%;
+
+				&:before {
+					display: none;
+				}
+
+				@media (max-width: 767.98px) {
+					flex: 0 0 50%;
+				}
+
+				@media (max-width: 575.98px) {
+					flex: 0 1 280px;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+		}
+
+		.Opted_In_Toggle {
+			margin-left: 0;
+		}
+
+		.form-field {
+			display: flex;
+			flex: 0 0 100%;
+		}
+
+		.pd-checkbox.Opted_In_Unternehmen,
+		.pd-checkbox.Opted_In_Bewerber {
+			flex: 0 0 25%;
+
+			.value label:before {
+				top: 3px;
+			}
+
+			@media (max-width: 767.98px) {
+				flex: 0 0 100%;
+			}
+		}
+
+		.submit {
+			margin: 18px 0;
+
+			button {
+				background: #7DC398;
+				border: none;
+				border-radius: 13px;
+				font-size: 20px;
+				padding: 20px 15px;
+
+				.fa {
+					font-size: 1.3em;
+					margin-right: 5px;
+					vertical-align: middle;
+				}
+
+				&:disabled {
+					background-color: #cccccc;
+
+					& ~ .submit-description {
+						display: none;
+					}
+				}
+			}
+
+			&-description {
+				font-style: italic;
+				font-size: 13px;
+				color: #7DC398;
+				margin-left: 15px;
+				padding: 5px;
+			}
+
+			@media (max-width: 767.98px) {
+				flex: 0 1 50%;
+				display: flex;
+				text-align: center;
+				justify-content: center;
+			}
+
+			@media (max-width: 575.98px) {
+				flex: 0 0 100%;
+			}
+		}
+	}
+}
+
+/* Begin: Schnellbewerbung */
+.Schnellbewerbung {
+	$block: #{&};
+
+	&-InputField {
+		flex: 0 0 50%;
+		margin-right: 15px;
+		padding: 5px 0;
+		position: relative;
+		font-size: 18px;
+
+		&:before {
+			font-family: "Font Awesome 5 Free";
+			content: '';
+			position: absolute;
+			display: block;
+			right: 20px;
+			font-size: 25px;
+			font-weight: bold;
+			line-height: 45px;
+			text-align: center;
+			width: 25px;
+		}
+
+		.no-label {
+			display: none;
+		}
+
+		@media (max-width: 575.98px) {
+			flex: 0 0 100%;
+		}
+	}
+
+	/* @todo: Hohe Spezifität */
+	@at-root #pardot-form & {
+		&-InputLabel {
+			position: absolute;
+			background-color: #ffffff;
+			align-self: center;
+			left: 12px;
+			top: 15px;
+			color: #949494;
+			transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+			pointer-events:none;
+		}
+
+		&-InputField {
+			input,
+			select {
+				transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+				padding-top: 11px;
+				padding-bottom: 7px;
+				padding-right: 50px;
+				line-height: 25px;
+				height: 45px;
+				box-shadow: none;
+				border: 1px solid #cccccc;
+				background-color: transparent;
+				outline: none;
+				font-size: 18px;
+				opacity: 1;
+			}
+
+			select {
+				background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAh0lEQVQokbXRIQ7CQBAF0LeENAhC0Ggkx0BwCFQFt0ShCAqBAYHlACgSGATbpoEiKjqbMZv/RsykELrUoFMaKaMZhn8yL9xCPKqPKfZ4Ilr6ikX4PHnyCocWdMEG4xpkVWS0a6ATSkyqcA0yGmGJLY5Yf4dDSM21JqnAPONziPvPlnq/Q//gDbsyP7kNBR+CAAAAAElFTkSuQmCC") no-repeat right 2px center;
+				appearance: none;
+			}
+
+			select::-ms-expand {
+				display: none;
+			}
+		}
+
+		&-InputField input:focus,
+		&-InputField select:focus {
+			border-color: #7DC398;
+			box-shadow: inset #7DC398 0 0 0 1px;
+		}
+
+		&-InputField input:focus ~ #{$block}-InputLabel,
+		&-InputField select:focus ~ #{$block}-InputLabel,
+		&-filled #{$block}-InputLabel {
+			top: 0;
+			padding: 0 12px;
+			color: #7DC398;
+			font-size: 12px;
+			font-weight: bold;
+		}
+
+		&-filled {
+			#{$block}-InputField:before {
+				content: "\f00c";
+				color: #7DC398;
+			}
+			#{$block}-InputLabel {
+				color: #565656;
+			}
+		}
+	}
+
+	/* @todo: Hohe Spezifität */
+	@at-root #pardot-form .error & {
+		&-InputField {
+			input,
+			select {
+				border-color: #FF0000;
+				box-shadow: inset #FF0000 0 0 0 1px;
+			}
+
+			&:before {
+				content: "\f00d";
+				color: #FF0000;
+			}
+
+			.no-label {
+				display: inline;
+
+			}
+		}
+
+		&-InputField input:focus ~ #{$block}-InputLabel,
+		&-InputField select:focus ~ #{$block}-InputLabel,
+		&-filled #{$block}-InputLabel {
+			color: #FF0000;
+		}
+	}
+
+	&-Description {
+		display: flex;
+		align-items: center;
+		height: 45px;
+		width: auto;
+		padding: 5px;
+
+		&-const {
+			#{$block}-DescriptionIcon {
+				display: none;
+			}
+
+			#{$block}-DescriptionText {
+				display: block;
+				color: #565656;
+			}
+		}
+
+		@media (max-width: 575.98px) {
+			display: none;
+		}
+	}
+
+	&-DescriptionIcon {
+		color: #CCCCCC;
+		font-size: 25px;
+		margin-right: 15px;
+		cursor: pointer;
+
+		@at-root #{$block}-focused & {
+			color: #7DC398;
+		}
+	}
+
+	&-DescriptionText {
+		display: none;
+		font-style: italic;
+		font-size: 13px;
+		color: #7DC398;
+
+		@at-root #{$block}-focused & {
+			display: block;
+		}
+	}
+}
+/* End: Schnellbewerbung */
+/* Begin: multiplefileuploader */
+#pardot-form{
+	.MultipleFileUploader {
+		$block: #{&};
+	
+		input {
+			width: 0;
+			height: 0;
+			position: absolute;
+			overflow: hidden;
+			opacity: 0;
+			padding: 0;
+		}
+	
+		&-Btn {
+			background: transparent;
+			border: 1px solid #cccccc;
+			border-radius: 7px;
+			cursor: pointer;
+			color: #565656;
+			display: block;
+			font-size: 1rem;
+			font-weight: bold;
+			line-height: 1.5;
+			margin: 5px 0;
+			padding: .375rem .75rem;
+			text-align: left;
+			user-select: none;
+			white-space: nowrap;
+	
+			&:hover,
+			&:target {
+				border: 1px solid #555555;
+			}
+		}
+	
+		&-Error {
+			display: block !important;
+			margin-top: 5px;
+		}
+	
+		&-List {
+			display: block;
+			list-style: none;
+			padding: 0;
+			font-size: 13px;
+			font-weight: bold;
+			color: #565656;
+	
+			li {
+				position: relative;
+				margin: 0;
+				padding: 7.5px 15px;
+	
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+			.fa {
+				font-size: 1.6em;
+				cursor: pointer;
+				color: #cccccc;
+				margin-right: 10px;
+				transition: color .15s cubic-bezier(0.4, 0, 0.2, 1);
+				vertical-align: middle;
+	
+				&:hover {
+					color: #565656;
+				}
+			}
+		}
+	
+		&-Size {
+			color: #aaaaaa;
+			font-size: 0.8em;
+		}
+	
+		.field-label {
+			display: block;
+			margin-bottom: 2px;
+		}
+	
+		.Schnellbewerbung-InputField:before {
+			display: none;
+		}
+	}
+}
+
+/* End: multiplefileuploader */

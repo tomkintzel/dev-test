@@ -1,0 +1,153 @@
+<?php
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array (
+	'key' => 'group_59edcf7287980',
+	'title' => 'Downloads - Einsteigsseite',
+	'fields' => array (
+		array (
+			'key' => 'field_59eef372fcd16',
+			'label' => 'Hintergrund',
+			'name' => 'download_tax_hintergrund',
+			'type' => 'clone',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'clone' => array (
+				0 => 'group_58e48bc04d1b1',
+			),
+			'display' => 'seamless',
+			'layout' => 'block',
+			'prefix_label' => 0,
+			'prefix_name' => 0,
+		),
+		array (
+			'key' => 'field_59edcfdae512f',
+			'label' => 'Kategorien',
+			'name' => 'download_tax_section',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => '',
+			'min' => 2,
+			'max' => 2,
+			'layout' => 'table',
+			'button_label' => 'Kategorie hinzufügen',
+			'sub_fields' => array (
+				array (
+					'key' => 'field_59edd011e5130',
+					'label' => 'Seite',
+					'name' => 'download_tax_page',
+					'type' => 'post_object',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'post_type' => array (
+						0 => 'page',
+					),
+					'taxonomy' => array (
+					),
+					'allow_null' => 0,
+					'multiple' => 0,
+					'return_format' => 'id',
+					'ui' => 1,
+				),
+				array (
+					'key' => 'field_59edd033e5131',
+					'label' => 'Font-Awesome-Icon',
+					'name' => 'download_tax_icon',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+				array (
+					'key' => 'field_59edd04be5132',
+					'label' => 'Titel',
+					'name' => 'download_tax_title',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+			),
+		),
+		array (
+			'key' => 'field_59eef3c9fcd17',
+			'label' => 'Page Builder',
+			'name' => 'download_page_builder',
+			'type' => 'clone',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'clone' => array (
+				0 => 'field_58e630537c817',
+			),
+			'display' => 'group',
+			'layout' => 'block',
+			'prefix_label' => 0,
+			'prefix_name' => 0,
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'templates/template-download.php',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+endif;
+?>

@@ -1,0 +1,124 @@
+
+#downloads {
+	&.downloads-startseite {
+		#download-header {
+			background-position: center top !important;
+			background-size: auto !important;
+
+			.container {
+				padding-top: 45px;
+				padding-bottom: 45px;
+
+				@include media-breakpoint-up(lg) {
+					margin-bottom: -470px;
+				}
+			}
+			
+			.card-deck {
+				margin-bottom: 45px;
+
+				.card:first-child {
+					@include media-breakpoint-only(sm) {
+						margin-bottom: 15px;
+					}
+				}
+
+				.card:last-child::before {
+					content: '';
+					display: block;
+					margin: auto;
+					background-color: rgba(255, 255, 255, .20);
+					height: 1px;
+					width: 70%;
+	
+					@include media-breakpoint-up(md) {
+						height: 300%;
+						width: 1px;
+						position: absolute;
+						left: -15px;
+						top: 33px;
+					}
+				}
+			}
+
+			.top-download {
+				padding: 15px;
+				height: 100%;
+
+				.list-btn {
+					align-self: flex-end;
+				}
+
+				@include media-breakpoint-up(xs) {
+					padding-bottom: 30px;
+				}
+			}
+
+			& + section {
+				padding: 45px 0 0;
+
+				@include media-breakpoint-up(lg) {
+					.container {
+						margin-top: 400px;
+					}
+				}
+			}
+		}
+
+		#download-items {
+			padding: 15px 0 45px;
+		}
+
+		.card-deck {
+			@include media-breakpoint-down(sm) {
+				.card {
+					flex-basis: auto;
+				}
+			}
+
+			.card-body a {
+				color: inherit !important;
+			}
+
+			.card-body a:hover {
+				color: darken($white, 15%);
+				text-decoration: none;
+			}
+
+			.card-title {
+				font-weight: normal !important;
+				color: inherit !important;
+
+				i {
+					display: block;
+					font-size: 128px;
+					margin-bottom: 30px;
+				}
+
+				strong {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+.downloads-header {
+	background-position: center top !important;
+
+	p {
+		text-align: center;
+		font-size: 2rem;
+		line-height: 1.1;
+	}
+
+	i {
+		display: block;
+		font-size: 128px;
+		margin-bottom: 30px;
+	}
+
+	strong {
+		display: block;
+	}
+}

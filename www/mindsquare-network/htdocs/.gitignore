@@ -1,0 +1,102 @@
+# -----------------------------------------------------------------
+# .gitignore for WordPress
+#
+# @author Maximilian Beckers <beckers@basecom.de>
+#
+# -----------------------------------------------------------------
+
+# ignore all files starting with .
+.*
+
+# track this file .gitignore (i.e. do NOT ignore it)
+!.gitignore
+
+#track folder .gitlab
+!.gitlab
+
+# track .editorconfig file (i.e. do NOT ignore it)
+!.editorconfig
+
+# track readme.md in the root (i.e. do NOT ignore it)
+!readme.md
+
+# ignore all files that start with ~
+~*
+
+# ignore OS generated files
+ehthumbs.db
+Thumbs.db
+thumbs.db
+
+# ignore log files and databases
+*.sql
+mindsquare-webinare.log
+mindsquare-pardot-log.csv
+
+# ignore packaged files
+*.gz
+*.jar
+*.rar
+*.tar
+*.zip
+*.bak
+
+# ignore everything in the "wp-content" directory, except:
+wp-content/*
+!wp-content/lbp-css
+!wp-content/plugins
+!wp-content/mu-plugins
+!wp-content/languages
+!wp-content/themes
+!wp-content/themes_bsc
+wp-content/plugins/wp-rocket/cache.json
+$tf
+
+wp-content/mu-plugins/*
+!wp-content/mu-plugins/msq-update-manager
+!wp-content/mu-plugins/msq-update-manager.php
+
+# ignore node/grunt dependencies
+node_modules/
+npm-debug.log*
+
+# ignore cache of Sunday-Theme
+wp-content/themes/sunday/assets/cache/*
+
+/wp-config.php*
+google*.html
+.vagrant
+Vagrantfile
+symbox
+
+# ignore vertify files
+pkt8b1fe631f4f0.html
+pardot_80912.txt
+a51cae5d5dbbe69bf1c7ac71983deca6bda2cd1ba36a5daf9706eab17102cdae.txt
+
+# ignore everything in the "sap-gateway-acl-generator" directory:
+sap-gateway-acl-generator
+sap-gateway-acl-generator/*
+
+# ignore everything in the "podcast-files" directory
+podcast-files
+podcast-files/*
+
+# ignore everything uploaded in the "upload/*" directory
+upload
+upload/bewerbungen
+upload/bewerbungen/*
+!upload/.htaccess
+!upload/bewerbungen/.htaccess
+
+# ignore download-files
+download-files
+download-files/*
+
+# ignore mmAppFactory
+mmAppFactory
+mmAppFactory/*
+
+# track folder wp-include
+!wp-includes
+!wp-includes/**/*

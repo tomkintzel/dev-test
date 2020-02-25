@@ -1,0 +1,12 @@
+.customer-review {
+	.media {
+		align-items: inherit;
+
+		.media-body {
+			color: $dark-gray;
+			.customer-details {
+				font-size: 12px;
+			}
+		}
+	}
+}

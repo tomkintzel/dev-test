@@ -1,0 +1,172 @@
+$acf-background-color: #f9e8b1;
+$acf-border-color: #000000;
+
+.page-builder {
+
+	&.headline {
+		> .acf-label {
+			> label{
+				font-size: 20px;
+				font-weight: normal;
+				text-align: center;
+			}
+
+			> p.description {
+				text-align: center;
+				font-size: 18px;
+				font-style: normal;
+			}
+		}
+	}
+
+	> .acf-input {
+
+		>.acf-repeater {
+
+			.acf-row-handle {
+
+				&.order,
+				&.remove {
+					background: $acf-background-color;
+				}
+
+				&.order {
+					color: #000;
+					font-size: 16px;
+					font-weight: bold;
+
+					+ td {
+						border-left: none;
+					}
+				}
+
+				&.remove {
+					border-left: none;
+				}
+
+			}
+
+			&.-row > table > tbody > tr > td,
+			&.-block > table > tbody > tr > td{
+				border-top-color: $acf-border-color;
+			}
+
+		}
+		
+	}
+
+	.acf-fields {
+
+		> .acf-tab-wrap {
+
+			&.-top{
+				background: $acf-background-color;
+
+				.acf-tab-group {
+					border-bottom-color: $acf-border-color;
+
+					li a {
+						border:$acf-border-color solid 1px;
+						border-bottom: 0 none;
+					}
+				}
+
+			}
+
+		}
+
+	}
+
+	> .acf-input > .acf-repeater > .acf-table {
+		border: $acf-border-color solid 1px;
+	}
+
+	.page-builder-content-elements .layout  > .acf-fields > .acf-field.label-visible > .acf-label {
+		display: block;
+	}
+
+	> .acf-input > .acf-repeater > .acf-table > tbody > .acf-row > .acf-fields {
+		> .acf-field-tab + .acf-field {
+			border-top: $acf-border-color solid 1px;
+		}
+
+		> .acf-field {
+			border-left: $acf-border-color solid 1px;
+			border-right: $acf-border-color solid 1px;
+		}
+	}
+
+}
+
+// Das Label eines Feldes ausblenden lassen. Wichtig: Damit dies funktioniert, muss bei den Wrapper-Attributen CSS die Klasse "label-none" erhalten.
+.label-none { 
+	> .acf-label{
+		display: none;
+	}
+}
+
+.taxonomy-knowhow-category {
+	.page-builder {
+		&.headline {
+			>.acf-label {
+				>label {
+					text-align: left;
+					font-size: 14px;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}
+
+#acf-group_59db77b016ba1 {
+	.acf-fields > .acf-tab-wrap {
+		background: $acf-background-color;
+	}
+}
+
+#acf-group_59ede9afe788e {
+	.acf-field-58494f8b4e9cb {
+		display: none;
+	}
+}
+
+.acf-fields > .acf-field.acf-timepick {
+	padding-right: 0;
+	float: left;
+	clear: none;
+
+	& .acf-input input {
+		border-top-right-radius: 0 !important;
+		border-bottom-right-radius: 0 !important;
+	}
+
+	& + .acf-timepick {
+		padding-left: 0;
+		padding-right: 15px;
+
+		& label:after {
+			content: ' ';
+			white-space: pre-wrap;
+		}
+
+		& .acf-input {
+			input {
+				border-top-left-radius: 0 !important;
+				border-bottom-left-radius: 0 !important;
+			}
+
+			&:before {
+				content: ':';
+				display: block;
+				float: left;
+				font-size: 13px;
+				line-height: 20px;
+				height: 20px;
+				padding: 3px 7px;
+				background: #F4F4F4;
+				border: #DFDFDF solid 1px;
+			}
+		}
+	}
+}

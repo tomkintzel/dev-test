@@ -1,0 +1,53 @@
+.link-list-letters{
+	&.card-columns{
+		column-count: 1;
+		column-gap: 1.75rem;
+
+		@include media-breakpoint-up(lg) {
+			column-count: 2;
+		}
+
+		.card {
+			border: none;
+
+			h2 {
+				&:before{
+					height: 0;
+					margin-top: 0;
+				}
+			}
+
+			a.item-skill{
+				text-decoration: underline;
+				color: white;
+
+				&:hover {
+					color: $orange;
+					.card-text {
+						color: $orange;
+					}
+				}
+
+				.card-text {
+					position: relative;
+					padding: 10px;
+					margin-bottom: 5px;
+					padding-left: 20px;
+
+					&:before {
+						content: '';
+						width: 9px;
+						height: 9px;
+						position: absolute;
+						background-color: $orange;
+						top: 15px;
+					}
+
+					.skill-title{
+						padding-left: 25px;
+					}
+				}
+			}
+		}
+	}
+}

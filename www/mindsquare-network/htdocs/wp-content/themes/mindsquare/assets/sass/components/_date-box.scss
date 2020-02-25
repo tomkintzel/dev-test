@@ -1,0 +1,142 @@
+.date-box {
+	padding: 5px;
+	padding-left: 12px;
+	min-height: 61px;
+	font-size: 1.15rem;
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 100%;
+
+	@include media-breakpoint-up(sm) {
+		flex-wrap: nowrap;
+	}
+
+	&.with-content {
+		flex-wrap: wrap;
+		padding: 15px 20px;
+		border-left-width: 20px !important;
+	}
+
+	.date-box-content {
+		display: flex;
+		width: 100%;
+		margin-top: 20px;
+		flex-wrap: wrap;
+
+		> div {
+			width: 100%;
+		}
+
+		.description {
+			padding-top: $spacer;
+			@include media-breakpoint-down(sm) {
+				padding-bottom: $spacer;
+			}
+			@include media-breakpoint-only(md) {
+				order: 1;
+				width: 60%
+			}
+			@include media-breakpoint-up(md) {
+				padding-top: 0;
+			}
+			@include media-breakpoint-up(lg) {
+				width: 75%;
+			}
+
+			.description_overview {
+				> p:last-of-type{
+					margin-bottom: 0px;
+				}
+			}
+		}
+
+		.buttons {
+			display: flex;
+			align-content: flex-end;
+			flex-wrap: wrap;
+			order: 3;
+			@include media-breakpoint-only(md) {
+				width: 40%
+			}
+			@include media-breakpoint-up(lg) {
+				width: 25%
+			}
+		}
+
+		&.with-video {
+			.video {
+				@include media-breakpoint-only(md) {
+					width: 50%;
+					padding-right: $spacer;
+					order: 2;
+				}
+				@include media-breakpoint-up(lg) {
+					width: 25%;
+				}
+			}
+
+			.description {
+				@include media-breakpoint-only(md) {
+					width: 100%;
+					padding-bottom: $spacer;
+				}
+				@include media-breakpoint-up(lg) {
+					width: 50%;
+					padding-left: $spacer;
+					padding-right: $spacer;
+					padding-bottom: 0;
+				}
+			}
+
+			.buttons {
+				@include media-breakpoint-only(md) {
+					width: 50%;
+				}
+				@include media-breakpoint-up(lg) {
+					width: 25%;
+				}
+			}
+		}
+	}
+	.date-box-left {
+		flex: 1 0 0px;
+		max-width: 100%;
+		width: 100%;
+	}
+	.date-bpx-right {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: none;
+	}
+}
+
+.legend-date-boxes {
+	> span {
+		padding-left: $spacer * 0.5;
+		padding-right: $spacer * 0.5;
+		white-space: nowrap;
+		margin-top: $spacer * 0.5;
+		display: inline-block;
+
+		&:not(:last-of-type) {
+			margin-right: 15px;
+			
+		}
+	}
+}
+
+.date-box-enough-places {
+	border-left: 6px #8cc63e solid !important;
+}
+
+.date-box-few-places {
+	border-left: 6px #fbb03a solid !important;
+}
+
+.date-box-no-places {
+	border-left: 6px #f15a24 solid !important;
+}
+
+.date-box-no-data {
+	padding-left: 18px;
+}

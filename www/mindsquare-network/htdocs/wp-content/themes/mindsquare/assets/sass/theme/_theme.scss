@@ -1,0 +1,59 @@
+@import "old-theme";
+/* Begin: @import ms_root/theme */
+@import "../../../../ms_root/assets/sass/theme/theme";
+/* End: @import ms_root/theme */
+
+/* Begin: settings */
+html {
+    font-size: 16px;
+}
+body {
+    color: #565657;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+iframe {
+    max-width: 100%;
+}
+blockquote {
+    border-left: 1px solid #e8e8e8;
+    padding-left: 20px;
+    font-size: 18px;
+    line-height: 30px;
+    font-style: italic;
+}
+table {
+    max-width: 100%;
+}
+/* End: settings */
+/* Begin: deprecated */
+@import "deprecated/deprecated";
+/* End: deprecated */
+
+/* Begin: pagination */
+@import "pagination";
+/* End: pagination */
+/* Begin: search */
+@import "search";
+/* End: search */
+
+/* Begin: footer */
+@import "footer";
+/* End: footer */
+
+// Begin: theme/plugins
+@import "plugins/plugins";
+// Begin: theme/plugins
+/* Begin: theme/partials */
+@import "partials/partials";
+/* End: theme/partials */
+
+/* Begin: archive/* */
+@import "archive/archive-knowhow";
+/* End: archive/* */
+
+/* Begin: theme/single */
+@import "single/single";
+/* End: theme/single */

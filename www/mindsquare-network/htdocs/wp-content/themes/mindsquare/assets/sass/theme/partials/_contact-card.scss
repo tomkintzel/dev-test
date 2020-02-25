@@ -1,0 +1,11 @@
+.ContactCard {
+	display: flex;
+
+	&-Image {
+		flex: 1 0 65px;
+	}
+
+	&-Body {
+		flex: 1 1 315px;
+	}
+}

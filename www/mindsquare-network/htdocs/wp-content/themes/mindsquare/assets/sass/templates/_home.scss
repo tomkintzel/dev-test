@@ -1,0 +1,49 @@
+
+.home-start {
+	.row.align-items-center{
+		height: auto;
+		padding: 20px 0;
+
+		@include media-breakpoint-up(lg) {
+			height: calc(100% - 194px);
+			height: calc(100vh - 194px);
+		}
+
+		@include media-breakpoint-up(xl) {
+			height: calc(100% - 206px);
+			height: calc(100vh - 206px);
+		}
+	}
+
+	> .container > h1 {
+		display: none;
+	} 
+
+	h2{
+		@include media-breakpoint-down(sm) {
+			font-size: 1rem !important;
+		}
+	}
+
+	.partner-logos {
+		margin-top: 30px;
+
+
+		img {
+			height: 50px;
+			&:not(:first-of-type) {
+				margin-left: map-get($spacers, 2);
+			}
+		}
+
+	}
+
+
+	a {
+		&.btn {
+			min-width: 200px;
+		}
+	
+	}
+
+}

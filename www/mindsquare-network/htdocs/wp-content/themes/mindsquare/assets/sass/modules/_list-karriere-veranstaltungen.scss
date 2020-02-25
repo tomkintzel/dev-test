@@ -1,0 +1,61 @@
+
+.list-karriere-veranstaltungen {
+	.event-item {
+		padding: 15px;
+		background-color: $dark-gray;
+		color: $white;
+
+		& + .event-item {
+			margin-top: 15px;
+		}
+
+		.event-item-header {
+			display: flex;
+			flex-direction: column;
+
+			a,
+			a:hover {
+				color: $white;
+				text-decoration: none;
+			}
+
+			.event-item-left {
+				display: block;
+			}
+
+			.event-item-right {
+				display: block;
+				order: 1;
+			}
+
+			@include media-breakpoint-up(sm) {
+				flex-direction: row;
+				flex-wrap: wrap;
+				align-items: flex-end;
+				max-width: 100%;
+
+				.event-item-left {
+					flex-basis: 50%;
+					flex-grow: 1;
+					max-width: 100%;
+				}
+
+				.event-item-right {
+					flex: 0 0 auto;
+					width: auto;
+					max-width: none;
+					min-width: 1px;
+					order: 0;
+				}
+			}
+		}
+
+		.event-item-body {
+			margin-top: 15px;
+
+			p:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

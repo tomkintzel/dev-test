@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /authors/
+Disallow: *.pdf
+Disallow: /sap-gateway-acl-generator/

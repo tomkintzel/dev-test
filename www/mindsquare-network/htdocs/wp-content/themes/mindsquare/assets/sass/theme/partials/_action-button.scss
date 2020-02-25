@@ -1,0 +1,12 @@
+.ActionButton {
+	// Reboot färbt Links ohne href-Attribut mit hoher Spezifität.
+	// _reboot.scss:216
+	&#{&}#{&} {
+		color: $white;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+}

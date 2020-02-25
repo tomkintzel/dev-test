@@ -1,0 +1,49 @@
+.QMProgress {
+	margin-bottom: 15px;
+
+	&-Bar {
+		display: flex;
+		height: 1.2rem;
+		overflow: hidden;
+		font-size: 0.75rem;
+		background-color: #ffffff;
+		border-radius: 0.25rem;
+		border: 1px solid #e1e1e1;
+	}
+
+	&-Info {
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		line-height: 1.2rem;
+		text-shadow: 1px 1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff, -1px -1px 1px #fff;
+	}
+
+	&-Progress {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		color: #ffffff;
+		text-align: center;
+		white-space: nowrap;
+		background-color: #0085ba;
+		transition: width 0.25s cubic-bezier( 0.4, 0, 0.2, 1 );
+
+		&-striped {
+			background-image: linear-gradient( 45deg, rgba( 255, 255, 255, 0.15 ) 25%, transparent 25%, transparent 50%, rgba( 255, 255, 255, 0.15 ) 50%,rgba( 255, 255, 255, 0.15 ) 75%, transparent 75%, transparent );
+			background-size: 1rem 1rem;
+		}
+
+		&-animated {
+			animation: QMProgress-Progress-animation 1s linear infinite;
+		}
+	}
+}
+@keyframes QMProgress-Progress-animation {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 1rem 0;
+	}
+}

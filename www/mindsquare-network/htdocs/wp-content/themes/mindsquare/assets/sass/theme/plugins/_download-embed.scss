@@ -1,0 +1,36 @@
+$download-embed-background-small-light: $orange;
+$download-embed-background-small-dark: $orange;
+$download-embed-background-solid: $light-gray;
+
+.download-embed {
+	&:hover {
+		color: white;
+		text-decoration: none;
+	}
+
+	&__body {
+		@include media-breakpoint-down(sm) {
+			flex-direction: column;
+		}
+	}
+
+	&__title {
+		font-size: $h3-font-size;
+	}
+
+	&__image {
+		@include media-breakpoint-down(sm) {
+			align-self: center;
+
+			margin-right: 0;
+			margin-bottom: 1em;
+		}
+	}
+
+	&__form {
+		@include media-breakpoint-down(sm) {
+			flex-basis: auto;
+			width: 100%;
+		}
+	}
+}

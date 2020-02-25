@@ -1,0 +1,343 @@
+#pardot-form{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: none;
+}
+#pardot-form p{
+    margin: 0;
+}
+/* #pardot-form .form-field label{
+    text-align: left;
+    display: none;
+} */
+ #pardot-form .form-field input[type=text]{
+    box-shadow: inset 0 2px 4px 0 hsla(0, 0%, 0%, 0.08);
+	width: 100%;
+	height: 30px;
+	margin: 10px auto;
+	border: 1px solid #565656;
+	border-radius: 5px;
+	font-size: 18px;
+	opacity: 1;
+	padding-left: 5px;
+}
+
+#pardot-form .form-field input[type=text]:focus, #pardot-form .form-field textarea:focus{
+    opacity: 1;
+}
+
+#pardot-form .form-field textarea{
+	width: 99%;
+	resize: none;
+	border: 1px solid #565656;
+	opacity: 1;
+	border-radius: 5px;
+	color: #000;
+}
+
+
+/* Lableholder */
+
+.LabelHolder {
+	/* @todo: Hohe Spezifität */
+	/* @todo: Hohe Spezifität */
+	/* @todo: Hohe Spezifität */
+}
+
+.LabelHolder-InputField {
+	padding: 5px 0;
+	position: relative;
+	font-size: 18px;
+}
+
+.LabelHolder-InputField:before {
+	font-family: "Font Awesome 5 Free", "FontAwesome";
+	content: '';
+	position: absolute;
+    display: block;
+    top: 15px;
+	right: 20px;
+	font-size: 25px; 
+	font-weight: bold;
+	line-height: 45px;
+	text-align: center;
+	width: 25px;
+}
+
+/* .LabelHolder-InputField .no-label {
+	display: none;
+}
+ */
+.pd-checkbox .LabelHolder-InputField:before {
+	display: none;
+}
+
+#pardot-form .LabelHolder-InputLabel {
+	background-color: #ffffff;
+	-webkit-align-self: center;
+	    -ms-flex-item-align: center;
+	        align-self: center;
+	left: 5px;
+    top: 33px;
+    text-align: center;
+	color: #acacac;
+	-webkit-transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+	-o-transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+	-moz-transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+	pointer-events: none;
+}
+#pardot-form .pd-textarea .LabelHolder-InputLabel{
+	top: 43px;
+}
+#pardot-form .LabelHolder-InputField {
+	/**
+				 * Nur wenn vor dem Label ein Input-Feld ist, dann soll die Position verändert werden.
+				 */
+}
+
+#pardot-form .LabelHolder-InputField input,
+#pardot-form .LabelHolder-InputField select,
+#pardot-form .LabelHolder-InputField textarea {
+	-webkit-transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+	-o-transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+	-moz-transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+	padding-top: 11px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+/* 	padding-right: 30px; */
+	line-height: 25px;
+	box-shadow: none;
+	background-color: transparent;
+	outline: none;
+	font-size: 18px;
+	color: #565656;
+}
+
+#pardot-form .LabelHolder-InputField input:focus,
+#pardot-form .LabelHolder-InputField select:focus,
+#pardot-form .LabelHolder-InputField textarea:focus {
+	border-color: #81d48d;
+	box-shadow: inset #81d48d 0 0 0 1px;
+}
+
+#pardot-form .LabelHolder-InputField input:focus ~ .LabelHolder-InputLabel,
+#pardot-form .LabelHolder-InputField select:focus ~ .LabelHolder-InputLabel,
+#pardot-form .LabelHolder-InputField textarea:focus ~ .LabelHolder-InputLabel {
+	top: 0;
+	padding: 0 12px;
+	color: #81d48d;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#pardot-form .LabelHolder-InputField select {
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAh0lEQVQokbXRIQ7CQBAF0LeENAhC0Ggkx0BwCFQFt0ShCAqBAYHlACgSGATbpoEiKjqbMZv/RsykELrUoFMaKaMZhn8yL9xCPKqPKfZ4Ilr6ikX4PHnyCocWdMEG4xpkVWS0a6ATSkyqcA0yGmGJLY5Yf4dDSM21JqnAPONziPvPlnq/Q//gDbsyP7kNBR+CAAAAAElFTkSuQmCC") no-repeat right 2px center;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+}
+
+#pardot-form .LabelHolder-InputField select::-ms-expand {
+	display: none;
+}
+
+#pardot-form .LabelHolder-InputField input ~ .LabelHolder-InputLabel,
+#pardot-form .LabelHolder-InputField select ~ .LabelHolder-InputLabel,
+#pardot-form .LabelHolder-InputField textarea ~ .LabelHolder-InputLabel {
+	position: absolute;
+}
+
+#pardot-form .LabelHolder-filled .LabelHolder-InputField:before {
+	content: "\f00c";
+	color: #81d48d;
+}
+
+#pardot-form .LabelHolder-filled .LabelHolder-InputLabel {
+	top: 0;
+	padding: 0 12px;
+	color: #565656;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#pardot-form .error .LabelHolder-InputField input,
+#pardot-form .error .LabelHolder-InputField select,
+#pardot-form .error .LabelHolder-InputField textarea {
+	border-color: #FF0000;
+	box-shadow: inset #FF0000 0 0 0 1px;
+}
+
+#pardot-form .error .LabelHolder-InputField input:focus ~ .LabelHolder-InputLabel,
+#pardot-form .error .LabelHolder-InputField select:focus ~ .LabelHolder-InputLabel,
+#pardot-form .error .LabelHolder-InputField textarea:focus ~ .LabelHolder-InputLabel {
+	color: #FF0000;
+}
+
+#pardot-form .error .LabelHolder-InputField:before {
+	content: "\f00d";
+	color: #FF0000;
+}
+
+#pardot-form .error .LabelHolder-InputField .no-label {
+	display: inline;
+}
+
+#pardot-form .error.LabelHolder-filled .LabelHolder-InputLabel {
+	color: #FF0000;
+}
+
+#pardot-form.Form-rz10 .LabelHolder-InputField input:focus,
+#pardot-form.Form-rz10 .LabelHolder-InputField select:focus,
+#pardot-form.Form-rz10 .LabelHolder-InputField textarea:focus {
+	border-color: #4fb74c;
+	box-shadow: inset #4fb74c 0 0 0 1px;
+}
+
+#pardot-form.Form-rz10 .LabelHolder-InputField input:focus ~ .LabelHolder-InputLabel,
+#pardot-form.Form-rz10 .LabelHolder-InputField select:focus ~ .LabelHolder-InputLabel,
+#pardot-form.Form-rz10 .LabelHolder-InputField textarea:focus ~ .LabelHolder-InputLabel {
+	color: #4fb74c;
+}
+
+#pardot-form.Form-rz10 .LabelHolder-InputField:before {
+	color: #81d48d;
+}
+
+#pardot-form.Form-rz10 .error .LabelHolder-InputField input,
+#pardot-form.Form-rz10 .error .LabelHolder-InputField select,
+#pardot-form.Form-rz10 .error .LabelHolder-InputField textarea {
+	border-color: #d40000;
+	box-shadow: inset #d40000 0 0 0 1px;
+}
+
+#pardot-form.Form-rz10 .error .LabelHolder-InputField input:focus ~ .LabelHolder-InputLabel,
+#pardot-form.Form-rz10 .error .LabelHolder-InputField select:focus ~ .LabelHolder-InputLabel,
+#pardot-form.Form-rz10 .error .LabelHolder-InputField textarea:focus ~ .LabelHolder-InputLabel {
+	color: #d40000;
+}
+
+#pardot-form.Form-rz10 .error .LabelHolder-InputField:before {
+	color: #d40000;
+}
+
+#pardot-form.Form-rz10 .error.LabelHolder-filled .LabelHolder-InputLabel {
+	color: #d40000;
+}
+html body form#pardot-form.form .submit{
+    text-align: center;
+}
+html body form#pardot-form.form .Form-SubmitButton,
+html body form#pardot-form.form .submit button {
+	background: #0069B2;
+	display: inline-block;
+	padding: 7.5px 40px;
+	color: #fff;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	font-family: "Ubuntu", sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: normal;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+
+#pardot-form .errors, #pardot-form .error.no-label {
+    color: red;
+}
+
+/* Begin Opted In Fields */
+.Opted_In_Unternehmen label.field-label,
+.Opted_In_Bewerber label.field-label {
+    display: none;
+}
+.Opted_In_Unternehmen .fa,
+.Opted_In_Bewerber .fa {
+    font-size: 18px;
+}
+
+.Opted_In_Unternehmen,
+.Opted_In_Bewerber .fa {
+    font-size: 18px;
+}
+form.form span.value{
+	display: inline-block !important;
+	margin-bottom: 10px;
+	margin-left: 15px !important;
+}
+
+form.form span.value span{
+	display: inline-block !important;
+	margin-left: 5px;
+}
+
+.Opted_In_Unternehmen .value,
+.Opted_In_Bewerber .value {
+    font-size: 10px;
+    line-height: 1.4;
+    margin-left: 15px;
+}
+
+.Opted_In_Unternehmen .value label:before ,
+.Opted_In_Bewerber .value label:before {
+    top: 3px;
+}
+
+.Opted_In_Unternehmen .value input[type="checkbox"],
+.Opted_In_Bewerber .value input[type="checkbox"] {
+    min-height: 10;
+    margin-top: -1px;
+    margin-left: 0;
+}
+
+.Opted_In_Unternehmen .error .value ,
+.Opted_In_Bewerber.error .value {
+    margin-top: 0;
+}
+
+.Opted_In_Toggle_Content{
+    cursor: default;
+    margin-top: 7.5px;
+    display: none;
+}
+
+.Opted_In_Toggle_Content.open{
+    display: block;
+}
+.Opted_In_Toggle {
+    margin-left: 0;
+    font-size: 12px;
+    text-decoration: underline;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+/* Begin: overlay */
+.overlay {
+	color: #ffffff;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+}
+
+.overlay-content {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	text-align: center;
+}
+
+/* End: overlay */

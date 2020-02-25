@@ -1,0 +1,187 @@
+$bofu-bar-background: #7dc398;
+$white: #fff;
+$hover-color: #cfd6e8;
+$contact-background: #f0efef;
+$contact-color: #565656;
+
+$xs-max: 765px;
+$sm-min: 768px;
+$sm-max: 1399px;
+$md-min: 1400px;
+$md-max: 1599px;
+$lg-min: 1600px;
+
+.BofuWrapper {
+	display: flex;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	align-items: center;
+	height: 100%;
+
+	@media (max-width: $sm-max) {
+		top: auto;
+		bottom: 0;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.BofuBar {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	padding-top: 20px;
+
+	background: $bofu-bar-background;
+
+	@media (max-width: $sm-max) {
+		flex-direction: row;
+		justify-content: space-around;
+		width: 100%;
+		padding-top: 10px;
+	}
+
+	@media (max-width: $xs-max) {
+		padding-top: 0;
+	}
+
+	&-Element {
+		margin: 0 20px 20px;
+
+		border: 2px solid $white;
+		color: $white;
+
+		@media (min-width: $md-min) and (max-width: $md-max), (max-width: $xs-max) {
+			border: 0;
+		}
+
+		@media (max-width: $sm-max) {
+			margin: 0 0 10px;
+		}
+
+		@media (max-width: $xs-max) {
+			margin: 0;
+		}
+	}
+
+	&-Link {
+		display: flex;
+		align-items: center;
+
+		min-width: 210px;
+		padding: 6px 15px;
+
+		color: $white;
+
+		&:hover {
+			color: $white;
+			text-decoration: none;
+		}
+
+		@media (max-width: $md-max) {
+			min-width: auto;
+		}
+	}
+
+	&-Icon {
+		display: inline-block;
+
+		width: 25px;
+		height: 25px;
+
+		font-size: 25px;
+		line-height: .75;
+		text-align: center;
+	}
+
+	&-Label {
+		margin-left: 15px;
+		border-radius: 5px;
+
+		font-size: 17px;
+		font-weight: 600;
+
+		&:hover {
+			color: $hover-color;
+		}
+
+		@media (min-width: $md-min) and (max-width: $md-max), (max-width: $xs-max)  {
+			display: none;
+		}
+	}
+
+	&-Contact {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		right: 0;
+
+		min-height: 99.9%;
+		max-height: 99.9%;
+		padding: 10px 40px;
+		overflow: hidden;
+		transition: transform .25s ease .25s,
+		min-height .25s ease-in-out,
+		max-height .25s ease-in-out;
+
+		background: $contact-background;
+		color: $contact-color;
+
+		@media (max-width: $sm-max) {
+			top: 0;
+			right: auto;
+			left: 0;
+			width: 100%;
+			min-height: auto;
+			max-height: initial;
+			transition: transform .25s ease;
+		}
+	}
+
+	&-Element:hover &-Contact {
+		min-height: 99.9%;
+		max-height: 1000px;
+		transform: translateX(100%);
+
+		transition: transform .25s ease,
+		min-height .25s ease-in-out .25s,
+		max-height .25s ease-in-out .25s;
+
+		@media (max-width: $sm-max) {
+			min-height: initial;
+			max-height: initial;
+			transform: translateY(-100%);
+			transition: transform .25s ease;
+		}
+	}
+}
+
+.ContactInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+
+	&-Id {
+		display: flex;
+		margin: 15px 0;
+	}
+
+	&-Image {
+		width: auto;
+		height: 50px;
+		margin-right: 10px;
+	}
+
+	&-Details {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&-Addresses {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}

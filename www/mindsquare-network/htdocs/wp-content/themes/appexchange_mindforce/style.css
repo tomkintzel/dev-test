@@ -1,0 +1,752 @@
+/*
+Theme Name: Appexchange Mindforce
+Theme URL: http://mindsquare.de
+Description: Enfold Child Theme
+Author: Mindsquare GmbH
+Author URL: http://mindsquare.de
+Template: enfold
+Version: 1.0.0
+Text Domain: appexchange mindforce
+*/ 
+
+/* Allgemein */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap');
+body{
+    background: #ffffff;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+}
+h3{
+    font-size: 36px;
+}
+h4{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.container{
+    padding: 0;
+}
+/* END Allgemein */
+
+.template-page .entry-content-wrapper h1, .template-page .entry-content-wrapper h2 {
+    letter-spacing: 1px;
+    text-transform: none;
+}
+
+.template-page .entry-content-wrapper h3, .template-page .entry-content-wrapper h3 {
+    letter-spacing: 1px;
+    text-transform: none;
+    font-weight: normal;
+}
+.container_wrap{
+    border: none;
+}
+
+.template-page{
+    padding: 0;
+}
+.flex_column.av_one_full.flex_column_div.first.avia-builder-el-1.el_after_av_submenu.el_before_av_one_full.avia-builder-el-first{
+    height: 396px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header{
+    background: linear-gradient(to right, #002046, #009FDE) !important;
+    color: white !important;
+    padding-top: 10px;
+}
+
+.logo{
+    padding-top: 5px;
+}
+#searchform{
+    display: none;
+    left:32%;
+    position: absolute;
+    padding-top: 20px !important;
+    border-radius: 4px;
+    
+}
+
+#top #s{
+    height: 35px;
+    background: #fff;
+    border-radius: 4px !important;
+    width: 600px;
+    border: 1px solid #707070 !important;
+}
+
+#top #searchsubmit{
+    background: #006BB2;
+    border-radius: 0 4px 4px 0;
+    border: 1px solid #707070;
+    height: 35px !important;
+}
+#top .menu-item-search-dropdown > a, #searchform #searchsubmit, .ajax_search_image, .iconfont{
+    font-size: 24px;
+}
+#top #searchform > div{
+    max-width: 600px;
+}
+/* Menu */
+.main_menu{
+    display: none;
+}
+#sub_menu1{
+    margin-top: 100px;
+    background: #ffffff;
+    border: none !important;
+}
+#menu-hauptnavigation{
+    font-size: 20px;
+}
+
+.menu-item a{
+    background: #fff !important;
+}
+
+.menu-item a span{
+    color: #565656;
+}
+
+.menu-item a span:hover{
+    color: #000000;
+}
+/* END Menu */
+
+/* Hero Section */
+.hero-title{
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle{
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero-text{
+    font-size: 24px;
+}
+
+.hero-partner{
+    max-width: 170px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+.reference-images{
+    margin-top: 40px !important;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 55px auto 0 auto;
+}
+/* END Hero Section */
+
+/* Solution Section */
+#registration-cta{
+    margin: 90px auto 120px auto;
+    width: 70%;
+}
+.registration-image{
+    margin-bottom: -5px;
+    margin-left: 100px;
+}
+
+#campaignize-cta{
+    margin: 120px auto;
+    width: 70%;
+}
+
+.solution-text{
+    line-height: 2;
+}
+/* END Solution Section */
+
+/* Call to Action Buttons */
+.cta-title{
+    margin-bottom: 20px;
+}
+.cta-subtitle{
+    margin-bottom: 45px;
+}
+.cta-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    text-decoration: none;
+}
+
+.cta-buttons a{
+    text-decoration: none !important;
+    font-weight: bold !important;
+    width: 195px !important;
+    height: 30px !important;
+    font-size: 15px !important;
+    line-height: 1em !important;
+}
+/* END Call to Action Buttons */
+
+.el_after_av_button.avia-builder-el-last{
+    margin-left: 90px;
+}
+.el_after_av_button.avia-builder-el-last a{
+    background: linear-gradient(to right,#DC2828, #8E0928 );
+    border: none;
+}
+
+
+.more-link{
+    text-decoration: none !important;
+    color: #1AB0FA !important;
+    font-weight: bold;
+}
+
+/* Footer Section */
+.footer-about{
+    margin-left: 150px;
+    color: #565656;
+}
+
+.footer-partner a{
+    color: #565656;
+}
+
+.footer-links a{
+    color: #565656;
+}
+
+.footer-titles{
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: normal;
+    color: #565656 !important;
+}
+.footer-msq-image{
+    margin-left: 200px;
+}
+
+#socket .container{
+    background: #EFEFEF;
+}
+.main_footer{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    font-size: 13px;
+}
+.wrap_flinks{
+    display: flex;
+}
+.wrap_powered{
+    display: flex;
+}
+
+#placeholder{
+    margin: 0 3px 0 3px;
+}
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    margin: 0;
+    height: 2px;
+}
+/* END Footer Section */
+
+/* Product Sites */
+.pp-card{
+    background: #fff;
+    color: #565656;
+    height: 366px;
+    width: 285px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.pp-card > ul{
+    line-height: 20px;
+}
+.pp-card .el_after_av_button.avia-builder-el-last{
+    margin: 0;
+    
+}
+
+/* END Prdouct Sites */
+
+/* Product Site */
+#product-section-one, #product-section-two, #product-section-three{
+    max-width: 1185px;
+    margin: 0 auto;
+    margin-bottom: 120px;  
+}
+
+#product-section-one h4, #product-section-two h4, #product-section-three h4{
+    font-size: 24px;
+    font-weight: bold; 
+    margin-top: 0;
+}
+
+#product-section-one{
+    margin-top: 120px;
+}
+
+.avia-testimonial-wrapper{
+    max-width: 1185px !important;
+    margin: 0 auto !important;
+} 
+
+#related-products{
+    max-width: 1185px;
+    margin: 0 auto;
+}
+
+.avia_textblock {
+    max-width: 1185px;
+    margin: 0 auto;
+}
+#product-hero-section{
+    height: 260px;
+    background: #000A1E;
+    margin-bottom: 60px;
+}
+#product-hero-section img{
+    margin-bottom: 30px;
+}
+.product-subtitle{
+    margin-bottom: 45px;
+}
+.product-site-buttons{
+    display: flex;
+    justify-content: center;
+}
+.product-site-buttons a{
+    font-weight: bold !important;
+    width: 150px;
+    font-size: 15px !important;
+}
+
+.product-site-buttons .el_after_av_button.avia-builder-el-last{
+    margin-left: 30px;
+}
+
+.product-site-buttons   .avia-builder-el-first a{
+    border: 2px solid #910A28 !important;
+}
+
+.pp-card-buttons  .avia-builder-el-first a{
+    background: linear-gradient(to right, #DC2828, #8E0928);
+}
+
+.pp-card-buttons  .avia-builder-el-last a{
+    border: 2px solid #DC2828 !important;
+    background: #fff !important;
+    color: #565656 !important;
+}
+.pp-card-buttons a{
+    width: 100%;
+    font-weight: bold !important;
+    font-size: 15px !important;
+}
+
+.pp-card h4{
+    font-size: 36px;
+}
+.pp-card p{
+    margin: 0;
+}
+
+.trial-buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.trial-buttons > div{
+    width: 150px;
+}
+
+.trial-buttons a{
+    width: 150px;
+    font-size: 15px !important;
+    font-weight: bold !important;
+}
+.trial-buttons  .avia-builder-el-last a{
+    border: 2px solid #DC2828 !important;
+    background: #000A1E !important;
+    color: #fff !important;
+}
+.trial-buttons  .avia-builder-el-first a{
+    background: linear-gradient(to right, #DC2828, #8E0928);
+    border-color: #8E0928 !important;
+}
+.trial-buttons .el_after_av_button.avia-builder-el-last{
+    margin-left: 30px;
+}
+/* END Product Site */
+/* About us Site */
+#about-hero .avia-image-container-inner img{
+    height: 130px;
+}
+.about-hero-title{
+    margin: 30px 0;
+}
+
+.about-contact-button{
+    width: 195px;
+    height: 35px;
+    background: #0069B2;
+    border-radius: 3px;
+    color: #fff !important;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 60px;
+}
+.about-contact-button:hover{
+    text-decoration: none;
+    background: #002046;
+}
+#contact-us .flex_cell{
+    padding: 0;
+}
+.responsive #top #wrap_all #contact-us.av-flex-cells .flex_cell.no_margin{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.avia-content-slider-inner{
+    max-width: 1185px;
+    margin: 0 auto;
+}
+#top .avia-logo-element-container {
+    text-align: center;
+}
+
+#top .avia-logo-element-container .slide-entry {
+    display: inline-block;
+    float: none;
+}
+.avia-content-slider-inner .slide-entry-wrap{
+    margin-bottom: 15px !important;
+}
+.slide-entry img{
+    width: 185px !important;
+    margin: 0 15px !important;
+}
+#contact-us{
+    margin-top: 90px;
+    margin-bottom: 100px;
+}
+/* END About us Site */
+
+/* Tablet Size */
+@media only screen and (min-width: 768px) and (max-width: 989px) {
+    
+    #top .avia-logo-element-container .slide-entry {
+        width: 140px !important;
+    }
+    .responsive #top .logo{
+        float: left !important;
+        display: block;
+        width: initial;
+    }
+    .responsive #top .logo > a{
+        display: block;
+        width: initial;
+    }
+    #searchform{
+        margin-right: 15px !important;
+        padding-top: 15px !important;
+        right: 0;
+
+    }
+    #top #s{
+        width: 350px;
+        position: absolute;
+        right: 0;
+    }
+    #top #searchsubmit{
+        height: 35px !important;
+    }
+    .hero-title{
+        font-size: 32px;
+    }
+    .hero-subtitle{
+        font-size: 25px;
+        margin-bottom: 40px;
+    }
+    .hero-partner{
+        max-width: 200px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .hero-text{
+        margin-bottom: 0;
+    }
+    .reference-images{
+        margin-top: 30px;
+    }
+    #registration-cta{
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #registration-cta .flex_cell{
+        width: 50%;
+    }
+    #registration-cta .flex_cell.avia-builder-el-last{
+       padding-left: 0 !important;
+    }
+    #registration-cta p{
+        line-height: 1.6;
+    }
+
+    #campaignize-cta{
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #campaignize-cta .flex_cell{
+        width: 50%;
+    }
+    #campaignize-cta .flex_cell.avia-builder-el-last{
+       padding-left: 0 !important;
+    }
+    #campaignize-cta p{
+        line-height: 1.6;
+    }
+    .footer-msq-image{
+        margin-left: 15px;
+    }
+    .footer-about{
+        margin-left: 15px;
+    }
+    .av_textblock_section{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    #about-hero .avia-image-container-inner img{
+        height: 100px;
+    }
+
+}
+
+
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+    /* Allgemein */
+    .responsive #top #wrap_all .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    .av_textblock_section{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .avia-testimonial-wrapper{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    /* END Allgemein */
+    /* Header */
+    header{
+        padding-left: 15px;
+    }
+    .responsive #top .logo{
+        float: left !important;
+        display: block;
+        width: initial;
+    }
+    .responsive #top .logo > a{
+        display: block;
+        width: initial;
+    }
+    #searchform{
+        margin-right: 15px !important;
+        padding-top: 10px !important;
+        right: 0;
+
+    }
+    #top #s{
+        width: 150px;
+        position: absolute;
+        right: 0;
+    }
+    #top #searchsubmit{
+        height: 35px !important;
+    }
+    /* END Header */
+    /* Menu */
+    #sub_menu1{
+        margin-top: 0;
+    }
+    .mobile_menu_toggle span{
+        visibility: hidden;
+    }
+    .mobile_menu_toggle{
+        border: none !important;
+        border-style: none;
+        padding: 0 !important;
+        margin-left: 60px !important;
+    }
+    #advanced_menu_toggle{
+        display: none;
+        visibility: hidden;
+    }
+    #menu-hauptnavigation li{
+        text-align: center;
+    }
+    #menu-hauptnavigation a{
+        text-align: center !important;
+    }
+    #menu-hauptnavigation a::before{
+        display: none;
+    }
+     /* END Menu */
+    /* Hero */
+    .hero-title{
+        font-size: 32px;
+    }
+
+    .hero-subtitle{
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    .hero-partner{
+        max-width: 150px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .hero-partner-left{
+        margin-bottom: 15px;
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-partner-right{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-text{
+        display: none;
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+ 
+    .reference-images{
+        display: none;
+        margin: 0;
+        width: 100%;
+    }
+    /* End Hero */
+
+    /* Solution Section */
+    #registration-cta{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    #campaignize-cta{
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 50px;
+    }
+    /* END Solution Section */
+
+    .el_after_av_button.avia-builder-el-last{
+        margin-left: 50px;
+    }
+    
+    .registration-image{
+        margin-left: 70px;
+        margin-bottom: -2px;
+    }
+    .cta-buttons{
+        padding-left: 15px;
+        padding-right: 15px;
+        
+    }
+    .cta-images{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .cta-buttons a{
+        width: 120px !important;
+        margin: 0;
+    }
+    .cta-images img{
+        width: 100px;
+    }
+
+    .product-site-buttons{
+        flex-direction: column;
+        align-items: center;
+    }
+    .product-site-buttons .el_after_av_button.avia-builder-el-last{
+        margin-left: 0;
+    }
+    /* Trial Section */
+    .trial-buttons{
+        flex-direction: column;
+        align-items: center;
+    }
+    .trial-buttons .el_after_av_button.avia-builder-el-last{
+        margin-left: 0;
+    }
+    /* END Trial Section */
+    /* Footer */
+    #footer{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .footer-msq-image{
+        margin-left: 0;
+    }
+    .footer-about{
+        margin-left: 0;
+    }
+
+    .main_footer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    /* About Site */
+    #about-hero .avia-image-container-inner img{
+        height: 75px;
+    }
+    .about-hero-title{
+        font-size: 22px;
+        line-height: 1.4;
+        margin: 15px 0;
+    }
+    #top .avia-logo-element-container {
+        text-align: center;
+    }
+    
+    #top .avia-logo-element-container .slide-entry {
+        display: inline-block;
+        float: none;
+    }
+    #top .avia-logo-element-container img{
+        margin: 0 auto !important;
+        width: 70% !important;
+        padding: 15px;
+    }
+    /* End About Site */
+}
+
+

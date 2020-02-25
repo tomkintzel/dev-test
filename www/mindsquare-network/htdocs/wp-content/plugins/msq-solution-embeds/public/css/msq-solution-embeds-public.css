@@ -1,0 +1,204 @@
+.SolutionEmbed{
+    padding: 10px 15px;
+    margin: 30px 0;
+}
+
+.SolutionEmbed a{
+    text-decoration: none;
+}
+.SolutionEmbed_small, .SolutionEmbed_custom{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 107px;
+}
+.SolutionEmbed-Image{
+    flex-shrink: 0;
+    margin-right: 15px;
+    min-width: 161px;
+    min-height: 107px;
+}
+.SolutionEmbed-Text{
+    color: #fff;
+    font-size: 18px;  
+}
+.SolutionEmbed-Text h2{
+    color: #fff;
+    padding-top: 0;
+}
+.SolutionEmbed-Text h6{
+    color: #fff;
+    font-weight: bolder;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.SolutionEmbed-Text p{
+    margin: 0;
+    line-height: 1.6;
+}
+.SolutionEmbed-Link{
+    align-self: flex-end;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-left: 5px;
+}
+.SolutionEmbed-Button{
+    margin-top: 15px;
+    border-radius: 5px;
+    border: none;
+    padding: 7.5px 20px;
+    margin-bottom:15px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+}
+.SolutionEmbed-Trigger{
+    border: none;
+    background: none;
+    color: #fff;
+    font-style: italic;
+}
+.SolutionEmbed-Trigger::before{
+    content: "\f101";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: #fff;
+    font-size: 16px;
+}
+.SolutionEmbed-Trigger:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.SolutionEmbed-Trigger:focus{
+    outline: none;
+}
+.SolutionEmbed-Button:hover{
+    color: #fff;
+    transform: scale(1.03); 
+}
+.SolutionEmbed-Link a{
+    color: #fff;
+    font-style: italic;
+}
+.SolutionEmbed-Link a{
+    color: #fff;
+    font-style: italic;
+}
+.SolutionEmbed-Link button{
+    font-size: 16px;
+}
+.SolutionEmbed-Link a:hover{
+    color: #fff;
+}
+.SolutionEmbed-Link a::before{
+    content: "\f101";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Solution Embed OWN/Zitat */
+
+.SolutionEmbed_quote{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.SolutionEmbed-Quote{
+    display: flex;
+    padding: 15px 30px;
+    align-items: center;
+}
+.SolutionEmbed-QuoteText{
+    color: #fff;
+    font-weight: 600;
+    margin: 0;
+}
+.SolutionEmbed-QuoteStart{
+    color: #fff;
+    font-size: 32px;
+    font-weight: lighter;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+.SolutionEmbed-QuoteEnd{
+    color: #fff;
+    font-size: 32px;
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+/* Solution Full */
+
+.SolutionEmbed_full{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px 15px 30px;
+}
+
+
+.SolutionEmbed-Image_full{
+    width: 188px;
+    float: left;
+}
+.SolutionEmbed-Button_full{
+    align-self: flex-end;
+}
+
+
+@media (max-width: 651px){
+    .SolutionEmbed{
+        flex-direction: column;
+        align-items: center;
+    }
+    .SolutionEmbed_full{
+        padding: 20px;
+    }
+    .SolutionEmbed-Image{
+        width: 100%;
+        text-align: center;
+        margin: 0 auto 15px auto ;
+    }
+    .SolutionEmbed-Image img{
+        width:100%;
+    }
+
+    .SolutionEmbed-Quote{
+        padding: 10px;
+    }
+    .SolutionEmbed-QuoteText{
+        font-size: 16px;
+    }
+    .SolutionEmbed-QuoteStart{
+        font-size: 24px;
+    }
+    .SolutionEmbed-QuoteEnd{
+        font-size: 24px;
+    }
+
+    .SolutionEmbed-Image_full{
+        width: 100%;
+        float: none;
+    }
+    .SolutionEmbed-Image_full img{
+        width: 100%;
+    }
+    .SolutionEmbed-Text_full h2{
+        font-size: 18px;
+    }
+
+    #solutionModal .modal-content{
+        width: 90%;
+        margin: 15px auto;
+    }
+}

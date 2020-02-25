@@ -1,0 +1,19 @@
+{
+    "name": "mindsquare/schulungskatalog",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Stefan Wiebe",
+            "email": "stefan.wiebe@mindsquare.de"
+        }
+    ],
+    "require": {
+        "tecnickcom/tcpdf": "^6.2",
+        "techcrunch/wp-async-task": "dev-master"
+    },
+	"autoload": {
+		"psr-4": {
+			"Msq\\Schulungskatalog\\": "src/"
+		}
+	}
+}

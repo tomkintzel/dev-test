@@ -1,0 +1,113 @@
+.Masthead {
+	$block: #{&};
+
+	color: #565656;
+	box-shadow: 0 3px 3px 0 rgba(28,28,28,0.2);
+	position: relative;
+	z-index: 800000000;
+	background-color: #ffffff;
+
+	@at-root #{$block}-scroll & {
+		position: fixed;
+		width: 100%;
+		top: 0;
+	}
+
+	@at-root #{$block}-scroll.admin-bar & {
+		top: 0;
+
+		@media (min-width: 601px) {
+			top: 46px;
+		}
+
+		@media (min-width: 783px) {
+			top: 32px;
+		}
+	}
+
+	&::after{
+		content: '';
+		display: block;
+		height: 2px;
+		width: 100%;
+		background: #ea5b0b;
+		background: linear-gradient(to right, #fdc300, #ea5b0b);
+	}
+
+	&-Logo {
+		flex: 0 1 auto;
+		max-width: none;
+		width: 176px;
+		overflow: hidden;
+		position: relative;
+		min-height: 28px;
+		margin: 10px;
+		height: 100%;
+
+		@include media-breakpoint-up(xl) {
+			top: 13px;
+
+			@at-root #{$block}-scroll & {
+				top: 0;
+			}
+		}
+
+		&-big {
+			transition: all 0.2s ease 0.2s;
+
+			@at-root #{$block}-scroll & {
+				visibility: hidden;
+				opacity: 0;
+				position: absolute;
+				left: 0;
+				transition: all 0.2s ease 0s;
+			}
+		}
+
+		&-small {
+			position: absolute;
+			visibility: hidden;
+			top: 0;
+			left: 0;
+			margin-left: 94px;
+			transition: margin 0.15s ease 0s, visibility 0s ease 0.4s;
+
+			@at-root #{$block}-scroll & {
+				visibility: visible;
+				transition: margin 0.15s ease 0.2s;
+				margin-left: 0;
+			}
+		}
+	}
+
+	&-Navigation {
+		flex: 1 0 auto;
+		flex-direction: row;
+		display: flex;
+		align-items: stretch;
+		justify-content: flex-end;
+
+		@include media-breakpoint-up(xl) {
+			flex-basis: 0;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+	}
+
+	&-scroll {
+		margin-top: 50px;
+	}
+
+	.container {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		padding: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+
+		@include media-breakpoint-down(lg) {
+			max-width: unset;
+		}
+	}
+}

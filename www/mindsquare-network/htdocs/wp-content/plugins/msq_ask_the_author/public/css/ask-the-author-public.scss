@@ -1,0 +1,96 @@
+#ask-the-author{
+
+  	min-height: 190px;
+	padding:10px;
+	clear: both;
+
+	@media (max-width: 650px) {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+
+	.consultant{
+		overflow: hidden;
+	}
+
+	i.fa{
+	    margin-right: 10px;
+	}
+
+	.ask_author_form{
+	    height: 0;
+	    overflow: hidden;
+	    margin-top: 0;
+	    transition: height 1s;
+	}
+
+	.ask-author-visible{
+		height: auto;
+		overflow: hidden;
+		margin-top: 20px;
+		transition: height 1s;
+	}
+
+	#ask_author_link{
+	    text-decoration:underline;
+	}
+
+	.ask_author_social{
+	    margin-top: 10px;
+	    clear: left;
+	}
+
+	.ask_author_social_headline{
+    	padding-top: 10px;
+    }
+
+	.hr_form_ask_author{
+    	margin-bottom: 20px!important;
+    }
+
+	a{
+		text-decoration:none;
+	}
+
+	.question_article p{
+		font-size:16px;
+	}
+
+	#ask_author_link{
+		cursor:pointer;
+	}
+
+	img.avatar{
+		margin-left: 5px;
+  		margin-right:15px;
+  		margin-bottom: 10px;
+  		border: 1px solid white;
+	}
+
+	.authorbox_formular{
+  		width:100%;
+  		height:25px;
+  	}
+
+	.authorbox_submit{
+  		background-color: #C2A15F;
+  		color:#fff;
+		height:40px;
+		margin: 10px 0 0 0;
+		font-size:16px;
+		font-weight:bold;
+	}
+
+	.authorbox_div_submit{
+		text-align: center;
+	}
+
+	.authorbox_label{
+  		color: #a48445;
+  	}
+
+	.authorbox_textarea{
+  		width:100%;
+  	}
+
+}
