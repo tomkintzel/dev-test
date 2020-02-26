@@ -3,10 +3,9 @@ version: '3.3'
 services:
   db:
     image: mariadb:10.0.38
-    container_name: db
     volumes:
       - ./data/mysql:/var/lib/mysql
-      - ./log/mysql:/var/log/mysql
+      - ./logs/mysql:/var/log/mysql
     ports:
       - "3306:3306"
     restart: always
@@ -14,17 +13,19 @@ services:
       MYSQL_ROOT_PASSWORD: local
 
   web:
-    image: php:7.2-apache
-    container_name: web
+    build:
+        context: ./images/web
     depends_on:
       - db
     volumes:
       - ./www:/var/www/html
       - ./config/php:/usr/local/etc/php
       - ./config/ssl:/etc/ssl
-      - ./config/apache2:/etc/apache2
-      - ./log/apache2:/var/log/apache2
+      - ./logs/apache2:/var/log/apache2
+      - ./config/vhosts:/etc/apache2/sites-enabled 
     ports:
       - "80:80"
       - "443:443"
+    links: 
+      - db
     restart: always
