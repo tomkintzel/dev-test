@@ -40,7 +40,7 @@ foreach( $vhost_files as $vhost_file ) {
 		<ul>
 			<?php foreach( $founded_domains as $founded_domain => $vhost_file ): ?>
 				<li>
-					<?php printf( '<a href="//%s" target="_blank">%s - %s</a>', $founded_domain, str_replace( '.conf', '', $vhost_file ), $founded_domain ); ?>
+					<?php printf( '<a href="//%s" target="_blank">%s</a>', $founded_domain, $founded_domain ); ?>
 				</li>
 			<?php endforeach; ?>
 		</ul>

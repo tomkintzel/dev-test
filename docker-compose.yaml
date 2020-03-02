@@ -8,6 +8,7 @@ services:
       - ./data/mysql/:/var/lib/mysql/
 
       # config
+      - ./config/mysql/:/etc/mysql/conf.d/
 
       # logs
       - ./logs/mysql/:/var/log/mysql/
@@ -17,6 +18,7 @@ services:
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_ROOT_HOST: "%"
+    command: bash -c "chmod 0440 -R /etc/mysql/conf.d/ && docker-entrypoint.sh mysqld"
 
   web:
     build:
