@@ -1,3 +1,9 @@
-.gitkeep
-logs/*
+# Ignoriere die Logs und die erzeugten Dateien
+logs/**/*
 data/*
+
+# Die Ordner im Logs sollen nicht ignoriert werden
+!logs/*
+
+# Die gitkeep-Dateien sollen leere Ordner zur Repo hinzufügen
+!.gitkeep

@@ -4,25 +4,38 @@ services:
   db:
     image: mariadb:10.0.38
     volumes:
-      - ./data/mysql:/var/lib/mysql
-      - ./logs/mysql:/var/log/mysql
+      # data
+      - ./data/mysql/:/var/lib/mysql/
+
+      # config
+
+      # logs
+      - ./logs/mysql/:/var/log/mysql/
     ports:
       - "3306:3306"
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: local
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_HOST: "%"
 
   web:
     build:
-        context: ./images/web
+      context: ./images/web/
     depends_on:
       - db
     volumes:
-      - ./www:/var/www/html
-      - ./config/php:/usr/local/etc/php
-      - ./config/ssl:/etc/ssl
-      - ./logs/apache2:/var/log/apache2
-      - ./config/vhosts:/etc/apache2/sites-enabled 
+      # Data
+      - ./www/:/var/www/html/                            # Alle Webseiten
+
+      # config
+      - ./config/php/php.ini:/usr/local/etc/php/php.ini  # Kopiere die PHP-Einstellungen
+      - ./config/ssl/:/etc/ssl/                          # Kopiere die eigenen SSL-Schlüssel
+      - ./config/vhosts/:/etc/apache2/sites-enabled/     # Apche-Einstellungen für alle VHost-Einträge
+
+      # logs
+      - ./logs/apache2/:/var/log/apache2/                # Apache-Logs
+      - ./logs/xdebug/:/var/log/xdebug/                  # XDebug-Logs
+      - ./logs/php/:/var/log/php/                        # PHP-Logs
     ports:
       - "80:80"
       - "443:443"
