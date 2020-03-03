@@ -6,8 +6,9 @@
 			"type": "php",
 			"request": "launch",
 			"port": 9000,
+			"hostname": "0.0.0.0",
 			"pathMappings": {
-				"/var/www/html": "${workspaceFolder}/www/"
+				"/var/www/html": "${workspaceFolder}/www"
 			},
 			"xdebugSettings": {
 				"max_data": 65535,
