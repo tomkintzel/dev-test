@@ -36,7 +36,12 @@ RUN	apt-get update -y --fix-missing --no-install-recommends && \
 		memcache && \
 	docker-php-ext-enable \
 		memcache && \
-# Installierer Module für die Bildbearbeitung
+# Installiere OpCache
+	docker-php-ext-configure \
+		opcache --enable-opcache && \
+	docker-php-ext-install \
+		opcache && \
+# Installiere Module für die Bildbearbeitung
 # @see https://www.php.net/manual/de/intro.image.php
 	apt-get install -y \
 		libfreetype6-dev \
