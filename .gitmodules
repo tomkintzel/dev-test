@@ -2,3 +2,4 @@
 	path = www/mindsquare-network/htdocs
 	url = git@gitlab.com:mindsquare/mindsquare-network.git
 	branch = develop
+	ignore = all
