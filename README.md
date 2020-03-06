@@ -65,9 +65,15 @@ Hier sind keine besonderen Vorbereitungen notwendig.
 
 Damit sich VSCode mit dem WSL verbinden kann muss eine Erweiterung installiert werden.  
 Entweder im Erweiterungs Tab nach WSL Remote suchen und installieren oder unter 
-https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack installieren.
+https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack installieren.  
 
-Sollte ein anderer Editor/IDE benutzt werden. Bitte danach googlen.
+Ich @tom.kin habe mein Terminal im VSCode nach dieser Anleitung angepasst. Somit muss man keine Distro mehr öffnen muss.  
+Dies ist natürlich jedem selbst überlassen. Aber die ersten beiden Schritte würde ich schon empfehlen.  
+A better Terminal  
+https://nickymeuleman.netlify.com/blog/linux-on-windows-wsl2-zsh-docker#a-better-terminal
+
+Sollte ein anderer Editor/IDE benutzt werden. Bitte danach googlen.  
+
 
 ## Installation
 
@@ -272,4 +278,4 @@ Jetzt kann die wp-config.php in vscode bearbeitet werden.
 Folgende Einstellungen ändern.
 
 - define('DB_NAME', 'db-1'); -> define('DB_NAME', 'euer-datenbank-name');
-- define('DB_HOST', 'localhost') -> define('DB_HOST', 'db');
+- define('DB_HOST', 'localhost') -> define('DB_HOST', 'db'); 
