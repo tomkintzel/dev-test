@@ -5,12 +5,12 @@ Einfachere Entwicklung mit Docker
 
 Beinhaltet:
 
-- [Anforderungen](#anforderungen)
+- [Vorbereitungen](#vorbereitungen)
 - [Installation](#installation)
 - [Benutzung](#benutzung)
 
 
-## Anforderungen  
+## Vorbereitungen  
 
 ### Windows
 
@@ -57,4 +57,67 @@ ausführen. Dies kann einige Minuten dauern.
 
 Sind diese Schritte ausgeführt, ist die Vorbereitung des Windows System abgeschlossen.  
 
+### MacOS  
 
+Hier sind keine besonderen Vorbereitungen notwendig.
+
+
+## Installation
+
+### Windows
+
+#### Docker
+
+Docker Desktop von https://hub.docker.com/editions/community/docker-ce-desktop-windows herunterladen und installieren.  
+
+Docker starten und in den Einstellungen unter >General>`Enable the experimental WSL 2 based engine` aktiveren.
+Danach unter Resources>WSL Integration `Enable integration with my default WSL Distro` aktiveren und die unterhalb die Distribution auswählen, die genutzt wird.  
+Damit ist Docker auf der Windows "Seite" eingerichtet.
+
+Nun muss noch in der Linux-Distro Docker und Docker-Compose installiert werden.  
+Dazu die Distribution starten und folgende Befehle in der Shell ausführen.  
+
+    # Update the apt package list.
+    sudo apt-get update -y
+
+    # Install Docker's package dependencies.
+    sudo apt-get install -y \
+        apt-transport-https \
+        ca-certificates \
+        curl \
+        software-properties-common
+
+    # Download and add Docker's official public PGP key.
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+    # Verify the fingerprint.
+    sudo apt-key fingerprint 0EBFCD88
+    
+    # Add the `stable` channel's Docker upstream repository.
+    #
+    # If you want to live on the edge, you can change "stable" below to "test" or
+    # "nightly". I highly recommend sticking with stable!
+    sudo add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+       $(lsb_release -cs) \
+       stable"
+    
+    # Update the apt package list (for the new apt repo).
+    sudo apt-get update -y
+    
+    # Install the latest version of Docker CE.
+    sudo apt-get install -y docker-ce
+    
+    # Allow your user to access the Docker CLI without needing root access.
+    sudo usermod -aG docker $USER
+
+
+Danach einmal die Shell schließen und eine neue öffnen.  
+
+Als nächstes wird docker-compose installiert.  
+
+    # Install Python and PIP.
+    sudo apt-get install -y python python-pip
+
+    # Install Docker Compose into your user's home directory.
+    pip install --user docker-compose
