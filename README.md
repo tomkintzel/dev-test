@@ -208,7 +208,7 @@ Zunächst eine Datenbank anlegen.
     mysql -u root -p -h db
     
     #Datenbank erstellen
-    CREATE DATABASE `<datenbank-name>`;
+    CREATE DATABASE `mydatabase` CHARACTER SET utf8 COLLATE utf8_general_ci;
     
     # Überprüfen, ob Datenbank angelegt wurde
     show databases;
@@ -217,7 +217,14 @@ Ist die Datenbank erfolgreich angelegt, kommt ihr mit zweimal exit wieder in den
 
 Nun die Daten in den Container kopieren.
 
-    docker exec -it db mysql -uroot -p < /pfad/zur/datenbank .sql
+    docker exec -it dev_db_1 mysql -uroot -p db-1 < /pfad/zur/datenbank .sql
+    
+    #Alternative, wenn der obere Befehl nicht funktioniert
+    #Client installieren
+    apt install mariadb-client-core-10.1
+    
+    # Datenbank einstellen
+    mysql -h 127.0.0.1 -u root -p <datenbank-name> < datenbank-file.sql
     
 Somit sind die Daten in der Datenbank. Als nächsten wird das Wordpress Repo installiert.  
 
