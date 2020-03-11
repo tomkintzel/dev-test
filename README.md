@@ -267,9 +267,13 @@ Ausserdem muss der Ordner cache mit den unterordnern min und wp-rocket erstellt 
     mkdir /wp-content/cache/wp-rocket
     
 Damit wp-rocket beim ersten Starten der Anwendung die benötigten Dateien beschreiben kann. 
-Benötiget das WSL2 noch die richtigen Rechte zum Schreiben der Dateien. Dazu führt man im im htdocs Ordner ein
+Benötiget das WSL2 noch die richtigen Rechte zum Schreiben der Dateien. Dazu zuerst 
 
-    sudo chmod 777 -R .  
+    # in mindsquare-network navigieren
+    cd /www/mindsquare-network
+
+    # dann Rechte vergeben
+    sudo chmod 777 -R htdocs
     
 aus.  
 Des weitern muss die wp-config.php angepasst werden. Damit aber die ganze Entwicklungsumgebung in VSCode ist, einmal zurück in den dev Ordner wechseln.
