@@ -278,7 +278,7 @@ Benötiget das WSL2 noch die richtigen Rechte zum Schreiben der Dateien. Dazu zu
 aus.  
 Des weitern muss die wp-config.php angepasst werden. Damit aber die ganze Entwicklungsumgebung in VSCode ist, einmal zurück in den dev Ordner wechseln.
 
-    cd ../../..
+    cd ../..
     
 Nun wird vscode im Ordner gestartet.
 
