@@ -3,3 +3,8 @@
 	url = git@gitlab.com:mindsquare/mindsquare-network.git
 	branch = develop
 	ignore = all
+[submodule "www/freelancercheck/website"]
+	path = www/freelancercheck/website
+	url = git@gitlab.com:mindsquare/freelancercheck.de.git
+	branch = develop
+	ignore = all
