@@ -20,6 +20,17 @@ services:
       MYSQL_ROOT_HOST: "%"
     # command: bash -c "chmod 0440 -R /etc/mysql/conf.d/ && docker-entrypoint.sh mysqld"
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8000:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mariadb
+    depends_on:
+      - db
+
+
   web:
     build:
       context: ./images/web/
