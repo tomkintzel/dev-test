@@ -6,7 +6,7 @@ Einfachere Entwicklung mit Docker
 Beinhaltet:
 
 - [Vorbereitungen](#vorbereitungen)
-- [Installation](install.md)
+- [Installation](./docs/install.md)
 - [Benutzung](#benutzung)
 
 
