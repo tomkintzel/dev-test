@@ -4,6 +4,8 @@ Einfachere Entwicklung mit Docker
 
 
 Beinhaltet:
+//Test
+- [Installation](install.md)
 
 - [Vorbereitungen](#vorbereitungen)
 - [Installation](#installation)
