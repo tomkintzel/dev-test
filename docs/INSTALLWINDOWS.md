@@ -140,7 +140,7 @@ Ist die Datenbank erfolgreich angelegt, kommt ihr mit zweimal exit wieder in den
 
 Nun die Daten in den Container kopieren.
 
-    docker exec -it dev_db_1 mysql -uroot -p db-1 < /pfad/zur/datenbank .sql
+    docker exec -i dev_db_1 mysql -uroot -p db-1 < /pfad/zur/datenbank .sql
     
     #Alternative, wenn der obere Befehl nicht funktioniert
     #Client installieren
@@ -185,9 +185,9 @@ Nun werden die Dateien in die verschiedenen Ordner kopiert.
 die hosts Datei ist für das Windowssytem und wird falls noch nicht vorhanden in `C:\Windows\System32\drivers\etc`  eingefügt.  
 Ausserdem muss der Ordner cache mit den unterordnern min und wp-rocket erstellt werden.  
 
-    mkdir /wp-content/cache
-    mkdir /wp-content/cache/min
-    mkdir /wp-content/cache/wp-rocket
+    mkdir wp-content/cache
+    mkdir wp-content/cache/min
+    mkdir wp-content/cache/wp-rocket
     
 Damit wp-rocket beim ersten Starten der Anwendung die benötigten Dateien beschreiben kann. 
 Benötiget das WSL2 noch die richtigen Rechte zum Schreiben der Dateien. Dazu zuerst 
