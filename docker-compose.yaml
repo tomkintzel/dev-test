@@ -7,9 +7,6 @@ services:
       # data
       - ./data/mysql/:/var/lib/mysql/
 
-      # config
-      # - ./config/mysql/:/etc/mysql/conf.d/
-
       # logs
       - ./logs/mysql/:/var/log/mysql/
     ports:
@@ -18,7 +15,48 @@ services:
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_ROOT_HOST: "%"
-    # command: bash -c "chmod 0440 -R /etc/mysql/conf.d/ && docker-entrypoint.sh mysqld"
+
+  php:
+    build:
+      context: ./images/php/
+    depends_on:
+      - db
+    volumes:
+      # data
+      - ./www/:/var/www/html/
+
+      # config
+      - ./config/php/php.ini:/usr/local/etc/php/php.ini
+
+      # logs
+      - ./logs/apache2/:/var/log/apache2/
+      - ./logs/xdebug/:/var/log/xdebug/
+      - ./logs/php/:/var/log/php/
+    ports:
+      - "9000:9000"
+    links:
+      - db
+    restart: always
+
+  apache2:
+    image: httpd:2.4
+    volumes:
+      # data
+      - ./www/:/usr/local/apache2/htdocs/
+
+      # config
+      - ./config/apache2/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./config/apache2/vhosts/:/usr/local/apache2/conf/sites-enabled/
+      - ./config/ssl/:/usr/local/apache2/conf/ssl/
+
+      # logs
+      - ./logs/apache2/:/usr/local/apache2/logs/
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - php
+    restart: always
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -29,29 +67,3 @@ services:
       - PMA_HOST=mariadb
     depends_on:
       - db
-
-
-  web:
-    build:
-      context: ./images/web/
-    depends_on:
-      - db
-    volumes:
-      # Data
-      - ./www/:/var/www/html/
-
-      # config
-      - ./config/php/php.ini:/usr/local/etc/php/php.ini
-      - ./config/ssl/:/etc/ssl/
-      - ./config/vhosts/:/etc/apache2/sites-enabled/
-
-      # logs
-      - ./logs/apache2/:/var/log/apache2/
-      - ./logs/xdebug/:/var/log/xdebug/
-      - ./logs/php/:/var/log/php/
-    ports:
-      - "80:80"
-      - "443:443"
-    links: 
-      - db
-    restart: always

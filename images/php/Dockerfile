@@ -1,5 +1,5 @@
 # @see https://hub.docker.com/_/php
-FROM php:7.2-apache-stretch
+FROM php:7.2-fpm-stretch
 MAINTAINER mindsquare <info@mindsquare.de>
 
 # Allgemein
@@ -59,19 +59,8 @@ RUN	apt-get update -y --fix-missing --no-install-recommends && \
 		exif && \
 	docker-php-ext-enable \
 		exif && \
-# Aktiviere die Apache-Module
-	a2enmod \
-		rewrite \
-		headers \
-		ssl && \
-# Installiere WP-CLI
-#	apt-get install -y \
-#		less && \
-#	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
-#	chmod u+x wp-cli.phar && \
-#	mv wp-cli.phar /usr/local/bin/wp && \
 # Clear
 	rm -rf /var/lib/apt/lists/*
 
-# Die Ports für HTTP und HTTPS bereitsstellen
-EXPOSE 80 443
+# Die Ports für FCGI bereitsstellen
+EXPOSE 9000
