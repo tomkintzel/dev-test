@@ -38,17 +38,17 @@ services:
       - db
     volumes:
       # Data
-      - ./www/:/var/www/html/                            # Alle Webseiten
+      - ./www/:/var/www/html/
 
       # config
-      - ./config/php/php.ini:/usr/local/etc/php/php.ini  # Kopiere die PHP-Einstellungen
-      - ./config/ssl/:/etc/ssl/                          # Kopiere die eigenen SSL-Schlüssel
-      - ./config/vhosts/:/etc/apache2/sites-enabled/     # Apche-Einstellungen für alle VHost-Einträge
+      - ./config/php/php.ini:/usr/local/etc/php/php.ini
+      - ./config/ssl/:/etc/ssl/
+      - ./config/vhosts/:/etc/apache2/sites-enabled/
 
       # logs
-      - ./logs/apache2/:/var/log/apache2/                # Apache-Logs
-      - ./logs/xdebug/:/var/log/xdebug/                  # XDebug-Logs
-      - ./logs/php/:/var/log/php/                        # PHP-Logs
+      - ./logs/apache2/:/var/log/apache2/
+      - ./logs/xdebug/:/var/log/xdebug/
+      - ./logs/php/:/var/log/php/
     ports:
       - "80:80"
       - "443:443"
