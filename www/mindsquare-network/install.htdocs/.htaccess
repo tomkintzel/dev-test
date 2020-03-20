@@ -1,0 +1,441 @@
+# BEGIN WP Rocket v3.3.1.1
+# Use UTF-8 encoding for anything served text/plain or text/html
+AddDefaultCharset UTF-8
+# Force UTF-8 for a number of file formats
+<IfModule mod_mime.c>
+AddCharset UTF-8 .atom .css .js .json .rss .vtt .xml
+</IfModule>
+# FileETag None is not enough for every server.
+<IfModule mod_headers.c>
+Header unset ETag
+</IfModule>
+# Since we’re sending far-future expires, we don’t need ETags for static content.
+# developer.yahoo.com/performance/rules.html#etags
+FileETag None
+<IfModule mod_alias.c>
+<FilesMatch "\.(html|htm|rtf|rtx|txt|xsd|xsl|xml)$">
+<IfModule mod_headers.c>
+Header set X-Powered-By "WP Rocket/3.3.1.1"
+Header unset Pragma
+Header append Cache-Control "public"
+Header unset Last-Modified
+</IfModule>
+</FilesMatch>
+<FilesMatch "\.(css|htc|js|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|exe|gif|gz|gzip|ico|jpg|jpeg|jpe|json|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|mpp|otf|odb|odc|odf|odg|odp|ods|odt|ogg|pdf|png|pot|pps|ppt|pptx|ra|ram|svg|svgz|swf|tar|tif|tiff|ttf|ttc|wav|wma|wri|xla|xls|xlsx|xlt|xlw|zip)$">
+<IfModule mod_headers.c>
+Header unset Pragma
+Header append Cache-Control "public"
+</IfModule>
+</FilesMatch>
+</IfModule>
+# Expires headers (for better cache control)
+<IfModule mod_expires.c>
+	ExpiresActive on
+	# Perhaps better to whitelist expires rules? Perhaps.
+	ExpiresDefault                              "access plus 1 month"
+	# cache.appcache needs re-requests in FF 3.6 (thanks Remy ~Introducing HTML5)
+	ExpiresByType text/cache-manifest           "access plus 0 seconds"
+	# Your document html
+	ExpiresByType text/html                     "access plus 0 seconds"
+	# Data
+	ExpiresByType text/xml                      "access plus 0 seconds"
+	ExpiresByType application/xml               "access plus 0 seconds"
+	ExpiresByType application/json              "access plus 0 seconds"
+	# Feed
+	ExpiresByType application/rss+xml           "access plus 1 hour"
+	ExpiresByType application/atom+xml          "access plus 1 hour"
+	# Favicon (cannot be renamed)
+	ExpiresByType image/x-icon                  "access plus 1 week"
+	# Media: images, video, audio
+	ExpiresByType image/gif                     "access plus 4 months"
+	ExpiresByType image/png                     "access plus 4 months"
+	ExpiresByType image/jpeg                    "access plus 4 months"
+	ExpiresByType image/webp                    "access plus 4 months"
+	ExpiresByType video/ogg                     "access plus 1 month"
+	ExpiresByType audio/ogg                     "access plus 1 month"
+	ExpiresByType video/mp4                     "access plus 1 month"
+	ExpiresByType video/webm                    "access plus 1 month"
+	# HTC files  (css3pie)
+	ExpiresByType text/x-component              "access plus 1 month"
+	# Webfonts
+	ExpiresByType application/x-font-ttf        "access plus 1 month"
+	ExpiresByType font/opentype                 "access plus 1 month"
+	ExpiresByType application/x-font-woff       "access plus 1 month"
+	ExpiresByType application/x-font-woff2      "access plus 1 month"
+	ExpiresByType image/svg+xml                 "access plus 1 month"
+	ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+	# CSS and JavaScript
+	ExpiresByType text/css                      "access plus 1 year"
+	ExpiresByType application/javascript        "access plus 1 year"
+</IfModule>
+# Gzip compression
+<IfModule mod_deflate.c>
+# Active compression
+SetOutputFilter DEFLATE
+# Force deflate for mangled headers
+<IfModule mod_setenvif.c>
+<IfModule mod_headers.c>
+SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+# Don’t compress images and other uncompressible content
+SetEnvIfNoCase Request_URI \
+\.(?:gif|jpe?g|png|rar|zip|exe|flv|mov|wma|mp3|avi|swf|mp?g|mp4|webm|webp|pdf)$ no-gzip dont-vary
+</IfModule>
+</IfModule>
+# Compress all output labeled with one of the following MIME-types
+<IfModule mod_filter.c>
+AddOutputFilterByType DEFLATE application/atom+xml \
+		                          application/javascript \
+		                          application/json \
+		                          application/rss+xml \
+		                          application/vnd.ms-fontobject \
+		                          application/x-font-ttf \
+		                          application/xhtml+xml \
+		                          application/xml \
+		                          font/opentype \
+		                          image/svg+xml \
+		                          image/x-icon \
+		                          text/css \
+		                          text/html \
+		                          text/plain \
+		                          text/x-component \
+		                          text/xml
+</IfModule>
+<IfModule mod_headers.c>
+Header append Vary: Accept-Encoding
+</IfModule>
+</IfModule>
+# END WP Rocket
+
+# MSQ - Zugriffsschutz für die Staging-Systeme
+#AuthType Basic
+#AuthName "Restricted Admin-Area"
+#AuthUserFile /var/www/share/staging.mindsquare.de/htdocs/.htpasswd
+#Require valid-user
+#Order allow,deny
+#Allow from 80.155.47.250 185.88.213.222
+#satisfy any
+
+# MSQ - Zugriffsschutz für die Admin-Seiten
+#<Files wp-login.php>
+#       <If "%{HTTP_HOST} = 'rz10.de'">
+#               AuthType Basic
+#               AuthName "Restricted Admin-Area"
+#               AuthUserFile /var/www/share/mindsquare.de/.htpasswd2
+#               Require valid-user
+#               Order allow,deny
+#               Allow from 185.88.213.222 80.155.47.250
+#               satisfy any
+#       </If>
+#       <Else>
+#               AuthType Basic
+#               AuthName "Restricted Admin-Area"
+#               AuthUserFile /var/www/share/mindsquare.de/.htpasswd
+#               Require valid-user
+#               Order allow,deny
+#               Allow from 185.88.213.222 80.155.47.250
+#               satisfy any
+#       </Else>
+#</Files>
+
+# MSQ - Wartungsseite
+#RewriteCond %{HTTP_HOST} ^rz10\.de$
+#RewriteCond %{REMOTE_ADDR} !^(80\.155\.47\.250|185\.88\.213\.222|185\.88\.213\.245)
+#RewriteCond %{REQUEST_URI} !/503-wartung-rz10.de.php$ [NC]
+#RewriteRule .* /503-wartung-rz10.de.php [L]
+
+# MSQ - Zusätzliche Header für Pardot
+<IfModule mod_headers.c>
+	SetEnvIf Origin "^https?:\/\/((staging\d*\.|www2\.)?(mindsquare|innotalent|blog\.mindsquare|mindsquare|maint\-care|mind\-force|mind\-forms|erlebe\-software|activate\-hr|mission\-mobile|rz10|compamind|mind\-logistik|freelancercheck|customer-first-cloud)\.de|go\.pardot\.com)$" AccessControlAllowOriginDomain=$0
+	Header set Access-Control-Allow-Origin %{AccessControlAllowOriginDomain}e env=AccessControlAllowOriginDomain
+	<FilesMatch "pardot\.(js|css)$">
+		Header set Cache-Control "no-cache, no-store, must-revalidate"
+		Header set Pragma "no-cache"
+		Header set Expires 0
+	</FilesMatch>
+</IfModule>
+
+# MSQ - URL-Struktur: https://[^\.]+\.de/.*$ (+https, -www) Mit REQUEST_URI
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !.*wp-admin.*
+RewriteCond %{REQUEST_URI} !.*wp-login.*
+RewriteCond %{REQUEST_URI} !.*wp-includes.*
+RewriteCond %{REQUEST_URI} !.*wp-content.*
+RewriteCond %{HTTP_HOST} !.*freelancercheck.*
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.*)\/?$ [NC]
+RewriteRule ^(.+?)\/?$ https://%1/$1/ [L,NE,R=301]
+
+# MSQ - URL-Struktur: https://[^\.]+\.de/?$ (+https, -www) Ohne REQUEST_URI
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !.*wp-admin.*
+RewriteCond %{REQUEST_URI} !.*wp-login.*
+RewriteCond %{REQUEST_URI} !.*wp-includes.*
+RewriteCond %{REQUEST_URI} !.*wp-content.*
+RewriteCond %{HTTP_HOST} !.*freelancercheck.*
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.*)\/?$ [NC]
+RewriteRule ^$ https://%1/ [L,NE,R=301]
+
+## MSQ - URL-Struktur: [^/]$ -> /$ (+trailing slash)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} /+[^\.]+$
+RewriteRule ^(.*[^/])$ %{REQUEST_URI}/ [L,R=301]
+
+# MSQ - Schnellzugriff auf Dateien
+RewriteCond %{REQUEST_URI} ^\/?wp-content\/blogs\.dir\/
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule .* - [L]
+
+# MSQ - Schnellzugriff auf Dateien - Für den Live-Server
+#RewriteCond %{HTTP_HOST} ^activate-hr\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/32/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^erlebe-software\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/33/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^innotalent\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/46/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^maint-care\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/36/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^mind-force\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/35/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^mind-forms\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/34/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^mission-mobile\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/31/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^rz10\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/28/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^compamind\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/48/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^mind-logistik\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/49/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^customer-first-cloud\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/51/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^mindsquare\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/37/files/$1 [L]
+
+# MSQ - Schnellzugriff auf Dateien - Für den Staging-Server
+#RewriteCond %{HTTP_HOST} ^staging\d+\.activate-hr\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/32/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^staging\d+\.erlebe-software\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/33/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^staging\d+\.innotalent\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/46/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^staging\d+\.maint-care\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/36/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^staging\d+\.mind-force\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/35/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^staging\d+\.mind-forms\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/34/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^staging\d+\.mission-mobile\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/31/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^staging\d+\.rz10\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/28/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^staging\d+\.compamind\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/48/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^staging\d+\.mind-logistik\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/49/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^staging\d+\.customer-first-cloud\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/51/files/$1 [L]
+#RewriteCond %{HTTP_HOST} ^staging\d+\.mindsquare\.de$
+#RewriteRule ^(?:%{HTTP_HOST}\/)?files\/(.*?)\/?$ wp-content/blogs.dir/37/files/$1 [L]
+
+# MSQ - Schnellzugriff auf Dateien - Für die Entwicklung
+RewriteCond %{HTTP_HOST} ^activate-hr\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=32 [L]
+RewriteCond %{HTTP_HOST} ^erlebe-software\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=33 [L]
+RewriteCond %{HTTP_HOST} ^innotalent\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=46 [L]
+RewriteCond %{HTTP_HOST} ^maint-care\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=36 [L]
+RewriteCond %{HTTP_HOST} ^mind-force\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=35 [L]
+RewriteCond %{HTTP_HOST} ^mind-forms\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=34 [L]
+RewriteCond %{HTTP_HOST} ^mission-mobile\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=31 [L]
+RewriteCond %{HTTP_HOST} ^rz10\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=28 [L]
+RewriteCond %{HTTP_HOST} ^compamind\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=48 [L]
+RewriteCond %{HTTP_HOST} ^mind-logistik\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=49 [L]
+RewriteCond %{HTTP_HOST} ^customer-first-cloud\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=51 [L]
+RewriteCond %{HTTP_HOST} ^mindsquare\.de$
+RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=37 [L]
+
+# MSQ - Podcast-Files - Für die Entwicklung
+RewriteCond %{REQUEST_URI} ^\/?podcast-files\/
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule .* - [L]
+RewriteRule ^podcast-files\/.*$ podcast-files/index.php [L]
+
+# MSQ - Weiterleitungen
+RewriteRule ^autodiscover/autodiscover.xml$ - [forbidden,last]
+Redirect 301 /podcast-files/feed.xml https://rz10.de/feed/rz10podcast/
+Redirect 301 /files/2015/11/tobias-harmes-500x500.png https://rz10.de/files/2018/10/tobias-harmes-500x500.png 
+Redirect 301 /files/2018/06/CheckIDM_SW_OnePager.pdf https://rz10.de/files/2018/12/OnePager_CheckIDM_Workshop.pdf
+Redirect 301 /files/2018/06/DSGVO_Workshop_OnePager.pdf https://rz10.de/files/2018/12/OnePager_DSGVO-Workshop.pdf
+Redirect 301 /files/2018/06/OnePager_Gateway.pdf https://rz10.de/files/2018/12/OnePager_Gateway-Installation-Fiori.pdf
+Redirect 301 /files/2018/06/Redesignworkshop_Fachbereich_OnePager.pdf https://rz10.de/files/2018/12/OnePager_Redesignworkshop_FB.pdf
+Redirect 301 /files/2018/05/Onepager_RFC_Scoping_Workshop.pdf https://rz10.de/files/2018/12/OnePager_RFC_Scoping_Workshop.pdf
+Redirect 301 /files/2018/06/SecCheck_OnePager.pdf https://rz10.de/files/2018/12/OnePager_Security_Check.pdf
+Redirect 301 /files/2018/06/OnePager_WebDispatcher.pdf https://rz10.de/files/2018/12/OnePager_Web-Dispatcher.pdf
+Redirect 301 /files/Seminarprogramm-2016.pdf https://mindsquare.de/schulungen/
+Redirect 301 /files/2014/11/mindsquare_Seminarprogramm_2014.pdf https://mindsquare.de/schulungen/
+Redirect 301 /files/2014/08/mindsquare_Seminarprogramm_2014.pdf https://mindsquare.de/schulungen/
+Redirect 301 /files/2015/04/Seminarprogramm-2015_klickbare-webversion.pdf https://mindsquare.de/schulungen/
+Redirect 301 /files/2015/06/Seminarprogramm-2015.pdf https://mindsquare.de/schulungen/
+Redirect 301 /files/2016/03/Seminarprogramm-2016-15-03-16-web.pdf https://mindsquare.de/schulungen/
+Redirect 301 /files/2015/04/seminarprogramm_2015.pdf https://mindsquare.de/schulungen/
+RewriteCond %{HTTP_HOST} ^maint-care\.de$
+RewriteRule /2018/07/MaintC_E-Book_-SAP-Instandhaltung.pdf https://maint-care.de/downloads/ [R=301,L]
+RewriteCond %{HTTP_HOST} ^maint-care\.de$
+RewriteRule /2018/03/MaintCare_Instandhaltungscontrolling_E-Book.pdf https://maint-care.de/downloads/ [R=301,L]
+RewriteCond %{HTTP_HOST} ^rz10\.de$
+RewriteRule /files/2015/11/tobias-harmes-500x500.png https://rz10.de/files/2018/10/tobias-harmes-500x500.png [R=301,L]
+RewriteCond %{HTTP_HOST} ^wiki\.mindsquare\.de$
+RewriteRule ^(.*)$ https://marketing.mindsquare.de/$1 [R=301,L]
+# RZ10.de - Weiterleitung auf SAP Notes
+# Author: Eiko Wagenknecht, 27.01.2015
+RewriteCond %{REQUEST_URI} !.*wp-admin.*
+RewriteCond %{REQUEST_URI} !.*wp-login.*
+RewriteCond %{REQUEST_URI} !.*wp-includes.*
+RewriteCond %{REQUEST_URI} !.*wp-content.*
+RewriteCond %{HTTP_HOST} !.*freelancercheck.*
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^rz10\.de$ [NC]
+RewriteRule ^([0-9]+)\/?$ http://rz10.de/mindnote.php?note=$1&source='rz10.de/*' [L,R=301]
+RewriteCond %{HTTP_HOST} ^rz10\.de$ [NC]
+RewriteRule ^/([0-9]+)\/?$ http://rz10.de/mindnote.php?note=$1&source='rz10.de/*'
+RewriteCond %{HTTP_HOST} ^rz10\.de$ [NC]
+RewriteRule ^n/([0-9]+)\/?$ http://rz10.de/mindnote.php?note=$1&source='rz10.de/n/*' [L,R=301]
+RewriteCond %{HTTP_HOST} ^rz10\.de$ [NC]
+RewriteRule ^/n/([0-9]+)\/?$ http://rz10.de/mindnote.php?note=$1&source='rz10.de/n/*'
+<IfModule mod_rewrite.c>
+ RewriteCond %{REQUEST_URI} !^/podcast-files/
+ RewriteCond %{REQUEST_URI} /+[^\.]+$
+ RewriteRule ^(.+[^/])$ %{REQUEST_URI}/ [R=301,L]
+</IfModule>
+#Von Thomas Griem (am 13.10.14)
+#Redirect permanent /xmlrpc.php /empty.html
+redirectMatch 301 ^/tobias_harmes/(.*)$ http://rz10.de/$1
+redirectMatch 301 ^/fabian-dukiewicz/(.*)$ http://rz10.de/$1
+redirectMatch 301 ^/oliver-gehring/(.*)$ http://rz10.de/$1
+redirectMatch 301 ^/andre-tenbuss/(.*)$ http://rz10.de/$1
+redirectMatch 301 ^/timm_funke/(.*)$ http://rz10.de/$1
+redirectMatch 301 ^/sebastian-brach/(.*)$ http://mission-mobile.de/$1
+redirectMatch 301 ^/johannes_behrndt/(.*)$ http://mission-mobile.de/$1
+redirectMatch 301 ^/patrick_stenzel/(.*)$ http://blog.mindsquare.de/alexander_graf/$1
+redirectMatch 301 ^/sidney-weiher/(.*)$ http://blog.mindsquare.de/guido-klempien/$1
+# RZ10
+redirectMatch 301 ^/blog/basis-blog/(.*)$ http://rz10.de/blog/sap-basis/$1
+redirectMatch 301 ^/blog/solution-manager/(.*)$ http://rz10.de/blog/sap-solution-manager/$1
+# ActivateHR
+redirectMatch 301 ^/alexander_graf/(.*)$ http://activate-hr.de/$1
+redirectMatch 301 ^/dirk_kellmann/(.*)$ http://activate-hr.de/$1
+redirectMatch 301 ^/christian_wiegleb/2010/06/09/leading-simple-insight-draft/(.*)$ http://activate-hr.de/2010/06/09/leading-simple-insight-draft/$1
+redirectMatch 301 ^/armin_dizdarevic/(.*)$ http://activate-hr.de/$1
+# Mission Mobile
+redirectMatch 301 ^/christian_wiegleb/2010/05/10/aspektorientierte-programmierung-mit-javascript-und-mootools/(.*)$ http://mission-mobile.de/2010/05/10/aspektorientierte-programmierung-mit-javascript-und-mootools/$1
+# ErlebeSoftware
+redirectMatch 301 ^/ingo-biermann/(.*)$ http://erlebe-software.de/$1
+redirectMatch 301 ^/aiko-schmale/(.*)$ http://erlebe-software.de/$1
+redirectMatch 301 ^/sandra-lehmann/(.*)$ http://erlebe-software.de/$1
+redirectMatch 301 ^/christian_wiegleb/(.*)$ http://erlebe-software.de/$1
+redirectMatch 301 ^/guido-klempien/2013/07/22/wda-kontext-zur-laufzeit-verandern-debugger-2/(.*)$ http://erlebe-software.de/2013/07/22/wda-kontext-zur-laufzeit-verandern-debugger-2/$1
+redirectMatch 301 ^/patrick-heerbeck/2012/05/29/einsatz-des-tinymce-editors-in-einer-webdynprobsp-anwendung/(.*)$ http://erlebe-software.de/2012/05/29/einsatz-des-tinymce-editors-in-einer-webdynprobsp-anwendung/$1
+redirectMatch 301 ^/christian_wiegleb/2010/02/05/scrum-mit-user-stories/(.*)$ http://erlebe-software.de/2010/02/05/scrum-mit-user-stories/$1
+redirectMatch 301 ^/christian_wiegleb/2013/05/15/sap-netweaver-cloud-development-web-service-integration-mit-jax-ws/(.*)$ http://erlebe-software.de/2013/05/15/sap-netweaver-cloud-development-web-service-integration-mit-jax-ws/$1
+redirectMatch 301 ^/christian_wiegleb/2011/10/19/sap-bi-datasource-erweiterung-badi/(.*)$ http://erlebe-software.de/2011/10/19/sap-bi-datasource-erweiterung-badi/$1
+redirectMatch 301 ^/christian_wiegleb/2011/10/16/bugfix-salesforce-integration-in-sap-crystal-reports-2011-sp02/(.*)$ http://erlebe-software.de/2011/10/16/bugfix-salesforce-integration-in-sap-crystal-reports-2011-sp02/$1
+#mindsquare Redirects
+redirectMatch 301 ^/philosophie/news-events/einzelansicht/article/2009/01/26/13/mindsquare-i/ https://mindsquare.de/dynamisches-duo-zum-festpreis-mindsquare-vereint-salesforce-com-und-sap/
+#permanent redirects Solutions Seiten:
+Redirect permanent http://activate-hr.de/2014/02/24/cats_vorgabezeit_vom_plan_zur_realitaet/	http://activate-hr.de/solutions/cats_vorgabezeit_vom_plan_zur_realitaet/
+Redirect permanent http://activate-hr.de/2014/01/15/standardisierte-frageboegen-fuer-eine-unkomplizierte-ess-mss-einfuehrung/	http://activate-hr.de/solutions/standardisierte-frageboegen-fuer-eine-unkomplizierte-ess-mss-einfuehrung/
+Redirect permanent http://activate-hr.de/2013/10/26/standardisierte-ess-mss-einfuehrung-bzw-upgrade/	http://activate-hr.de/solutions/standardisierte-ess-mss-einfuehrung-bzw-upgrade/
+Redirect permanent http://activate-hr.de/2013/10/26/ess-mss-teamkalender-add-on/	http://activate-hr.de/solutions/ess-mss-teamkalender-add-on/
+Redirect permanent http://activate-hr.de/2013/10/26/sap-hr-ess-abwesenheitsantrag-add-on/	http://activate-hr.de/solutions/sap-hr-ess-abwesenheitsantrag-add-on/
+Redirect permanent http://activate-hr.de/2013/10/26/hr-personalnummernkopierer-add-on/	http://activate-hr.de/solutions/hr-personalnummernkopierer-add-on/
+Redirect permanent http://activate-hr.de/2013/08/12/sap-hr-berater/	http://activate-hr.de/solutions/sap-hr-berater/
+Redirect permanent http://activate-hr.de/2012/03/27/mindsquare-bewerberverwaltung-on-sap/	http://activate-hr.de/solutions/mindsquare-bewerberverwaltung-on-sap/
+Redirect permanent http://activate-hr.de/2011/11/18/mindsquare-teamkalender-addon/	http://activate-hr.de/solutions/mindsquare-teamkalender-addon/
+Redirect permanent http://activate-hr.de/2011/11/18/mindsquare-abwesenheitsantrag-addon/	http://activate-hr.de/solutions/mindsquare-abwesenheitsantrag-addon/
+Redirect permanent http://activate-hr.de/2011/11/18/mss-teamkalender-teil2/	http://activate-hr.de/solutions/mss-teamkalender-teil2/
+Redirect permanent http://activate-hr.de/2011/11/18/mss-teamkalender-teil-1/	http://activate-hr.de/solutions/mss-teamkalender-teil-1/
+Redirect 301 http://activate-hr.de/files/downloads/2015/03/Mindsquare_SAP_Infoveranstaltung_HR_Renewal_2-0.pdf http://activate-hr.de/2014/05/16/hr-renewal-2-0/
+	
+Redirect permanent http://mission-mobile.de/2014/01/09/mmlogistics-mde-sap-logistik/	http://mission-mobile.de/solutions/mmlogistics-mde-sap-logistik/
+Redirect permanent http://mission-mobile.de/2013/12/16/sap-fiori-startup/	http://mission-mobile.de/solutions/sap-fiori-startup/
+Redirect permanent http://mission-mobile.de/2013/12/16/sap-mobility-experten-von-mission-mobile/	http://mission-mobile.de/solutions/sap-mobility-experten-von-mission-mobile/
+	
+Redirect permanent http://erlebe-software.de/2013/11/01/non-sap-uwl-connector/	http://erlebe-software.de/solutions/non-sap-uwl-connector/
+Redirect permanent http://erlebe-software.de/2013/11/01/look-feel-paket-sap-netweaver-portal/	http://erlebe-software.de/solutions/look-feel-paket-sap-netweaver-portal/
+Redirect permanent http://erlebe-software.de/2013/11/01/sapnetweaverportalmigration/	http://erlebe-software.de/solutions/sapnetweaverportalmigration/
+Redirect permanent http://erlebe-software.de/2013/11/01/ui5-kickstarter/	http://erlebe-software.de/solutions/ui5-kickstarter/
+Redirect permanent http://erlebe-software.de/2013/11/01/bopf-kickstarter-workshop/	http://erlebe-software.de/solutions/bopf-kickstarter-workshop/
+	
+Redirect permanent http://rz10.de/2014/02/revisionsfeststellungen/	http://rz10.de/solutions/revisionsfeststellungen/
+Redirect permanent http://rz10.de/2013/12/sap-solution-manager-installieren/	http://rz10.de/solutions/sap-solution-manager-installieren/
+Redirect permanent http://rz10.de/2013/12/sap-basis-und-sap-security-berater-von-rz10-buchen/	http://rz10.de/solutions/sap-basis-und-sap-security-berater-von-rz10-buchen/
+Redirect permanent http://rz10.de/SolMan-installierten/	http://rz10.de/solutions/sap-solution-manager-installieren/
+	
+Redirect permanent http://mind-forms.de/2014/02/12/formular-experten-von-mindforms-buchen/	http://mind-forms.de/solutions/formular-experten-von-mindforms-buchen/
+Redirect permanent http://mind-forms.de/2014/02/12/schulung-sap-interactive-forms-adobe-sifba/	http://mind-forms.de/solutions/schulung-sap-interactive-forms-adobe-sifba/
+# Permanent redirects for mindsquare.de
+# Make sure that directory listings are disabled
+Options -Indexes
+# BEGIN optimizeMember GZIP exclusions
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	RewriteCond %{QUERY_STRING} (^|\?|&)optimizemember_file_download\=.+
+	RewriteRule .* - [E=no-gzip:1]
+</IfModule>
+# END optimizeMember GZIP exclusions
+# BEGIN WordPress
+RewriteEngine On
+RewriteBase /
+RewriteRule ^files/downloads/2015/03/Mindsquare_SAP_Infoveranstaltung_HR_Renewal_2-0.pdf$ http://activate-hr.de/2014/05/16/hr-renewal-2-0/ [R=301,L]
+# WordPress SEO - XML Sitemap Rewrite Fix
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} freelancercheck.*
+RewriteRule ^sitemap_index\.xml$ blog/index.php?sitemap=1 [L]
+RewriteRule ^sitemap_index\.xml$ /index.php?sitemap=1 [L]
+RewriteCond %{HTTP_HOST} freelancercheck.*
+RewriteRule ^([^/]+?)-sitemap([0-9]+)?\.xml$ blog/index.php?sitemap=$1&sitemap_n=$2 [L]
+RewriteRule ^([^/]+?)-sitemap([0-9]+)?\.xml$ /index.php?sitemap=$1&sitemap_n=$2 [L]
+</IfModule>
+# END WordPress SEO - XML Sitemap Rewrite Fix
+#uploaded files
+RewriteRule ^(.*/)?files/$ index.php [L]
+RewriteCond %{HTTP_HOST} freelancercheck.*
+RewriteCond %{REQUEST_URI} !.*wp-content/plugins.*
+RewriteRule ^(.*/)?files/(.*) blog/wp-includes/ms-files.php?file=$2 [L]
+RewriteCond %{REQUEST_URI} !.*wp-content/plugins.*
+RewriteRule ^(.*/)?files/(.*) wp-includes/ms-files.php?file=$2 [L]
+# add a trailing slash to /wp-admin
+RewriteCond %{REQUEST_URI} ^.*/wp-admin$
+RewriteRule ^(.+)$ $1/ [R=301,L]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule . - [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) $2 [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ $2 [L]
+RewriteCond %{HTTP_HOST} freelancercheck.*
+RewriteRule . blog/index.php [L]
+RewriteRule . index.php [L]
+# END WordPress
+<IfModule mod_security.c>
+<Files async-upload.php>
+SecFilterEngine Off
+SecFilterScanPOST Off
+</Files>
+</IfModule>
