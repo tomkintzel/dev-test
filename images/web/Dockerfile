@@ -17,7 +17,7 @@ RUN	apt-get update -y --fix-missing --no-install-recommends && \
 		gettext && \
 # Installiere XDebug
 	pecl install \
-		xdebug-2.6.0 && \
+		xdebug-2.9.2 && \
 	docker-php-ext-enable \
 		xdebug && \
 # Installiere MySQL

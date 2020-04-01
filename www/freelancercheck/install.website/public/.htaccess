@@ -1,0 +1,19 @@
+<Files ~ "\.phtml|\.css\.js$">
+Order allow,deny
+Deny from all
+</Files>
+
+RewriteEngine On
+Redirect 301 /dienstleistungen/ https://www.freelancercheck.de/blog/dienstleistungen/
+RewriteRule ^downloads/ - [L,NC]
+RewriteRule ^modules/ - [L,NC]
+RewriteRule ^themes/ - [L,NC]
+RewriteRule ^upload/(.*) upload.php [L,QSA]
+
+RewriteCond %{REQUEST_URI} wp-content/.*
+RewriteRule (.*) blog/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*) index.php [L]
