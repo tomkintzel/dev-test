@@ -5,7 +5,7 @@ Einfachere Entwicklung mit Docker
 Beinhaltet:
 
 - [Vorbereitungen](#vorbereitungen)
-- [Installation](./docs/install.md)
+- [Installation](./docs/INSTALLWINDOWS.md)
 - [Benutzung](#benutzung)
 
 ## Vorbereitungen  
