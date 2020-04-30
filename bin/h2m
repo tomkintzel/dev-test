@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# vars
+currentBranch=$(git symbolic-ref --short HEAD)
+masterBranch="master"
+developBranch=$(git config --get gitflow.branch.develop)
+hotfixPrefix=$(git config --get gitflow.prefix.hotfix)
+hotfixBranch=""
+
+# Suche nach ein Hotfix-Branch
+if [[ $currentBranch == $hotfixPrefix* ]]; then
+	hotfixBranch=$currentBranch
+else
+	hotfixBranch=$(git branch --sort=-committerdate | grep "^$hotfixPrefix")
+fi
+
+# Prüfe ob ein Hotfix-Branch gefunden wurde
+if [ -z $hotfixBranch ]; then
+	print "Leider konnte kein passender Hotfix-Branch gefunden werden."
+	exit -1
+fi;
+
+# Prüfe ob alle Branches den aktuellesten Stand haben
+branches="$hotfixBranch $masterBranch $developBranch"
+for branch in $branches; do
+	git checkout $branch
+	git pull
+
+	if [ $branch != $hotfixBranch ]; then
+		git merge $hotfixBranch
+	fi
+done
+
+# Änderungen auf GitLab hochschieben
+for branch in $branches; do
+	git checkout $branch
+	git push
+done
+
+# Zum Original-Branch wechseln
+git checkout $currentBranch
