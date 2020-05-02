@@ -2,10 +2,10 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Listen for XDebug",
+			"name": "Run XDebug-Server",
 			"type": "php",
 			"request": "launch",
-			"port": 9000,
+			"port": 9001,
 			"hostname": "0.0.0.0",
 			"pathMappings": {
 				"/var/www/html": "${workspaceFolder}/www"
@@ -16,6 +16,15 @@
 				"max_children": 128,
 				"max_depth": 2
 			}
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Run file with NodeJS",
+			"program": "${file}",
+			"outFiles": [
+				"${workspaceFolder}/**/*.js"
+			]
 		}
 	]
 }
