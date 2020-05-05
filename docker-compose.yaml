@@ -9,6 +9,9 @@ services:
 
       # logs
       - ./logs/mysql/:/var/log/mysql/
+
+      # socks
+      - ./data/run/mysqld/:/var/run/mysqld/
     ports:
       - "3306:3306"
     restart: always
