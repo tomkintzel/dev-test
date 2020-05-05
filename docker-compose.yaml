@@ -36,7 +36,7 @@ services:
       - ./logs/xdebug/:/var/log/xdebug/
       - ./logs/php/:/var/log/php/
     ports:
-      - "9000:9000"
+      - "8072:9000"
     links:
       - db
     restart: always
