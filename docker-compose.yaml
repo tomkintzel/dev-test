@@ -21,7 +21,8 @@ services:
 
   php_72:
     build:
-      context: ./images/php/
+      context: .
+      dockerfile: images/php/Dockerfile
     depends_on:
       - db
     volumes:
@@ -41,7 +42,8 @@ services:
 
   php_56:
     build:
-      context: ./images/php/
+      context: .
+      dockerfile: images/php/Dockerfile
       args:
         - PHP_VERSION=5.6
     depends_on:
