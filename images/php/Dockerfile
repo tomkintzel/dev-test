@@ -1,8 +1,11 @@
+# Argumente
+ARG PHP_VERSION=7.2
+
 # @see https://hub.docker.com/_/php
-FROM php:7.2-fpm-stretch
+FROM php:$PHP_VERSION-fpm-stretch
 MAINTAINER mindsquare <info@mindsquare.de>
 
-# Allgemein
+# Allgemein && \
 RUN	apt-get update -y --fix-missing --no-install-recommends && \
 	apt-get install -y \
 		curl \
@@ -14,53 +17,60 @@ RUN	apt-get update -y --fix-missing --no-install-recommends && \
 		zip \
 		json \
 		mbstring \
-		gettext && \
+		gettext
 # Installiere XDebug
-	pecl install \
-		xdebug-2.9.2 && \
+RUN	if echo "$PHP_VERSION" | grep -q "7.2" > /dev/null; then \
+		pecl install \
+			xdebug-2.9.2; \
+	else \
+		pecl install \
+			xdebug-2.2.5; \
+	fi && \
 	docker-php-ext-enable \
-		xdebug && \
+		xdebug
 # Installiere MySQL
 # @see https://www.php.net/manual/de/intro.mysql.php
-	apt-get install -y \
+RUN	apt-get install -y \
 		mysql-client && \
 	docker-php-ext-install \
 		pdo_mysql \
-		mysqli && \
+		mysqli
 # Installiere Memcache
 # @see https://www.php.net/manual/de/intro.memcache.php
-	apt-get install -y \
+RUN apt-get install -y \
 		libz-dev \
 		libmemcached-dev && \
-	pecl install \
-		memcache && \
+	if echo "$PHP_VERSION" | grep -q "7.2" > /dev/null; then \
+		pecl install \
+			memcache; \
+	else \
+		pecl install \
+			memcache-2.2.7; \
+	fi && \
 	docker-php-ext-enable \
-		memcache && \
+		memcache
 # Installiere OpCache
-	docker-php-ext-configure \
+RUN	docker-php-ext-configure \
 		opcache --enable-opcache && \
 	docker-php-ext-install \
-		opcache && \
+		opcache
 # Installiere Module für die Bildbearbeitung
 # @see https://www.php.net/manual/de/intro.image.php
-	apt-get install -y \
+RUN	apt-get install -y \
 		libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libpng-dev && \
+		libjpeg62-turbo-dev \
+		libpng-dev && \
 	docker-php-ext-configure \
 		gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
-    docker-php-ext-install -j$(nproc) \
-		gd && \
+	docker-php-ext-install -j$(nproc) \
+		gd
 # Installiere Socket-Modul
 # @see https://www.php.net/manual/en/intro.sockets.php
-	docker-php-ext-install sockets && \
+RUN	docker-php-ext-install sockets
 # Installiere Metadaten von Bildern
-	docker-php-ext-install \
+RUN	docker-php-ext-install \
 		exif && \
 	docker-php-ext-enable \
-		exif && \
+		exif
 # Clear
-	rm -rf /var/lib/apt/lists/*
-
-# Die Ports für FCGI bereitsstellen
-EXPOSE 9000
+RUN	rm -rf /var/lib/apt/lists/*

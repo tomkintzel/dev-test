@@ -19,7 +19,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_ROOT_HOST: "%"
 
-  php:
+  php_72:
     build:
       context: ./images/php/
     depends_on:
@@ -35,8 +35,28 @@ services:
       - ./logs/apache2/:/var/log/apache2/
       - ./logs/xdebug/:/var/log/xdebug/
       - ./logs/php/:/var/log/php/
-    ports:
-      - "8072:9000"
+    links:
+      - db
+    restart: always
+
+  php_56:
+    build:
+      context: ./images/php/
+      args:
+        - PHP_VERSION=5.6
+    depends_on:
+      - db
+    volumes:
+      # data
+      - ./www/:/var/www/html/
+
+      # config
+      - ./config/php/php.ini:/usr/local/etc/php/php.ini
+
+      # logs
+      - ./logs/apache2/:/var/log/apache2/
+      - ./logs/xdebug/:/var/log/xdebug/
+      - ./logs/php/:/var/log/php/
     links:
       - db
     restart: always
@@ -58,7 +78,8 @@ services:
       - "80:80"
       - "443:443"
     links:
-      - php
+      - php_72
+      - php_56
     restart: always
 
   phpmyadmin:
