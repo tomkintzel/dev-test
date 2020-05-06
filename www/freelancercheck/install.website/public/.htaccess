@@ -13,6 +13,9 @@ RewriteRule ^upload/(.*) upload.php [L,QSA]
 RewriteCond %{REQUEST_URI} wp-content/.*
 RewriteRule (.*) blog/$1 [L]
 
+# MSQ - Podcast-Files - Für die Entwicklung
+RewriteRule ^\/?(company|freelancer|user)\/.*$ .fileloader.php [L]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
