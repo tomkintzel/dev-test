@@ -2,7 +2,9 @@ version: '3.3'
 
 services:
   db:
-    image: mariadb:10.0.38
+    build:
+      context: .
+      dockerfile: images/db/Dockerfile
     volumes:
       # data
       - ./data/mysql/:/var/lib/mysql/
@@ -23,8 +25,6 @@ services:
     build:
       context: .
       dockerfile: images/php/Dockerfile
-    depends_on:
-      - db
     volumes:
       # data
       - ./www/:/var/www/html/
@@ -36,6 +36,8 @@ services:
       - ./logs/apache2/:/var/log/apache2/
       - ./logs/xdebug/:/var/log/xdebug/
       - ./logs/php/:/var/log/php/
+    depends_on:
+      - db
     links:
       - db
     restart: always
@@ -46,8 +48,6 @@ services:
       dockerfile: images/php/Dockerfile
       args:
         - PHP_VERSION=5.6
-    depends_on:
-      - db
     volumes:
       # data
       - ./www/:/var/www/html/
@@ -59,6 +59,8 @@ services:
       - ./logs/apache2/:/var/log/apache2/
       - ./logs/xdebug/:/var/log/xdebug/
       - ./logs/php/:/var/log/php/
+    depends_on:
+      - db
     links:
       - db
     restart: always
