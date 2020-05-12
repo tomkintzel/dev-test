@@ -27,7 +27,7 @@ for branch in $branches; do
 	git pull
 
 	if [ $branch != $hotfixBranch ]; then
-		git merge $hotfixBranch
+		git merge $hotfixBranch --no-edit
 	fi
 done
 
