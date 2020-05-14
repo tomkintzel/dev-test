@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # vars
 currentBranch=$(git symbolic-ref --short HEAD)
