@@ -84,5 +84,5 @@ RUN	docker-php-ext-install \
 RUN	rm -rf /var/lib/apt/lists/*
 
 # Installiere das CA-Zertifikat von der lokalen Entwickungsumgebung
-COPY config/ssl/cacert.crt /usr/local/share/ca-certificates/cacert.crt
+COPY config/ssl/certs/cacert.crt /usr/local/share/ca-certificates/cacert.crt
 RUN update-ca-certificates
