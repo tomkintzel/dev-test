@@ -106,6 +106,10 @@ oder in den Benutzer Ordner
 dann den Befehl zum Klonen ausführen.
 
     git clone git@gitlab.com:mindsquare/dev.git  
+
+sollte eine Fehlermeldung erscheinen, dass euer Key "too open" ist, dann 
+    chmod 600 ~/.ssh/id_rsa
+ausführen.
     
 
 ### Container erstellen  
