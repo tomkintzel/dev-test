@@ -93,6 +93,32 @@ Zum überprüfen der Installation
     
 ausführen.  
 
+### Composer installieren
+Am schnellsten geht es wenn ihr danach googlet. Z.B. nach composer installieren ubuntu 18.04
+
+ansonsten diese Befehle ausführen.
+
+    # Dependencies installieren
+    sudo apt update
+    sudo apt install wget php-cli php-zip unzip
+
+
+    cd ~
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    
+    HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
+    
+    php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    
+    #Output sollte Installer verified sein.
+
+    sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+danach einmal composer in den terminal eingeben um zu überprüfen, ob die Installation funktioniert hat.
+
+
+
+
 ### Klonen der Repo
 
 Nun kann mit der Installation der Entwicklungsumbgebung beginnen. Zunächst wird das Repo geklont. Hierzu entweder in das root Verzeichnis gehen  
@@ -185,21 +211,15 @@ Nach dem Herunterladen der Daten, befindt sich das Repo unter
 
 `dev/www/mindsquare-network/htdocs`  
 
-Als nächstes die Dateien aus der WIKI dieses Repo herunterladen.
 
-Nun werden die Dateien in die verschiedenen Ordner kopiert.
+Nun werden die Dateien in die verschiedenen Ordner kopiert, befinden sich im 
 
-- .htaccess > /htdocs
-- wp-config > /htdocs
-- index.php > /htdocs/wp-content/blogs.dir (wenn nicht vorhanden dann vorher ein mkdir /wp-content/blogs.dir ausführen)
-- wp-rocket-config > /htdocs/wp-content/
+/mindsquare-network/install.htdocs und
+/freelancercheck/install.website
+
+in den jeweiligen Ordner kopieren.
 
 die hosts Datei ist für das Windowssytem und wird falls noch nicht vorhanden in `C:\Windows\System32\drivers\etc`  eingefügt.  
-Ausserdem muss der Ordner cache mit den unterordnern min und wp-rocket erstellt werden.  
-
-    mkdir wp-content/cache
-    mkdir wp-content/cache/min
-    mkdir wp-content/cache/wp-rocket
     
 Damit wp-rocket beim ersten Starten der Anwendung die benötigten Dateien beschreiben kann. 
 Benötiget das WSL2 noch die richtigen Rechte zum Schreiben der Dateien. Dazu zuerst 
@@ -225,3 +245,48 @@ Folgende Einstellungen ändern.
 
 - define('DB_NAME', 'db-1'); -> define('DB_NAME', 'euer-datenbank-name');
 - define('DB_HOST', 'localhost') -> define('DB_HOST', 'db'); 
+- require_once( ABSPATH . 'vendor/autoload.php' );
+
+Nun wieder in den htdocs Ordner wechseln.
+
+Dort zunächst ein 
+
+    composer install
+
+ausführen.
+
+um die Komponenten zu laden, wird 
+
+    composer dump-autoload -o
+
+ausgeführt. Als nächstes wird die package-lock.json gelöscht.
+
+Nach dem löschen der Datei ein 
+
+    npm install
+    npm run css-all
+    gulp component
+
+ausführen. Jetzt wird in das ms_rz10_nineteen Theme gewechselt.
+
+    cd wp-content/themes/ms_rz10_nineteen
+
+Dort wieder ein
+
+    composer install
+    npm install
+    npm run build
+
+ausführen.
+
+### GIT FLOW einrichten
+
+    sudo apt update && apt install git-flow
+
+im htdocs Ordner ein 
+
+    git flow init 
+
+ausführen und mit Enter die jeweiligen Einstellungen bestätigen.
+
+ 
