@@ -118,11 +118,19 @@ Als erstes in das Verzeichenis gehen
 
     cd dev
 
-Stellt sicher das Docker Desktop läuft. Dann den Befehl  
+
+Stellt sicher das Docker Desktop läuft.
+Um die Datenbank initial einzurichten. Führe 
+
+    docker run -v /root/dev/data/mysql/:/var/lib/mysql/ -e MYSQL_ALLOW_EMPTY_PASSWORD="yes" -e MYSQL_ROOT_HOST= "%"  mariadb:10.0.38 
+
+aus. Danach könnt ihr die Docker Images builden.
 
     docker-compose up --build
     
 ausführen. Dies kann einige Minuten dauern.  
+
+
 In der Zwischenzeit kann eine Datenbank vom maxcluster heruntergeladen werden.  
 Um es möglichst einfach zu machen, die Datenbank im root oder Benutzer Verzeichnis ablegen. Um die Datenbank dann in den Container zu bekommen.
 
@@ -144,7 +152,7 @@ Ist die Datenbank erfolgreich angelegt, kommt ihr mit zweimal exit wieder in den
 
 Nun die Daten in den Container kopieren.
 
-    docker exec -i dev_db_1 mysql -uroot -p db-1 < /pfad/zur/datenbank .sql
+    docker exec -i dev_db_1 mysql -uroot "Name deiner Datenbank" < /pfad/zur/datenbank.sql
     
     #Alternative, wenn der obere Befehl nicht funktioniert
     #Client installieren
