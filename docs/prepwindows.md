@@ -1,16 +1,49 @@
-# Enwicklungsumgebung Mindsquare
-
-Einfachere Entwicklung mit Docker
-
-Beinhaltet:
-
-- [Vorbereitungen](./docs/prepwindows.md)
-- [Installation](./docs/INSTALLWINDOWS.md)
-- [Benutzung](#benutzung)
-
 ## Vorbereitungen  
 
 ### Windows
+ 
+
+#### GIT
+
+Gehe auf <https://git-scm.com/> und lade dir die Version die zu deinem Betriebssystem passt herunter. Nach dem Download kann die Installation begonnen werden. Im Vorgang können die 
+Default Einstellungen übernommen werden.
+Als nächstes einmal die GIT BASH starten. Dort werden 3 Einstellungen vorgenommen.
+
+    git config --global user.name "DEIN BENUTZERNAME"
+    git config --global user.email "DEINE EMAILADRESSE"
+    git config --global core.autocrlf input 
+
+Damit ist erstmal die Konfiguration von GIT abgeschlossen.
+
+#### Filezilla
+
+Dieses Programm wird dafür benötigt, die Datenbanken die wir Lokal benötigen vom Server herunterzuladen. Dazu auf <https://filezilla-project.org/> gehen. Und den Filezilla Client herunterladen.
+Auch hier kann während des Installationsvorgang alle Default Werte übernommen werden. Ist das Programm gestartet kann nun über ein CTRL + S eine neue Serververbindung angelegt werden.  
+
+Zunächst einen neuen Server erstellen. Danach folgende Einstellungen vornehmen.  
+
+    Server: 185.88.213.222
+    Benutzer: web-user
+    Passwort: <Das entnehmt ihr bitte dem OneNote unter maxcluster>
+
+Klickt auf Verbinden und speichert eure Eingaben ab und lasst die Verbindung zu.  
+  
+#### Einrichtung SSH  
+Als nächstes wird der ssh-key GitLab hinzugefügt, so dass beim arbeiten mit Git nich ständig Benutzername und Passwort eingeben werden muss. Dazu öffne deine Einstellungen auf GitLab.
+
+Unter dem Reiter "SSH-Schlüssel" kann zunächst ein SSH-Key generiert werden. 
+öffne dazu eine Git-Bash auf deinem Rechner und führe den Befehl
+
+ssh-keygen -t rsa -C "Deine Mindsquare-EMail-Adresse" -b 4096
+aus. Nun gehe in deinen Benutzerordner. Am schnellsten geht es mit
+%userprofile%
+
+in deiner Adresszeile. Dort wurde nun ein Ordner ".ssh" erstellt. In diesem Ordner liegen nun dein Public- und Privat Key. öffne nun die Datei
+id_rsa.pub
+
+mit deinem Editor und kopieren den Key, um ihn in Gitlab einzufügen.
+
+Damit ist die Einrichtung deines SSH-Zugangs fertig.
 
 Auf einem Windowssystem bietet es sich an auf einem WSL(Windows Subsystem for Linux) zu arbeiten. Daher wird bei der Vorbereitung, auf dieses Setup eingegangen.
 
