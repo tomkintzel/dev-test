@@ -17,12 +17,14 @@ Dazu die Distribution starten und folgende Befehle in der Shell ausführen.
     sudo apt-get update -y
 
     # Install Docker's package dependencies.
-    sudo apt-get install -y \
+    sudo apt-get install \
         apt-transport-https \
         ca-certificates \
         curl \
+        gnupg-agent \
         software-properties-common
 
+    #Hier bitte noch mal gucken welche Distro ihr benutzt. Hier wird der Weg fuer Ubuntu beschrieben.
     # Download and add Docker's official public PGP key.
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
@@ -140,7 +142,12 @@ ausführen.
 
 ### Container erstellen  
 
-Als erstes in das Verzeichenis gehen  
+Zunächst einmal sicherstellen, dass Docker keine Credentials für euch gesetzt hat.
+
+    nano ~/.docker/config.json
+    # sollte bei euch im credstore etwas stehen, das bitte entfernen
+
+Als nächstes in das Verzeichnis gehen  
 
     cd dev
 
@@ -265,7 +272,15 @@ Nach dem löschen der Datei ein
 
     npm install
     npm run css-all
+
+Sollte Gulp global noch nicht auf eurem System installiert sein. Dann einmal
+
+    npm install -g gulp-cli
+
+ausführen. So könnt ihr nun GUlP in der Console verwenden. Jetzt einmal 
+
     gulp component
+
 
 ausführen. Jetzt wird in das ms_rz10_nineteen Theme gewechselt.
 
