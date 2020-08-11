@@ -61,16 +61,27 @@ RUN	docker-php-ext-configure \
 
 # Installiere Module für die Bildbearbeitung
 # @see https://www.php.net/manual/de/intro.image.php
-RUN	apt-get install -y \
+RUN apt-get install -y \
 		libfreetype6-dev \
 		libjpeg62-turbo-dev \
-		libpng-dev \
-		libwebp-dev && \
-	docker-php-ext-configure \
-		gd \
-			--with-freetype-dir=/usr/include/ \
-			--with-jpeg-dir=/usr/include/ \
-			--with-webp-dir=/usr/include/ && \
+		libpng-dev && \
+	if echo "$PHP_VERSION" | grep -q "7.2" > /dev/null; then \
+		apt-get install -y \
+			libwebp-dev && \
+		docker-php-ext-configure \
+			gd \
+				--with-freetype-dir=/usr/include/ \
+				--with-jpeg-dir=/usr/include/ \
+				--with-webp-dir=/usr/include/; \
+	else \
+		apt-get install -y \
+			libvpx-dev && \
+		docker-php-ext-configure \
+			gd \
+				--with-freetype-dir=/usr/include/ \
+				--with-jpeg-dir=/usr/include/
+				--with-vpx-dir=/usr/include/; \
+	fi && \
 	docker-php-ext-install -j$(nproc) \
 		gd
 
