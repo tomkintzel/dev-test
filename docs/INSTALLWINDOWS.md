@@ -22,6 +22,7 @@ Dazu die Distribution starten und folgende Befehle in der Shell ausführen.
         ca-certificates \
         curl \
         gnupg-agent \
+        php-xml \
         software-properties-common
 
     #Hier bitte noch mal gucken welche Distro ihr benutzt. Hier wird der Weg fuer Ubuntu beschrieben.
