@@ -106,7 +106,7 @@ ausführen.
 
 <a name="composer"/>
 
-### Composer installieren
+## Composer installieren
 Am schnellsten geht es wenn ihr danach googlet. Z.B. nach composer installieren ubuntu 18.04
 
 ansonsten diese Befehle ausführen.
@@ -132,7 +132,7 @@ danach einmal composer in den terminal eingeben um zu überprüfen, ob die Insta
 
 <a name="Repo"/>
 
-### Klonen der Repo
+## Klonen der Repo
 
 Nun kann mit der Installation der Entwicklungsumbgebung beginnen. Zunächst wird das Repo geklont. Hierzu entweder in das root Verzeichnis gehen  
 
@@ -153,7 +153,7 @@ ausführen.
 
 <a name="container"/>
 
-### Container erstellen  
+## Container erstellen  
 
 Zunächst einmal sicherstellen, dass Docker keine Credentials für euch gesetzt hat.
 
@@ -231,7 +231,7 @@ Somit sind die Daten in der Datenbank. Als nächsten wird das Wordpress Repo ins
 
 <a name="wordpress"/>
 
-### Wordpress Repo einrichten
+## Wordpress Repo einrichten
 
 Zunächst wieder in den dev Ordner wechseln.  
 
@@ -331,7 +331,7 @@ ausführen.
 
 <a name="gitflow"/>
 
-### GIT FLOW einrichten
+## GIT FLOW einrichten
 
     sudo apt update && apt install git-flow
 
@@ -341,4 +341,44 @@ im htdocs Ordner ein
 
 ausführen und mit Enter die jeweiligen Einstellungen bestätigen.
 
+<a name="cert"/>
+
+## Zertifikate installieren
+
+Erstellte Zertifikate befinden sich im Ordner ` ~/dev/config/ssl/certs`  
+  
+Öffnet mit dem Windows Explorer eure Linux Distro
+
+    Windows Taste + E
+
+    #in die Adresszeile
+
+    \\wsl$ 
+
+eingeben. Dann euere Distro auswählen und in den Ordner `~/dev/config/ssl/certs` navigieren.  
+Doppelklick auf `cacerts.crt` 
+
+    Zertifikat installieren
+    Lokaler Computer aussuchen
+    Alle Zertifikate in folgendem Speicher speichern und auf durchsuchen klicken
+    Vertrauenswüridige Stammzertifizierungsstellen auswählen
+    Weiter drücken und auf Fertig stellen
+
+Danach das mindsquare-network Zertifikat installieren
+Doppelklick auf `mindsquare-network.crt`  
+
+    Zertifikat installieren
+    Lokaler Computer aussuchen
+    Alle Zertifikate in folgendem Speicher speichern und auf durchsuchen klicken
+    Eigene Zertifikate auswählen
+    Weiter drücken und auf Fertig stellen
+
+Die Installation der Zertifikate ist damit abgeschlossen.  
+Benutzt ihr den Firefox Browser müsst ihr in der about:config noch eine Einstellung vornehmen
+
+Dazu den Browser öffnen und in die Adresszeile `about:config` eingeben. Risko akzeptieren
+
+    security.enterprise_roots.enabled
+
+suchen und den Wert auf true setzen. Browser neustarten.sd
  
