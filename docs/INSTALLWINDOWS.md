@@ -1,15 +1,11 @@
+#### Inhaltsverzeichnis
+[Docker & docker-compose](#docker)
+
+
 ## Installation
 
-### Windows
-
-#### Docker
-
-Docker Desktop von https://hub.docker.com/editions/community/docker-ce-desktop-windows herunterladen und installieren.  
-
-Docker starten und in den Einstellungen unter >General>`Enable the experimental WSL 2 based engine` aktiveren.
-Danach unter Resources>WSL Integration `Enable integration with my default WSL Distro` aktiveren und die unterhalb die Distribution auswählen, die genutzt wird.  
-Damit ist Docker auf der Windows "Seite" eingerichtet.
-
+<a name="docker"/>
+### Docker & docker-compose
 Nun muss noch in der Linux-Distro Docker und Docker-Compose installiert werden.  
 Dazu die Distribution starten und folgende Befehle in der Shell ausführen.  
 
@@ -165,8 +161,23 @@ aus. Danach könnt ihr die Docker Images builden.
 ausführen. Dies kann einige Minuten dauern.  
 
 
-In der Zwischenzeit kann eine Datenbank vom maxcluster heruntergeladen werden.  
-Um es möglichst einfach zu machen, die Datenbank im root oder Benutzer Verzeichnis ablegen. Um die Datenbank dann in den Container zu bekommen.
+In der Zwischenzeit kann eine Datenbank vom maxcluster heruntergeladen werden. 
+Das ist eine Schritt für Schritt Anleitung, wie die Datenbank vom Live-Server heruntergeladen werden kann.  
+
+Verbindet euch über ssh mit dem Server
+
+    ssh web-user@185.88.213.222
+
+Wechselt in den database Ordner.
+
+    cd restore/database
+
+Erstellt nun einen neuen mysql dump
+
+    mysqldump -u db-user-1 -p --skip-comments --single-transaction --quick db-1 > db1.sql
+
+Das Passwort befindet sich im OneNote. Nun kannst du mit z.B. mit Filezilla die Datenbank herunterladen.
+Jetzt könnt ihr mir der Erstellung einer Datenbank anfangen.
 
 Zunächst eine Datenbank anlegen.
 

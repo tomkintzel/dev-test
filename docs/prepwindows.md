@@ -96,6 +96,15 @@ Ansonsten muss die Distro geändert werden. Dazu
 
 ausführen. Dies kann einige Minuten dauern.  
 
+#### Docker
+
+Docker Desktop von https://hub.docker.com/editions/community/docker-ce-desktop-windows herunterladen und installieren.  
+
+Docker starten und in den Einstellungen unter >General>`Enable the experimental WSL 2 based engine` aktiveren.
+Danach unter Resources>WSL Integration `Enable integration with my default WSL Distro` aktiveren und die unterhalb die Distribution auswählen, die genutzt wird.  
+Damit ist Docker auf der Windows "Seite" eingerichtet.
+
+
 Sind diese Schritte ausgeführt, ist die Vorbereitung des Windows System abgeschlossen.  
 
 ### VSCODE
