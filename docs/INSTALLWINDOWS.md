@@ -1,11 +1,13 @@
 #### Inhaltsverzeichnis
-[Docker & docker-compose](#docker)
-
+- [Docker & docker-compose](#docker)
+- [GIT & Node](#git)
+- 
 
 ## Installation
 
 <a name="docker"/>
-### Docker & docker-compose
+
+## Docker & docker-compose  
 Nun muss noch in der Linux-Distro Docker und Docker-Compose installiert werden.  
 Dazu die Distribution starten und folgende Befehle in der Shell ausführen.  
 
@@ -56,8 +58,10 @@ Als nächstes wird docker-compose installiert.
 
     # Install Docker Compose into your user's home directory.
     pip install --user docker-compose  
-    
-### Git & Node/Npm
+
+<a name="git"/>    
+
+## Git & Node/Npm
 
 Des weiteren macht es Sinn einige Sachen in der Linux-Distro zu installieren. Zuerst Git. Dazu wieder die Linux Shell öffnen.  
 
