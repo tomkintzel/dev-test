@@ -156,3 +156,6 @@ A better Terminal
 <https://nickymeuleman.netlify.com/blog/linux-on-windows-wsl2-zsh-docker#a-better-terminal>
 
 Sollte ein anderer Editor/IDE benutzt werden. Bitte danach googlen.
+
+Hier geht es weiter mit der Installationen der Entwicklungsumgebung auf der Linux Distro
+[Installation](./docs/INSTALLWINDOWS.md)
