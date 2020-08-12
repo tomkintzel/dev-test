@@ -1,7 +1,11 @@
 #### Inhaltsverzeichnis
 - [Docker & docker-compose](#docker)
 - [GIT & Node](#git)
-- 
+- [Composer](#composer)
+- [Klonen der Repo](#repo)
+- [Container erstellen](#container)
+- [Wordpress Repo einrichten](#wordpress)
+- [Git Flow einrichten](#gitflow)
 
 ## Installation
 
@@ -95,6 +99,9 @@ Zum überprüfen der Installation
     npm -v 
     
 ausführen.  
+  
+
+<a name="composer"/>
 
 ### Composer installieren
 Am schnellsten geht es wenn ihr danach googlet. Z.B. nach composer installieren ubuntu 18.04
@@ -120,7 +127,7 @@ ansonsten diese Befehle ausführen.
 danach einmal composer in den terminal eingeben um zu überprüfen, ob die Installation funktioniert hat.
 
 
-
+<a name="Repo"/>
 
 ### Klonen der Repo
 
@@ -140,6 +147,8 @@ sollte eine Fehlermeldung erscheinen, dass euer Key "too open" ist, dann
     chmod 600 ~/.ssh/id_rsa
 ausführen.
     
+
+<a name="container"/>
 
 ### Container erstellen  
 
@@ -211,6 +220,8 @@ Nun die Daten in den Container kopieren.
     mysql -h 127.0.0.1 -u root -p <datenbank-name> < datenbank-file.sql
     
 Somit sind die Daten in der Datenbank. Als nächsten wird das Wordpress Repo installiert.  
+
+<a name="wordpress"/>
 
 ### Wordpress Repo einrichten
 
@@ -309,6 +320,8 @@ Dort wieder ein
     npm run build
 
 ausführen.
+
+<a name="gitflow"/>
 
 ### GIT FLOW einrichten
 
