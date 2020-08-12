@@ -1,9 +1,20 @@
-## Vorbereitungen  
+# Vorbereitungen Windows
 
-### Windows
- 
+#### Inhaltsverzeichnis
 
-#### GIT
+- [GIT](#git)
+- [Filezilla](#filezilla)
+- [Einrichtung SSH](#ssh)
+- [WSL 2 aktivieren](#wsl)
+- [Linux - Distributionen](#distro)
+- [Docker](#docker)
+- [VS Code](#vscode) 
+  
+
+  
+<a name="git"/>
+
+## GIT
 
 Gehe auf <https://git-scm.com/> und lade dir die Version die zu deinem Betriebssystem passt herunter. Nach dem Download kann die Installation begonnen werden. Im Vorgang können die 
 Default Einstellungen übernommen werden.
@@ -14,6 +25,8 @@ Als nächstes einmal die GIT BASH starten. Dort werden 3 Einstellungen vorgenomm
     git config --global core.autocrlf input 
 
 Damit ist erstmal die Konfiguration von GIT abgeschlossen.
+
+<a name="filezilla" />
 
 #### Filezilla
 
@@ -28,6 +41,8 @@ Zunächst einen neuen Server erstellen. Danach folgende Einstellungen vornehmen.
 
 Klickt auf Verbinden und speichert eure Eingaben ab und lasst die Verbindung zu.  
   
+<a name="ssh" />
+
 #### Einrichtung SSH  
 Als nächstes wird der ssh-key GitLab hinzugefügt, so dass beim arbeiten mit Git nich ständig Benutzername und Passwort eingeben werden muss. Dazu öffne deine Einstellungen auf GitLab.
 
@@ -53,7 +68,9 @@ Wählt den Cluster aus und sucht im Dashboard nach SSH Server. Dort einen neuen 
 
 Auf einem Windowssystem bietet es sich an auf einem WSL(Windows Subsystem for Linux) zu arbeiten. Daher wird bei der Vorbereitung, auf dieses Setup eingegangen.
 
-#### WSL2 aktivieren
+<a name="wsl" />
+
+## WSL2 aktivieren
 
 Damit WSL2 genutzt werden kann, müssen einige Vorbereitungen getroffen werden. Zunächst muss überprüft werden welcher Windows-10 Build auf dem Sytem installiert ist.
 Dies kann in der cmd durch den Befehl *ver* überprüft werden.
@@ -72,7 +89,9 @@ Als nächstes müssen optionale Komponente aktiviert werden. Dazu folgende Befeh
 
 Damit die Einstellungen wirksam werden, muss das System einmal neugestartet werden.  
 
-#### Linux-Distribution  
+<a name="distro" />
+
+## Linux-Distribution  
 
 Der nächste Schritt behandelt das Installieren einer Linux Distribution innerhalb des Windowssystem. Es muss also kein Dual Boot eingerichtet werden.
 
@@ -96,7 +115,9 @@ Ansonsten muss die Distro geändert werden. Dazu
 
 ausführen. Dies kann einige Minuten dauern.  
 
-#### Docker
+<a name="docker" />
+
+## Docker
 
 Docker Desktop von https://hub.docker.com/editions/community/docker-ce-desktop-windows herunterladen und installieren.  
 
@@ -106,6 +127,8 @@ Damit ist Docker auf der Windows "Seite" eingerichtet.
 
 
 Sind diese Schritte ausgeführt, ist die Vorbereitung des Windows System abgeschlossen.  
+
+<a name="vscode" />
 
 ### VSCODE
 
