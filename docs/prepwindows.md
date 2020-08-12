@@ -11,7 +11,7 @@
 - [VS Code](#vscode) 
   
 
-  
+
 <a name="git"/>
 
 ## GIT
@@ -28,7 +28,7 @@ Damit ist erstmal die Konfiguration von GIT abgeschlossen.
 
 <a name="filezilla" />
 
-#### Filezilla
+## Filezilla
 
 Dieses Programm wird dafür benötigt, die Datenbanken die wir Lokal benötigen vom Server herunterzuladen. Dazu auf <https://filezilla-project.org/> gehen. Und den Filezilla Client herunterladen.
 Auch hier kann während des Installationsvorgang alle Default Werte übernommen werden. Ist das Programm gestartet kann nun über ein CTRL + S eine neue Serververbindung angelegt werden.  
@@ -43,7 +43,7 @@ Klickt auf Verbinden und speichert eure Eingaben ab und lasst die Verbindung zu.
   
 <a name="ssh" />
 
-#### Einrichtung SSH  
+## Einrichtung SSH  
 Als nächstes wird der ssh-key GitLab hinzugefügt, so dass beim arbeiten mit Git nich ständig Benutzername und Passwort eingeben werden muss. Dazu öffne deine Einstellungen auf GitLab.
 
 Unter dem Reiter "SSH-Schlüssel" kann zunächst ein SSH-Key generiert werden. 
@@ -130,7 +130,7 @@ Sind diese Schritte ausgeführt, ist die Vorbereitung des Windows System abgesch
 
 <a name="vscode" />
 
-### VSCODE
+## VSCODE
 
 Damit sich VSCode mit dem WSL verbinden kann muss eine Erweiterung installiert werden.  
 Entweder im Erweiterungs Tab nach WSL Remote suchen und installieren oder unter
