@@ -9,6 +9,7 @@
 - [Linux - Distributionen](#distro)
 - [Docker](#docker)
 - [VS Code](#vscode) 
+- [Browser](#browser)
   
 
 
@@ -77,10 +78,7 @@ Dies kann in der cmd durch den Befehl *ver* überprüft werden.
 
 `WSL 2 ist nur in Windows 10-Builds 18917 oder höher verfügbar.`
 
-Ist ein niedriger Build installiert, so muss sich für das Windows Insider Programm angemeldet werden.
-Hierzu auf <https://insider.windows.com/de-de/> gehen und die Schritte ausführen.
-
-Der Insider muss nicht mehr unbedingt eingerichtet werden. Seitdem MAY 2020 Update steht auch WSL 2 so zur Verfügung. 
+Seitdem MAY 2020 Update steht auch WSL 2 so zur Verfügung. Also einfach ein paar mal das Windows Update ausführen.
 
 Als nächstes müssen optionale Komponente aktiviert werden. Dazu folgende Befehle in einer Powershell (als Administrator) ausführen.
 
@@ -156,6 +154,21 @@ A better Terminal
 <https://nickymeuleman.netlify.com/blog/linux-on-windows-wsl2-zsh-docker#a-better-terminal>
 
 Sollte ein anderer Editor/IDE benutzt werden. Bitte danach googlen.
+
+<a name="browser"/>
+
+## Browser
+Um ausreichend testen zu können, sollten alle gängigen Browser installiert werden.
+
+- Google Chrome
+- Firefox
+- Internet Explorer
+- Microsoft Edge (alte Version)
+
+Es bietet sich an für Chrome die folgenden Erweiterungen zu installieren:
+
+- Tag Assitant by google
+- Google Optimize
 
 Hier geht es weiter mit der Installationen der Entwicklungsumgebung auf der Linux Distro
 [Installation](./docs/INSTALLWINDOWS.md)

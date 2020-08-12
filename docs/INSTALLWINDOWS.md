@@ -78,6 +78,7 @@ Nach dem Installieren das Einrichten von Git nicht vergessen.  Als Beispiel:
 
     git config --global user.name "Daniel Ricciardo"
     git config --global user.email "john@doe.com"  
+    git config --global core.autocrlf input 
     
 In diesem Zuge kann auch direkt der .ssh Ordner im root Verzeichnis erstellt werden.  
 
