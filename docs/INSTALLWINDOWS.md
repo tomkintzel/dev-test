@@ -4,6 +4,8 @@
 - [Composer](#composer)
 - [Klonen der Repo](#repo)
 - [Container erstellen](#container)
+    - [Datenbank herunterladen](#loaddb)
+    - [Datenbank erstellen & importieren](#importdb)
 - [Wordpress Repo einrichten](#wordpress)
 - [Git Flow einrichten](#gitflow)
 
@@ -173,7 +175,9 @@ aus. Danach könnt ihr die Docker Images builden.
     
 ausführen. Dies kann einige Minuten dauern.  
 
+<a name="loaddb"/>  
 
+### Datenbank herunterladen
 In der Zwischenzeit kann eine Datenbank vom maxcluster heruntergeladen werden. 
 Das ist eine Schritt für Schritt Anleitung, wie die Datenbank vom Live-Server heruntergeladen werden kann.  
 
@@ -192,6 +196,9 @@ Erstellt nun einen neuen mysql dump
 Das Passwort befindet sich im OneNote. Nun kannst du mit z.B. mit Filezilla die Datenbank herunterladen.
 Jetzt könnt ihr mir der Erstellung einer Datenbank anfangen.
 
+<a name="importdb"/>
+
+### Datenbank erstellen & importieren
 Zunächst eine Datenbank anlegen.
 
     #bash im container öffnen
