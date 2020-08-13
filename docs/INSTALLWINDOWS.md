@@ -204,7 +204,7 @@ Jetzt könnt ihr mir der Erstellung einer Datenbank anfangen.
 Zunächst eine Datenbank anlegen.
 
     #bash im container öffnen
-    docker-compose exec web bash
+    docker-compose exec php_72 bash
     
     #mysql ausführen
     mysql -u root -p -h db
