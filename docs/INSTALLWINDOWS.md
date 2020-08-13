@@ -169,7 +169,7 @@ Als nächstes in das Verzeichnis gehen
 Stellt sicher das Docker Desktop läuft.
 Um die Datenbank initial einzurichten. Führe 
 
-    docker run -v /root/dev/data/mysql/:/var/lib/mysql/ -e MYSQL_ALLOW_EMPTY_PASSWORD="yes" -e MYSQL_ROOT_HOST= "%"  mariadb:10.0.38 
+    docker run -v /root/dev/data/mysql/:/var/lib/mysql/ -e MYSQL_ALLOW_EMPTY_PASSWORD="yes" -e MYSQL_ROOT_HOST="%"  mariadb:10.0.38 
 
 aus. Danach könnt ihr die Docker Images builden.
 
