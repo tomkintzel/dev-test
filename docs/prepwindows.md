@@ -98,6 +98,9 @@ Ubuntu verfügt über eine sehr große Community und vielen Hilfen bei Problemen
 
 Also einfach einfach den Windows Store besuchen und eine Distribution auswählen und installieren. Sollte es noch Probleme geben, bitte <https://docs.microsoft.com/de-de/windows/wsl/install-win10#install-your-linux-distribution-of-choice> besuchen.
 
+`Des Weiteren beachten, bei der Installation der Distro`
+Wenn nach dem Benutzernamen gefragt wird, einfach das Fenster schließen. Damit wird kein Benutzer erstellt und die Distro wird immer mit Root geöffnet.
+
 Zum jetztigen Zeitpunkt werden die Distributionen in WSL1 gestartet. Um zu überprüfen welches WSL die Distribution verwendet, bitte in der Powershell  
   
     wsl --list --verbose
@@ -112,6 +115,10 @@ Ansonsten muss die Distro geändert werden. Dazu
     wsl --set--version Ubuntu-18.04 2 
 
 ausführen. Dies kann einige Minuten dauern.  
+Sollte es hier zu Fehlermeldungen kommen, dann einmal gucken, ob ein WSL2 Kernel Update benötigt wird.
+Eine andere Fehlerquelle kann sein, dass im oberen Schritt die VirtualMachinePlatform aktiviert wurden ist, aber dies nicht wirklich geschehen ist.
+Hier muss einmal der Rechner neugestartet werden und ins BIOS gegangen werden. Hier müsst ihr in den meisten Fällen nach Virtualization suchen und dieses aktivieren.
+Danach noch mal ab dem Punkt WSL2 aktiveren anfangen.
 
 <a name="docker" />
 
