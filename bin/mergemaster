@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+currentBranch=$(git symbolic-ref --short HEAD)
+masterBranch="master"
+developBranch=$(git config --get gitflow.branch.develop)
+
+branches="$masterBranch $developBranch"
+
+for branch in $branches; do 
+	git checkout $branch
+	git pull
+done
+
+git checkout $currentBranch
+git merge $masterBranch

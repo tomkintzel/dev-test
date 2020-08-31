@@ -1,0 +1,23 @@
+#!/bin/bash
+
+ssh web-user@185.88.213.222 'bash -s' << 'ENDSSH'
+
+cd restore/databases
+
+mysqldump -u db-user-1 -pfPqW9ayFTuNc5Mw4S@R0 --skip-comments --single-transaction --quick db-1 > db1.sql
+echo Datenbank Dump erstellt.
+
+ENDSSH
+
+if [ -f ~/databases/db1.sql  ]; then
+	rm ~/databases/db1.sql
+fi
+
+scp web-user@185.88.213.222:restore/databases/db1.sql ~/databases
+
+if [ -f ~/databases/db1.sql ]; then
+	echo kopieren der Datenbank erfolgreich.
+fi
+
+docker exec -i dev_db_1 mysql -uroot mindsquare-network < ~/databases/db1.sql
+echo Datenbank erfolgreich eingespielt.

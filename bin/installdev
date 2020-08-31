@@ -1,0 +1,97 @@
+#!/bin/bash
+
+cd ~
+
+sudo apt-get update -y
+
+sudo apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    php-xml \
+    software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# Add the `stable` channel's Docker upstream repository.
+#
+# If you want to live on the edge, you can change "stable" below to "test" or
+# "nightly". I highly recommend sticking with stable!
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+# Update the apt package list (for the new apt repo).
+sudo apt-get update -y
+
+# Install the latest version of Docker CE.
+sudo apt-get install -y docker-ce
+
+# Allow your user to access the Docker CLI without needing root access.
+sudo usermod -aG docker $USER
+
+
+# Install Python and PIP.
+sudo apt-get install -y python python-pip
+
+# Install Docker Compose into your user's home directory.
+pip install --user docker-compose  
+
+sudo apt install git
+
+if [ ! -d "~/.ssh" ] then
+    mkdir ~/.ssh
+fi
+sudo apt update -y
+sudo apt install -y wget php-cli php-zip unzip
+
+cd ~
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+
+HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
+
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+
+#Output sollte Installer verified sein.
+
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+cd ~
+cd .ssh
+if [ -f "id_rsa" ] then
+    chmod 400 id_rsa
+cd ~
+
+git clone git@gitlab.com:mindsquare/dev.git
+
+cd ~/dev
+docker-compose build
+
+cd ~/dev
+
+git submodule init
+git submodule update
+
+cd ~/dev/www/mindsquare-network
+sudo chmod 777 -R htdocs
+
+cd htdocs
+
+composer install
+composer dump-autoload -o
+npm install 
+npm run css-all 
+npm install -g gulp-cli
+gulp component
+cd wp-content/themes/ms_rz10_nineteen
+composer install 
+rm package-lock.json
+npm install
+npm run build
+
+sudo apt-get update -y
+sudo apt install -y git-flow
+
+
