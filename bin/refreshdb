@@ -9,6 +9,10 @@ echo Datenbank Dump erstellt.
 
 ENDSSH
 
+if [ ! -d ~/databases ]; then
+	mkdir ~/databases
+fi
+
 if [ -f ~/databases/db1.sql  ]; then
 	rm ~/databases/db1.sql
 fi
