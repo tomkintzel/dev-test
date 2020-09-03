@@ -262,12 +262,12 @@ RewriteCond %{HTTP_HOST} ^compamind\.de$
 RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=48 [L]
 RewriteCond %{HTTP_HOST} ^mind-logistik\.de$
 RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=49 [L]
-RewriteCond %{HTTP_HOST} ^www\.freelancercheck\.de$
-RewriteRule (?:.*?\/blogs\.dir.*?\/)?files\/.*$ blog/wp-content/blogs.dir/index.php?blog_id=50 [L]
 RewriteCond %{HTTP_HOST} ^customer-first-cloud\.de$
 RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=51 [L]
 RewriteCond %{HTTP_HOST} ^mindsquare\.de$
 RewriteRule ^(?:.*?\/blogs\.dir.*?\/)?files\/.*$ wp-content/blogs.dir/index.php?blog_id=37 [L]
+RewriteCond %{HTTP_HOST} ^www\.freelancercheck\.de$
+RewriteRule (?:blog\/)?(?:.*?\/blogs\.dir.*?\/)?files\/.*$ blog/wp-content/blogs.dir/index.php?blog_id=50 [L]
 
 # MSQ - Podcast-Files - Für die Entwicklung
 RewriteCond %{REQUEST_URI} ^\/?podcast-files\/

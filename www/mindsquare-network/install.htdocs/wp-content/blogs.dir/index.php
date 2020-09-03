@@ -9,7 +9,11 @@ ini_set( 'display_errors', '0' );
 // Informationen über den Request sammeln
 $redirect_uri = $_SERVER[ 'REDIRECT_URL' ];
 $server_name = $_SERVER[ 'SERVER_NAME' ];
-$filename = dirname( __FILE__ ) . '/' . $_GET[ 'blog_id' ] . preg_replace( '/\/$/', '', $redirect_uri );
+if ( $_GET['blog_id'] === '50' ) {
+	$filename = dirname( __FILE__ ) . '/' . $_GET['blog_id'] . preg_replace( '/\/$/', '', preg_replace( '/^\/blog/i', '', $redirect_uri ) );
+} else {
+	$filename     = dirname( __FILE__ ) . '/' . $_GET['blog_id'] . preg_replace( '/\/$/', '', $redirect_uri );
+}
 
 // Prüfe ob die Datei nicht existiert
 if( !file_exists( $filename ) ) {
