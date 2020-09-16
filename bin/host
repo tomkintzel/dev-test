@@ -1,0 +1,250 @@
+#!/usr/bin/env php
+<?php
+	class MSQ_Host_File {
+		const HOST_FILE_WIW = 'C:\Windows\System32\drivers\etc\hosts';
+		const HOST_FILE_WIL = '/mnt/c/Windows/System32/drivers/etc/hosts';
+		const HOST_FILE_LIL = '/etc/hosts';
+		const COLOR_DEFAULT = "\033[39m";
+		const COLOR_RED = "\033[91m";
+		const COLOR_GREEN = "\033[92m";
+		const COLOR_YELLOW = "\033[93m";
+		const COLOR_BLUE = "\033[94m";
+
+		/**
+		 * @var string $file_name Pfad der Host-Datei
+		 */
+		private $filename;
+
+		/**
+		 * @var string $file_content Inhalt der Host-Datei
+		 */
+		private $file_content;
+
+		/**
+		 * @var array $host_entries Aus dem Inhalt geparste Host-Einträge
+		 */
+		private $host_entries;
+
+		/**
+		 * @param string $filename = HOST_FILE_WIW
+		 */
+		public function __construct( $filename = self::HOST_FILE_WIL ) {
+			// Prüfe ob die Host-Datei vorhanden ist
+			if( !file_exists( $filename ) ) {
+				echo self::COLOR_RED . "Die Host-Datei({$filename}) konnte nicht gefunden werden.\n" . self::COLOR_DEFAULT;
+				exit( 1 );
+			}
+
+			// Prüfe ob die benötigten Rechte vorhanden site_admin_notice()
+			if( !is_writable( $filename ) ) {
+				echo self::COLOR_RED . "Die benötigten Rechte fehlen um die Host-Datei({$filename}) zu bearbeiten.\n" . self::COLOR_DEFAULT;
+				exit( 1 );
+			}
+
+			$this->filename = $filename;
+			$this->load_file_content();
+		}
+	
+		/**
+		 * Diese Funktion lädt den Inhalt der Host-Datei und parst
+		 * diese zu den Host-Einträgen.
+		 * @param string $filename
+		 */
+		public function load_file_content() {
+			// Lade den Inhalt der übergebenen Datei
+			$this->file_content = file_get_contents( $this->filename );
+			$this->host_entries = [];
+
+			if( preg_match_all( '/^(#)?([\w\.:]+) (.*)/mi', $this->file_content, $file_matches, PREG_SET_ORDER ) ) {
+				foreach( $file_matches as $file_match ) {
+					list( $host_match, $host_status, $host_ip, $host_names ) = $file_match;
+
+					// Bearbeite den Host-Status
+					$host_status = strpos( $host_status, '#' ) !== false ? 0 : 1;
+
+					// Bearbeite die Host-Namen
+					preg_match_all( '/([a-zA-Z0-9][a-zA-Z0-9-]{1,60}[a-zA-Z0-9]\.)+[a-zA-Z]{2,}/', $host_names, $host_names, PREG_SET_ORDER );
+
+					// Speicher die Host-Einträge ab
+					foreach( $host_names as $host_name ) {
+						$this->host_entries[ $host_ip ][ $host_name[ 0 ] ] = $host_status;
+					}
+				}
+			}
+		}
+
+		/**
+		 * Diese Funktion überschreibt den Inhalt der Host-Datei.
+		 */
+		public function save_file_content() {
+			// Entferne alte Host-Einträge aus dem Inhalt der Host-Datei
+			$file_content = preg_replace( '/^#?[\w\.:]+.*\r?\n?/mi', '', $this->file_content );
+
+			// Formatiere das Array
+			$formated_host_entries = [];
+			foreach( $this->host_entries as $host_ip => $host_names ) {
+				foreach( $host_names as $host_name => $host_status ) {
+					$formated_host_entries[ $host_ip ][ $host_status ][] = $host_name;
+				}
+			}
+
+			// Erzeuge aus den Host-Einträgen einen Text für die Host-Datei
+			foreach( $formated_host_entries as $host_ip => $host_entrie ) {
+				foreach( $host_entrie as $host_status => $host_names ) {
+					$host_names_chunk = array_chunk( $host_names, 6 );
+					foreach( $host_names_chunk as $host_names ) {						
+						$host_names = implode( ' ', $host_names );
+						$file_content .= $host_status == 0 ? '#' : '';
+						$file_content .= "{$host_ip} {$host_names}\n";
+					}
+				}
+			}
+
+			// Überschriebe die Host-Datei
+			file_put_contents( $this->filename, $file_content );
+		}
+	
+		/**
+		 * Fügt ein weiteren Host-Eintrag hinzu.
+		 * @param string $host_name
+		 * @param string $host_ip
+		 * @param boolean $host_status
+		 */
+		public function add_host_entrie( $host_name, $host_ip, $host_status = 1 ) {
+			if( !empty( $host_name ) && !empty( $host_ip ) ) {
+				if( empty( $this->host_entries[ $host_ip ][ $host_name ] ) ) {
+					$this->host_entries[ $host_ip ][ $host_name ] = $host_status;
+					echo self::COLOR_GREEN . "Host-Eintrag ({$host_name}) wurde erfolgreich hinzugefügt.\n" . self::COLOR_DEFAULT;
+				} else {
+					echo self::COLOR_YELLOW . "Host-Eintrag ({$host_name}) existiert bereits.\n" . self::COLOR_DEFAULT;
+				}
+			} else {
+				echo self::COLOR_RED . "Zum Hinzufügen eines neuen Host-Eintrags wird ein Hostname und ein IP benötigt.\n" . self::COLOR_DEFAULT;
+			}
+		}
+
+		/**
+		 * Entfernt einen Host-Eintrag.
+		 * @param $host_name
+		 * @param $host_ip
+		 */
+		public function remove_host_entrie( $host_name, $host_ip = null ) {
+			if( !empty( $host_name ) ) {
+				if( empty( $host_ip ) ) {
+					$count = 0;
+					foreach( $this->host_entries as $host_ip => $host_names ) {
+						if( isset( $host_names[ $host_name ] ) ) {
+							unset( $this->host_entries[ $host_ip ][ $host_name ] );
+							$count++;
+						}
+					}
+					if( $count == 0 ) {
+						echo self::COLOR_YELLOW . "Es wurde kein Host-Eintrag mit dem Namen ({$host_name}) zum löschen gefunden.\n" . self::COLOR_DEFAULT;
+					} elseif( $count == 1 ) {
+						echo self::COLOR_GREEN . "Es wurden 1 Host-Eintrag erfolgreich gelöscht.\n" . self::COLOR_DEFAULT;	
+					} else {
+						echo self::COLOR_GREEN . "Es wurden {$count} Host-Einträge erfolgreich gelöscht.\n" . self::COLOR_DEFAULT;	
+					}
+				} elseif( isset( $this->host_entries[ $host_ip ][ $host_name ] ) ) {
+					unset( $this->host_entries[ $host_ip ][ $host_name ] );
+					echo self::COLOR_GREEN . "Host-Eintrag ({$host_name} - {$host_ip}) wurde erfolgreich gelöscht.\n" . self::COLOR_DEFAULT;
+				} else {
+					echo self::COLOR_YELLOW . "Es wurde kein Host-Eintrag mit dem Namen ({$host_name}) zum löschen gefunden.\n" . self::COLOR_DEFAULT;
+				}
+			} else {
+				echo self::COLOR_RED . "Zum Entfernen eines Host-Eintrags wird ein Hostname benötigt.\n" . self::COLOR_DEFAULT;
+			}
+		}
+
+		/**
+		 * Diese Funktion ändert den Status einiger Host-Einträge
+		 * anhand einer Such-Regel. Wenn mehrere Such-Regeln angegeben
+		 * wurden, muss ein Host-Eintrag alle Regeln erfüllen, damit
+		 * diese bearbietet wird. Wenn keine Regeln übergeben wurden
+		 * dann wird der Status von allen Host-Einträgen verändert.
+		 * Die Such-Regel wird auf die Host-IP und auch auf den
+		 * Host-Namen angewendet.
+		 * @param boolean $arg_status
+		 * @param string $arg_rules
+		 */
+		public function set_host_entries( $arg_status, $arg_rules = null ) {
+			$host_matches = $this->host_entries;
+
+			if( !empty( $arg_rules ) ) {
+				// Host-Einträge nach Regeln bearbeiten
+				foreach( $arg_rules as $arg_rule ) {
+					$arg_rule = preg_quote( $arg_rule );
+
+					foreach( $host_matches as $host_ip => $host_names ) {
+						// Prüfe ob die Host-IP zur Regel passt
+						if( preg_match( "/.*{$arg_rule}.*/i", $host_ip ) ) {
+							continue;
+						} else {
+							$host_matches[ $host_ip ] = array_filter( $host_names, function( $host_name ) use ( $arg_rule ) {
+								// Prüfe ob der Host-Name zur Regel passt
+								return preg_match( "/.*{$arg_rule}.*/i", $host_name );
+							}, ARRAY_FILTER_USE_KEY );
+						}
+					}
+				}
+			}
+
+			if( !empty( $host_matches ) ) {
+				// Alle Host-Einträge sollen bearbeitet werden
+				foreach( $host_matches as $host_ip => $host_names ) {
+					foreach( $host_names as $host_name => $host_status ) {
+						$this->host_entries[ $host_ip ][ $host_name ] = $arg_status; 
+					}
+				}
+			} else {
+				echo self::COLOR_YELLOW . "Es wurden leider keine Host-Einträge mit den Regeln gefunden.\n" . self::COLOR_DEFAULT;
+			}
+		}
+
+		/**
+		 * Diese Funktion gibt alle Host-Einträge aus.
+		 */
+		public function print_host_entries() {
+			foreach( $this->host_entries as $host_ip => $host_names ) {
+				foreach( $host_names as $host_name => $host_status ) {
+					// Bearbeite den Status
+					if( $host_status == 1 ) {
+						$host_status = self::COLOR_GREEN . "[ON]" . self::COLOR_DEFAULT;
+					} else {
+						$host_status = self::COLOR_RED . "[OFF]" . self::COLOR_DEFAULT;
+					}
+		
+					echo "{$host_status} {$host_name} " . self::COLOR_BLUE . "({$host_ip})\n" . self::COLOR_DEFAULT;
+				}
+			}
+		}
+	}
+
+	if( strtoupper( substr( PHP_OS, 0, 3 ) ) == 'WIN' ) {
+		$host_file = new MSQ_Host_File();
+	} else {
+		$host_file = new MSQ_Host_File( MSQ_Host_File::HOST_FILE_LIL );
+	}
+	if( !empty( $argv[ 1 ] ) ) {
+		if( preg_match( '/add/i', $argv[ 1 ] ) ) {
+			$arg_host_name = $argv[ 2 ] ?? null;
+			$arg_host_ip = $argv[ 3 ] ?? null;
+
+			$host_file->add_host_entrie( $arg_host_name, $arg_host_ip );
+		} elseif( preg_match( '/(remove|del)/i', $argv[ 1 ] ) ) {
+			$arg_host_name = $argv[ 2 ] ?? null;
+			$arg_host_ip = $argv[ 3 ] ?? null;
+
+			$host_file->remove_host_entrie( $arg_host_name, $arg_host_ip );
+		} else {
+			$arg_status = preg_match( '/(on|local)/i', $argv[ 1 ] ) ? 1 : 0;
+			$arg_rules = array_splice( $argv, 2 );
+	
+			$host_file->set_host_entries( $arg_status, $arg_rules );
+		}
+		$host_file->save_file_content();
+	}
+	$host_file->print_host_entries();
+
+	echo "\nhost on [hostname]\nhost off [hostname]\nhost add hostname ip\nhost remove hostname [ip]";
+?>
