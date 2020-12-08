@@ -8,3 +8,8 @@
 	url = git@gitlab.com:mindsquare/freelancercheck.de.git
 	branch = develop
 	ignore = all
+[submodule "www/pardb/htdocs"]
+	path = www/pardb/htdocs
+	url = git@gitlab.com:mindsquare/pardb.mindsquare.de.git
+	branch = develop
+	ignore = all

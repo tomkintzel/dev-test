@@ -1,0 +1,45 @@
+formatters:
+    multiline:
+        class: Monolog\Formatter\LineFormatter
+        allow_inline_line_breaks: true
+        ignore_empty_context_and_extra: true
+handlers:
+    debug_file_handler:
+        class: Monolog\Handler\RotatingFileHandler
+        level: INFO
+        filename: ./logs/debug.log
+        maxFiles: 14
+        formatter: multiline
+    stdout:
+        class: Monolog\Handler\StreamHandler
+        level: DEBUG
+        stream: ./logs/temp.log
+        formatter: multiline
+
+loggers:
+    ParDb:
+        handlers: [debug_file_handler, stdout]
+    Config:
+        handlers: [debug_file_handler, stdout]
+    PardotIterator:
+        handlers: [debug_file_handler, stdout]
+    UpdateProxy:
+        handlers: [debug_file_handler, stdout]
+    UpdateRepository:
+        handlers: [debug_file_handler, stdout]
+    ProspectAccessor:
+        handlers: [debug_file_handler, stdout]
+    FormAccessor:
+        handlers: [debug_file_handler, stdout]
+    EmailAccessor:
+        handlers: [debug_file_handler, stdout]
+    OpportunityAccessor:
+        handlers: [debug_file_handler, stdout]
+    FormHandlerActivityAccessor:
+        handlers: [debug_file_handler, stdout]
+    FormActivityAccessor:
+        handlers: [debug_file_handler, stdout]
+    EmailActivityAccessor:
+        handlers: [debug_file_handler, stdout]
+    BaseRepository:
+        handlers: [debug_file_handler, stdout]
