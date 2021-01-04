@@ -110,9 +110,9 @@ Zum jetztigen Zeitpunkt werden die Distributionen in WSL1 gestartet. Um zu über
 eingeben. Ist die Version eurer Distro 2 müsst ihr nichts weiter tun.  
 Ansonsten muss die Distro geändert werden. Dazu  
 
-    wsl --set--version <distro-name> 2
+    wsl --set-version <distro-name> 2
     # Beispiel Ubuntu
-    wsl --set--version Ubuntu-18.04 2 
+    wsl --set-version Ubuntu-18.04 2 
 
 ausführen. Dies kann einige Minuten dauern.  
 Sollte es hier zu Fehlermeldungen kommen, dann einmal gucken, ob ein WSL2 Kernel Update benötigt wird.
