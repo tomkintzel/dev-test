@@ -5,7 +5,8 @@
 # Füge alle Bin-Ordner zu der PATH-Variable hinzu
 PATH=$PATH:\
 "$(dirname $BASH_SOURCE[0])/bin":\
-"$(dirname $BASH_SOURCE[0])/www/mindsquare-network/htdocs/node_modules/.bin"
+"$(dirname $BASH_SOURCE[0])/www/mindsquare-network/htdocs/node_modules/.bin":\
+"$(dirname $BASH_SOURCE[0])/www/mindsquare-network/htdocs/vendor/bin"
 
 # Füge Alias-Befehle die gestarteten Docker-Container
 if ! command -v  mysql &> /dev/null; then

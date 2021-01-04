@@ -45,7 +45,7 @@ RUN apt-get install -y \
 		libmemcached-dev && \
 	if echo "$PHP_VERSION" | grep -q "7.2" > /dev/null; then \
 		pecl install \
-			memcache; \
+			memcache-4.0.5.2; \
 	else \
 		pecl install \
 			memcache-2.2.7; \
