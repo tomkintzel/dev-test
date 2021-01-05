@@ -304,6 +304,9 @@ um die Komponenten zu laden, wird
 
 ausgeführt. Als nächstes wird die package-lock.json gelöscht.
 
+    rm package-lock.json
+
+
 Nach dem löschen der Datei ein 
 
     npm install
