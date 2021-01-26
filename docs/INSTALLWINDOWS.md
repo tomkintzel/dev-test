@@ -171,7 +171,7 @@ Um die Datenbank initial einzurichten. Führe
 
     docker run -v /root/dev/data/mysql/:/var/lib/mysql/ -e MYSQL_ALLOW_EMPTY_PASSWORD="yes" -e MYSQL_ROOT_HOST="%"  mariadb:10.0.38 
 
-aus. Danach könnt ihr die Docker Images builden.
+aus. Nachdem MariaDB alle Tabellen erstellt hat, muss der Container geschlossen werden. Danach könnt ihr die Docker Images builden.
 
     docker-compose up --build
     
@@ -187,9 +187,9 @@ Verbindet euch über ssh mit dem Server
 
     ssh web-user@185.88.213.222
 
-Wechselt in den database Ordner.
+Wechselt in den databases Ordner.
 
-    cd restore/database
+    cd restore/databases
 
 Erstellt nun einen neuen mysql dump
 
@@ -303,6 +303,9 @@ um die Komponenten zu laden, wird
     composer dump-autoload -o
 
 ausgeführt. Als nächstes wird die package-lock.json gelöscht.
+
+    rm package-lock.json
+
 
 Nach dem löschen der Datei ein 
 
