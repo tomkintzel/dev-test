@@ -83,4 +83,3 @@ organizationalUnitName = Development
 #
 [ root_ca_extensions ]
 basicConstraints = CA:true
-

@@ -25,6 +25,8 @@ services:
     build:
       context: .
       dockerfile: images/php/Dockerfile
+    env_file:
+      - .env
     volumes:
       # data
       - ./www/:/var/www/html/
@@ -48,6 +50,8 @@ services:
       dockerfile: images/php/Dockerfile
       args:
         - PHP_VERSION=5.6
+    env_file:
+      - .env
     volumes:
       # data
       - ./www/:/var/www/html/
