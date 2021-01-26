@@ -2,4 +2,5 @@
 	"phpcs.enable": true,
     "phpcs.standard": "www/mindsquare-network/htdocs/phpcs.xml.dist",
     "phpcs.executablePath": "www/mindsquare-network/htdocs/vendor/bin/phpcs",
+    "git.ignoreLimitWarning": true,
 }

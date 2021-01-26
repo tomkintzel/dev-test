@@ -38,21 +38,6 @@ RUN	apt-get install -y \
 		pdo_mysql \
 		mysqli
 
-# Installiere Memcache
-# @see https://www.php.net/manual/de/intro.memcache.php
-RUN apt-get install -y \
-		libz-dev \
-		libmemcached-dev && \
-	if echo "$PHP_VERSION" | grep -q "7.2" > /dev/null; then \
-		pecl install \
-			memcache-4.0.5.2; \
-	else \
-		pecl install \
-			memcache-2.2.7; \
-	fi && \
-	docker-php-ext-enable \
-		memcache
-
 # Installiere OpCache
 RUN	docker-php-ext-configure \
 		opcache --enable-opcache && \
@@ -94,6 +79,22 @@ RUN	docker-php-ext-install \
 		exif && \
 	docker-php-ext-enable \
 		exif
+
+# Installiere Memcached
+# @see https://github.com/php-memcached-dev/php-memcached/#dependencies
+RUN apt-get install -y \
+		memcached \
+		libmemcached-dev \
+		libmemcached-tools && \
+	pecl \
+		update-channels && \
+	if echo "$PHP_VERSION" | grep -q "7.2" > /dev/null; then \
+		pecl install \
+			memcached-3.1.5; \
+	else \
+		pecl install \
+			memcached-2.2.0; \
+	fi
 
 # Clear
 RUN	rm -rf /var/lib/apt/lists/*
