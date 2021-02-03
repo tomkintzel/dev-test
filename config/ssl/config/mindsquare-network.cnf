@@ -1,7 +1,3 @@
-#
-# localhost.cnf
-#
-
 [ req ]
 prompt = no
 distinguished_name = server_distinguished_name
@@ -13,7 +9,7 @@ stateOrProvinceName = NRW
 countryName = DE
 emailAddress = info@mindsquare.de
 organizationName = mindsquare
-organizationalUnitName = Development
+organizationalUnitName = mindsquare-network
 
 [ v3_req ]
 basicConstraints = CA:FALSE
@@ -21,31 +17,26 @@ keyUsage = nonRepudiation, digitalSignature, keyEncipherment
 subjectAltName = @alt_names
 
 [ alt_names ]
-DNS.0 = localhost
-DNS.1 = mindsquare.local
-DNS.2 = mindsquare.de
-DNS.3 = blog.mindsquare.de
-DNS.4 = activate-hr.de
-DNS.5 = erlebe-software.de
-DNS.6 = maint-care.de
-DNS.7 = mind-force.de
-DNS.8 = mind-forms.de
-DNS.9 = mission-mobile.de
-DNS.10 = rz10.de
-DNS.11 = innotalent.de
-DNS.12 = wiki.mindsquare.de
-DNS.13 = pardb.mindsquare.de
-DNS.14 = compamind.de
-DNS.15 = mind-logistik.de
-DNS.16 = piumelli.de
-DNS.17 = timm-funke.de
-DNS.18 = consulting-y.de
-DNS.19 = personaleinsatzplanung.activate-hr.de
-DNS.20 = marketence.de
-DNS.21 = bonuskonditionen.de
-DNS.22 = www.freelancercheck.de
-DNS.23 = freelancercheck.de
-DNS.24 = customer-first-cloud.de
-DNS.25 = gesundheit-digitalisieren.de
-DNS.26 = energie-digitalisieren.de
-DNS.27 = pardb.mindsquare.de
+DNS.0 = mindsquare.local
+DNS.1 = mindsquare.de
+DNS.2 = blog.mindsquare.de
+DNS.3 = activate-hr.de
+DNS.4 = erlebe-software.de
+DNS.5 = maint-care.de
+DNS.6 = mind-force.de
+DNS.7 = mind-forms.de
+DNS.8 = mission-mobile.de
+DNS.9 = rz10.de
+DNS.10 = innotalent.de
+DNS.11 = wiki.mindsquare.de
+DNS.12 = compamind.de
+DNS.13 = mind-logistik.de
+DNS.14 = piumelli.de
+DNS.15 = timm-funke.de
+DNS.16 = consulting-y.de
+DNS.17 = personaleinsatzplanung.activate-hr.de
+DNS.18 = marketence.de
+DNS.19 = bonuskonditionen.de
+DNS.20 = customer-first-cloud.de
+DNS.21 = gesundheit-digitalisieren.de
+DNS.22 = energie-digitalisieren.de

@@ -1,0 +1,79 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN=mindsquare Lokale Zertifizierungsstelle, ST=NRW, C=DE/emailAddress=info@mindsquare.de, O=mindsquare, OU=Development
+        Validity
+            Not Before: Feb  3 17:06:12 2021 GMT
+            Not After : Feb  2 17:06:12 2026 GMT
+        Subject: CN=localhost, ST=NRW, C=DE/emailAddress=info@mindsquare.de, O=mindsquare, OU=pardb
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:ce:ad:65:25:6f:5a:b6:a2:d6:07:aa:cf:e8:0b:
+                    a8:50:0b:17:0a:a2:fd:63:54:f5:ef:38:db:89:e9:
+                    4c:4f:c3:97:8e:91:f4:31:f7:7e:9e:99:0e:ae:bd:
+                    69:6b:d8:ef:91:35:f3:7c:86:78:57:60:88:30:b8:
+                    56:22:2a:11:35:37:fa:6d:d1:6f:30:51:c0:7f:a6:
+                    07:81:5d:f9:91:6e:d6:c3:69:21:7c:0d:36:5f:29:
+                    9f:77:f5:23:6a:03:ff:ef:c6:6b:69:c1:94:43:4b:
+                    88:e5:60:57:73:4d:f8:b1:7f:45:0b:0b:21:85:76:
+                    a0:62:5e:1d:cc:92:e7:59:a6:d9:ad:14:6c:f7:1c:
+                    28:59:fa:78:3a:f3:19:fe:03:c2:b6:f8:67:a6:93:
+                    4b:97:d2:94:66:68:c5:85:8e:3f:28:15:24:2b:55:
+                    e2:df:53:96:af:9f:00:0e:5d:f7:31:d8:c4:a9:a6:
+                    0c:41:c9:41:f3:ec:0c:24:26:69:1b:75:44:d0:6b:
+                    a8:37:b2:36:23:47:f3:be:83:cd:16:4b:c5:f7:1a:
+                    c8:ab:7e:fa:aa:6d:df:12:9c:eb:aa:7e:7e:e2:c5:
+                    05:66:22:dc:08:cf:25:df:88:dd:9d:24:27:1b:6a:
+                    6b:04:24:54:cb:b9:5f:b7:55:a4:0e:1c:a4:9d:9c:
+                    28:a7
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Key Usage: 
+                Digital Signature, Non Repudiation, Key Encipherment
+            X509v3 Subject Alternative Name: 
+                DNS:pardb.mindsquare.de
+    Signature Algorithm: sha256WithRSAEncryption
+         3c:f2:c1:01:15:05:6b:22:4e:11:4c:0e:00:da:b1:03:4d:b2:
+         52:cf:96:fc:c4:f2:a4:80:74:8b:77:6f:4f:bc:e5:61:80:3a:
+         4e:5e:28:16:fd:41:e1:b2:c9:9b:06:73:2c:a9:a2:39:b3:ef:
+         44:e6:2a:24:7f:fb:76:6b:c0:3c:c4:37:64:74:16:d1:05:5f:
+         6c:5b:88:88:f0:10:93:a2:58:bd:2f:75:2e:a5:36:c9:d6:08:
+         68:9a:47:41:cf:08:f4:ea:47:7d:2c:43:55:59:20:a1:a7:28:
+         60:ee:b3:96:5b:fe:f2:fc:2a:4f:0a:92:62:c3:46:5a:e4:0d:
+         e4:32:a4:0e:7f:33:11:4b:3e:0f:c7:e6:14:c2:a4:56:dd:b8:
+         57:8c:51:e8:5b:f2:61:e6:f2:92:3f:42:c6:88:10:60:2c:7d:
+         b9:53:30:2a:dc:54:8b:11:42:c4:54:63:5d:81:f0:bd:c2:ce:
+         07:1b:fa:a7:d2:e3:7f:b7:c2:9c:ba:e1:13:33:da:9a:13:db:
+         96:2a:98:99:a4:6a:ca:ca:37:52:f1:7f:b6:e9:0d:aa:3d:3e:
+         38:19:75:3d:23:50:3e:50:ae:6c:10:91:f5:39:26:b8:ab:7b:
+         ad:59:8e:f5:71:f5:c2:12:14:8f:fb:38:d6:ea:ec:fd:30:4b:
+         04:a1:23:4e
+-----BEGIN CERTIFICATE-----
+MIIDyDCCArCgAwIBAgIBATANBgkqhkiG9w0BAQsFADCBmzEwMC4GA1UEAwwnbWlu
+ZHNxdWFyZSBMb2thbGUgWmVydGlmaXppZXJ1bmdzc3RlbGxlMQwwCgYDVQQIDANO
+UlcxCzAJBgNVBAYTAkRFMSEwHwYJKoZIhvcNAQkBFhJpbmZvQG1pbmRzcXVhcmUu
+ZGUxEzARBgNVBAoMCm1pbmRzcXVhcmUxFDASBgNVBAsMC0RldmVsb3BtZW50MB4X
+DTIxMDIwMzE3MDYxMloXDTI2MDIwMjE3MDYxMlowdzESMBAGA1UEAwwJbG9jYWxo
+b3N0MQwwCgYDVQQIDANOUlcxCzAJBgNVBAYTAkRFMSEwHwYJKoZIhvcNAQkBFhJp
+bmZvQG1pbmRzcXVhcmUuZGUxEzARBgNVBAoMCm1pbmRzcXVhcmUxDjAMBgNVBAsM
+BXBhcmRiMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzq1lJW9atqLW
+B6rP6AuoUAsXCqL9Y1T17zjbielMT8OXjpH0Mfd+npkOrr1pa9jvkTXzfIZ4V2CI
+MLhWIioRNTf6bdFvMFHAf6YHgV35kW7Ww2khfA02Xymfd/UjagP/78ZracGUQ0uI
+5WBXc034sX9FCwshhXagYl4dzJLnWabZrRRs9xwoWfp4OvMZ/gPCtvhnppNLl9KU
+ZmjFhY4/KBUkK1Xi31OWr58ADl33MdjEqaYMQclB8+wMJCZpG3VE0GuoN7I2I0fz
+voPNFkvF9xrIq376qm3fEpzrqn5+4sUFZiLcCM8l34jdnSQnG2prBCRUy7lft1Wk
+DhyknZwopwIDAQABozowODAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAeBgNVHREE
+FzAVghNwYXJkYi5taW5kc3F1YXJlLmRlMA0GCSqGSIb3DQEBCwUAA4IBAQA88sEB
+FQVrIk4RTA4A2rEDTbJSz5b8xPKkgHSLd29PvOVhgDpOXigW/UHhssmbBnMsqaI5
+s+9E5iokf/t2a8A8xDdkdBbRBV9sW4iI8BCToli9L3UupTbJ1ghomkdBzwj06kd9
+LENVWSChpyhg7rOWW/7y/CpPCpJiw0Za5A3kMqQOfzMRSz4Px+YUwqRW3bhXjFHo
+W/Jh5vKSP0LGiBBgLH25UzAq3FSLEULEVGNdgfC9ws4HG/qn0uN/t8KcuuETM9qa
+E9uWKpiZpGrKyjdS8X+26Q2qPT44GXU9I1A+UK5sEJH1OSa4q3utWY71cfXCEhSP
++zjW6uz9MEsEoSNO
+-----END CERTIFICATE-----

@@ -5,31 +5,31 @@ Certificate:
         Signature Algorithm: sha256WithRSAEncryption
         Issuer: CN=mindsquare Lokale Zertifizierungsstelle, ST=NRW, C=DE/emailAddress=info@mindsquare.de, O=mindsquare, OU=Development
         Validity
-            Not Before: Dec  8 15:04:58 2020 GMT
-            Not After : Dec  7 15:04:58 2025 GMT
-        Subject: CN=localhost, ST=NRW, C=DE/emailAddress=info@mindsquare.de, O=mindsquare, OU=Development
+            Not Before: Feb  3 17:06:10 2021 GMT
+            Not After : Feb  2 17:06:10 2026 GMT
+        Subject: CN=localhost, ST=NRW, C=DE/emailAddress=info@mindsquare.de, O=mindsquare, OU=mindsquare-network
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (2048 bit)
                 Modulus:
-                    00:db:13:71:bd:2c:68:e9:01:e4:c6:31:b9:3d:d9:
-                    49:9d:eb:39:f5:c3:c4:e1:92:7d:64:d1:ae:2f:9d:
-                    86:37:b9:d2:1d:a5:ee:00:cb:8f:0a:8f:cc:71:66:
-                    77:f6:0b:9a:ec:54:a0:6f:16:06:4e:de:7a:d1:bc:
-                    76:39:ab:4d:b5:5e:17:1f:2c:ab:d2:a1:0f:f9:43:
-                    a7:f8:e4:c6:12:af:c7:be:18:b2:9b:b3:a3:df:03:
-                    64:9f:a3:f2:ed:b5:4f:73:a8:51:b3:dd:0f:84:4e:
-                    09:c1:68:93:40:cd:90:ff:f3:d9:16:d2:86:b5:93:
-                    34:02:f8:1f:f0:b2:23:35:bd:5e:7f:ec:13:99:62:
-                    1e:d4:df:c4:a0:04:55:62:23:d9:6c:da:0d:c0:f2:
-                    13:49:00:7e:9b:0b:d8:36:e1:9b:91:78:70:38:de:
-                    82:96:09:03:12:9d:99:d9:61:25:bf:80:67:36:ca:
-                    8c:21:90:fc:12:e4:c8:44:bb:48:72:0c:60:c4:cc:
-                    e6:7d:eb:9a:23:9d:35:1c:ac:17:7f:7f:75:53:b2:
-                    fd:37:f4:4a:29:2b:7e:1a:bb:ad:69:5b:4c:c2:00:
-                    91:e8:aa:0c:27:73:db:3f:61:88:26:d9:13:4e:d6:
-                    f2:46:8c:e4:ac:9a:d4:09:47:56:f2:0d:3e:82:e6:
-                    23:a9
+                    00:b8:ff:40:fa:cc:5d:bf:dc:d1:81:ca:61:cf:e7:
+                    cd:fb:94:e3:28:4a:ec:49:49:f5:d3:dc:32:ac:25:
+                    90:8f:98:39:5d:98:00:b9:b8:6b:09:5e:73:57:33:
+                    0e:e5:cf:96:30:7a:e0:7d:08:51:cb:32:3d:ec:9d:
+                    e7:ba:26:82:d0:3d:ed:ba:69:79:29:59:f8:b5:25:
+                    bb:09:01:b7:40:b8:ca:51:1b:cf:56:89:e6:d3:06:
+                    ac:3d:69:f8:d5:73:69:d0:e5:fb:c5:c8:2f:58:2e:
+                    d3:ef:f3:53:d7:c4:40:c5:1f:6c:60:f7:93:f3:f8:
+                    70:df:15:8e:95:10:42:ee:97:3e:03:2a:27:72:27:
+                    45:73:69:5f:f3:de:48:8d:c3:9c:3f:ce:6c:65:d4:
+                    0f:2c:74:5d:86:4c:50:d0:3c:75:83:33:1d:37:fd:
+                    1f:23:8f:26:c0:13:c1:79:59:6b:9d:1a:32:a1:2f:
+                    97:98:90:66:2c:56:15:d4:25:73:ad:98:07:af:e1:
+                    01:26:8d:3f:89:73:58:fb:8b:71:01:6a:7f:d2:d4:
+                    bc:af:ac:a2:b9:88:2b:85:9f:30:3f:68:72:b4:5f:
+                    b6:e8:26:27:0c:d7:15:58:bb:e9:07:3a:5d:63:22:
+                    a1:c8:08:85:79:31:4a:05:54:e5:b4:87:c2:bf:88:
+                    4e:6f
                 Exponent: 65537 (0x10001)
         X509v3 extensions:
             X509v3 Basic Constraints: 
@@ -37,54 +37,52 @@ Certificate:
             X509v3 Key Usage: 
                 Digital Signature, Non Repudiation, Key Encipherment
             X509v3 Subject Alternative Name: 
-                DNS:localhost, DNS:mindsquare.local, DNS:mindsquare.de, DNS:blog.mindsquare.de, DNS:activate-hr.de, DNS:erlebe-software.de, DNS:maint-care.de, DNS:mind-force.de, DNS:mind-forms.de, DNS:mission-mobile.de, DNS:rz10.de, DNS:innotalent.de, DNS:wiki.mindsquare.de, DNS:pardb.mindsquare.de, DNS:compamind.de, DNS:mind-logistik.de, DNS:piumelli.de, DNS:timm-funke.de, DNS:consulting-y.de, DNS:personaleinsatzplanung.activate-hr.de, DNS:marketence.de, DNS:bonuskonditionen.de, DNS:www.freelancercheck.de, DNS:freelancercheck.de, DNS:customer-first-cloud.de, DNS:gesundheit-digitalisieren.de, DNS:energie-digitalisieren.de, DNS:pardb.mindsquare.de
+                DNS:mindsquare.local, DNS:mindsquare.de, DNS:blog.mindsquare.de, DNS:activate-hr.de, DNS:erlebe-software.de, DNS:maint-care.de, DNS:mind-force.de, DNS:mind-forms.de, DNS:mission-mobile.de, DNS:rz10.de, DNS:innotalent.de, DNS:wiki.mindsquare.de, DNS:compamind.de, DNS:mind-logistik.de, DNS:piumelli.de, DNS:timm-funke.de, DNS:consulting-y.de, DNS:personaleinsatzplanung.activate-hr.de, DNS:marketence.de, DNS:bonuskonditionen.de, DNS:customer-first-cloud.de, DNS:gesundheit-digitalisieren.de, DNS:energie-digitalisieren.de
     Signature Algorithm: sha256WithRSAEncryption
-         67:80:ef:6d:43:d7:51:6a:6e:14:e7:fd:42:1b:97:e7:0f:19:
-         49:c3:ff:99:0b:ff:eb:a2:9f:0f:3e:3c:b1:1b:5b:1b:58:a7:
-         a0:95:89:d4:72:71:57:0e:43:4d:a6:01:5a:eb:21:3b:b3:bd:
-         73:5e:7b:15:99:9b:60:fb:c0:2b:6c:c2:3a:6b:e5:01:d9:21:
-         ec:2e:87:46:35:fb:8f:62:87:a3:57:c0:88:7c:6d:3a:a6:5b:
-         b4:e7:16:60:fe:50:70:ae:14:13:7e:6c:bb:b8:68:5d:9e:03:
-         99:40:7c:56:d2:65:d5:ff:b2:10:c2:44:a7:c9:34:37:56:e6:
-         3a:a2:40:0c:7c:9c:ec:00:6f:01:18:27:3a:47:84:50:81:7b:
-         02:b2:5e:78:44:a1:a2:a6:44:a6:c0:69:12:0e:ba:02:f2:fe:
-         9b:36:ca:ca:16:6f:14:0c:1f:21:08:f7:ae:47:0a:1d:1d:9c:
-         0a:9e:8f:d4:3d:80:1d:66:88:24:e2:d9:73:be:9f:66:32:32:
-         e5:82:08:69:2b:3a:77:30:4e:c9:13:47:e0:9c:8e:47:41:ff:
-         3f:b4:91:85:b5:1c:e6:d3:67:e0:9c:ae:4e:c1:7b:57:30:a7:
-         16:81:9c:e8:85:9a:6d:7c:49:52:42:be:2d:ee:df:70:c0:c1:
-         15:30:cf:b5
+         a3:e6:2c:89:e0:e1:02:91:ec:df:d8:06:12:7a:95:e0:f6:32:
+         44:09:70:21:be:82:bb:4d:0b:19:46:5b:5c:1a:a6:b9:e0:23:
+         1b:ed:33:cb:e6:e8:c2:31:cf:a2:2b:8b:a9:e6:f6:cc:15:ed:
+         0e:b9:83:f6:e2:c5:6a:48:4d:ca:0a:08:b3:50:8d:60:a5:19:
+         4a:e8:2a:0f:bb:dc:e4:42:6e:63:ee:11:29:07:07:28:7e:f1:
+         82:4e:be:7c:57:f2:3d:cc:a4:81:ca:5a:f6:2a:c5:85:99:5f:
+         ad:7b:91:a3:c4:fe:1a:f0:5c:6a:ef:f6:0c:53:a1:8c:2f:47:
+         9c:7d:82:8e:12:4f:d3:5b:8a:ca:3c:c5:89:15:53:db:fa:9e:
+         5f:06:45:f4:d0:b6:ae:56:65:9c:81:4e:92:17:fa:67:8f:45:
+         a4:59:c1:a0:29:de:82:94:52:4b:28:b3:83:ea:97:71:cf:a9:
+         9a:97:d4:eb:51:9d:48:f4:0a:53:65:47:f6:0a:46:c6:c5:12:
+         7f:9c:99:71:15:e6:6d:11:12:52:5d:7c:5e:55:d0:b6:62:50:
+         db:d8:f9:64:98:e7:bb:32:5e:b4:f7:a4:53:65:29:a6:f2:d2:
+         21:4b:a5:52:43:88:63:be:91:62:f4:1a:16:7a:54:2c:4f:bd:
+         eb:41:ce:8b
 -----BEGIN CERTIFICATE-----
-MIIF0zCCBLugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBmzEwMC4GA1UEAwwnbWlu
+MIIFejCCBGKgAwIBAgIBATANBgkqhkiG9w0BAQsFADCBmzEwMC4GA1UEAwwnbWlu
 ZHNxdWFyZSBMb2thbGUgWmVydGlmaXppZXJ1bmdzc3RlbGxlMQwwCgYDVQQIDANO
 UlcxCzAJBgNVBAYTAkRFMSEwHwYJKoZIhvcNAQkBFhJpbmZvQG1pbmRzcXVhcmUu
 ZGUxEzARBgNVBAoMCm1pbmRzcXVhcmUxFDASBgNVBAsMC0RldmVsb3BtZW50MB4X
-DTIwMTIwODE1MDQ1OFoXDTI1MTIwNzE1MDQ1OFowfTESMBAGA1UEAwwJbG9jYWxo
-b3N0MQwwCgYDVQQIDANOUlcxCzAJBgNVBAYTAkRFMSEwHwYJKoZIhvcNAQkBFhJp
-bmZvQG1pbmRzcXVhcmUuZGUxEzARBgNVBAoMCm1pbmRzcXVhcmUxFDASBgNVBAsM
-C0RldmVsb3BtZW50MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2xNx
-vSxo6QHkxjG5PdlJnes59cPE4ZJ9ZNGuL52GN7nSHaXuAMuPCo/McWZ39gua7FSg
-bxYGTt560bx2OatNtV4XHyyr0qEP+UOn+OTGEq/Hvhiym7Oj3wNkn6Py7bVPc6hR
-s90PhE4JwWiTQM2Q//PZFtKGtZM0Avgf8LIjNb1ef+wTmWIe1N/EoARVYiPZbNoN
-wPITSQB+mwvYNuGbkXhwON6ClgkDEp2Z2WElv4BnNsqMIZD8EuTIRLtIcgxgxMzm
-feuaI501HKwXf391U7L9N/RKKSt+GrutaVtMwgCR6KoMJ3PbP2GIJtkTTtbyRozk
-rJrUCUdW8g0+guYjqQIDAQABo4ICPTCCAjkwCQYDVR0TBAIwADALBgNVHQ8EBAMC
-BeAwggIdBgNVHREEggIUMIICEIIJbG9jYWxob3N0ghBtaW5kc3F1YXJlLmxvY2Fs
-gg1taW5kc3F1YXJlLmRlghJibG9nLm1pbmRzcXVhcmUuZGWCDmFjdGl2YXRlLWhy
-LmRlghJlcmxlYmUtc29mdHdhcmUuZGWCDW1haW50LWNhcmUuZGWCDW1pbmQtZm9y
-Y2UuZGWCDW1pbmQtZm9ybXMuZGWCEW1pc3Npb24tbW9iaWxlLmRlggdyejEwLmRl
-gg1pbm5vdGFsZW50LmRlghJ3aWtpLm1pbmRzcXVhcmUuZGWCE3BhcmRiLm1pbmRz
-cXVhcmUuZGWCDGNvbXBhbWluZC5kZYIQbWluZC1sb2dpc3Rpay5kZYILcGl1bWVs
-bGkuZGWCDXRpbW0tZnVua2UuZGWCD2NvbnN1bHRpbmcteS5kZYIlcGVyc29uYWxl
-aW5zYXR6cGxhbnVuZy5hY3RpdmF0ZS1oci5kZYINbWFya2V0ZW5jZS5kZYITYm9u
-dXNrb25kaXRpb25lbi5kZYIWd3d3LmZyZWVsYW5jZXJjaGVjay5kZYISZnJlZWxh
-bmNlcmNoZWNrLmRlghdjdXN0b21lci1maXJzdC1jbG91ZC5kZYIcZ2VzdW5kaGVp
-dC1kaWdpdGFsaXNpZXJlbi5kZYIZZW5lcmdpZS1kaWdpdGFsaXNpZXJlbi5kZYIT
-cGFyZGIubWluZHNxdWFyZS5kZTANBgkqhkiG9w0BAQsFAAOCAQEAZ4DvbUPXUWpu
-FOf9QhuX5w8ZScP/mQv/66KfDz48sRtbG1inoJWJ1HJxVw5DTaYBWushO7O9c157
-FZmbYPvAK2zCOmvlAdkh7C6HRjX7j2KHo1fAiHxtOqZbtOcWYP5QcK4UE35su7ho
-XZ4DmUB8VtJl1f+yEMJEp8k0N1bmOqJADHyc7ABvARgnOkeEUIF7ArJeeEShoqZE
-psBpEg66AvL+mzbKyhZvFAwfIQj3rkcKHR2cCp6P1D2AHWaIJOLZc76fZjIy5YII
-aSs6dzBOyRNH4JyOR0H/P7SRhbUc5tNn4JyuTsF7VzCnFoGc6IWabXxJUkK+Le7f
-cMDBFTDPtQ==
+DTIxMDIwMzE3MDYxMFoXDTI2MDIwMjE3MDYxMFowgYQxEjAQBgNVBAMMCWxvY2Fs
+aG9zdDEMMAoGA1UECAwDTlJXMQswCQYDVQQGEwJERTEhMB8GCSqGSIb3DQEJARYS
+aW5mb0BtaW5kc3F1YXJlLmRlMRMwEQYDVQQKDAptaW5kc3F1YXJlMRswGQYDVQQL
+DBJtaW5kc3F1YXJlLW5ldHdvcmswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQC4/0D6zF2/3NGBymHP5837lOMoSuxJSfXT3DKsJZCPmDldmAC5uGsJXnNX
+Mw7lz5YweuB9CFHLMj3snee6JoLQPe26aXkpWfi1JbsJAbdAuMpRG89WiebTBqw9
+afjVc2nQ5fvFyC9YLtPv81PXxEDFH2xg95Pz+HDfFY6VEELulz4DKidyJ0VzaV/z
+3kiNw5w/zmxl1A8sdF2GTFDQPHWDMx03/R8jjybAE8F5WWudGjKhL5eYkGYsVhXU
+JXOtmAev4QEmjT+Jc1j7i3EBan/S1LyvrKK5iCuFnzA/aHK0X7boJicM1xVYu+kH
+Ol1jIqHICIV5MUoFVOW0h8K/iE5vAgMBAAGjggHcMIIB2DAJBgNVHRMEAjAAMAsG
+A1UdDwQEAwIF4DCCAbwGA1UdEQSCAbMwggGvghBtaW5kc3F1YXJlLmxvY2Fsgg1t
+aW5kc3F1YXJlLmRlghJibG9nLm1pbmRzcXVhcmUuZGWCDmFjdGl2YXRlLWhyLmRl
+ghJlcmxlYmUtc29mdHdhcmUuZGWCDW1haW50LWNhcmUuZGWCDW1pbmQtZm9yY2Uu
+ZGWCDW1pbmQtZm9ybXMuZGWCEW1pc3Npb24tbW9iaWxlLmRlggdyejEwLmRlgg1p
+bm5vdGFsZW50LmRlghJ3aWtpLm1pbmRzcXVhcmUuZGWCDGNvbXBhbWluZC5kZYIQ
+bWluZC1sb2dpc3Rpay5kZYILcGl1bWVsbGkuZGWCDXRpbW0tZnVua2UuZGWCD2Nv
+bnN1bHRpbmcteS5kZYIlcGVyc29uYWxlaW5zYXR6cGxhbnVuZy5hY3RpdmF0ZS1o
+ci5kZYINbWFya2V0ZW5jZS5kZYITYm9udXNrb25kaXRpb25lbi5kZYIXY3VzdG9t
+ZXItZmlyc3QtY2xvdWQuZGWCHGdlc3VuZGhlaXQtZGlnaXRhbGlzaWVyZW4uZGWC
+GWVuZXJnaWUtZGlnaXRhbGlzaWVyZW4uZGUwDQYJKoZIhvcNAQELBQADggEBAKPm
+LIng4QKR7N/YBhJ6leD2MkQJcCG+grtNCxlGW1waprngIxvtM8vm6MIxz6Iri6nm
+9swV7Q65g/bixWpITcoKCLNQjWClGUroKg+73ORCbmPuESkHByh+8YJOvnxX8j3M
+pIHKWvYqxYWZX617kaPE/hrwXGrv9gxToYwvR5x9go4ST9Nbiso8xYkVU9v6nl8G
+RfTQtq5WZZyBTpIX+mePRaRZwaAp3oKUUksos4Pql3HPqZqX1OtRnUj0ClNlR/YK
+RsbFEn+cmXEV5m0RElJdfF5V0LZiUNvY+WSY57syXrT3pFNlKaby0iFLpVJDiGO+
+kWL0GhZ6VCxPvetBzos=
 -----END CERTIFICATE-----

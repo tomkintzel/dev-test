@@ -1,0 +1,79 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN=mindsquare Lokale Zertifizierungsstelle, ST=NRW, C=DE/emailAddress=info@mindsquare.de, O=mindsquare, OU=Development
+        Validity
+            Not Before: Feb  3 17:06:08 2021 GMT
+            Not After : Feb  2 17:06:08 2026 GMT
+        Subject: CN=localhost, ST=NRW, C=DE/emailAddress=info@mindsquare.de, O=mindsquare, OU=freelancercheck
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:b9:49:3d:7f:18:7c:ef:70:b2:66:a4:1f:31:93:
+                    0c:1e:10:31:b0:4a:0e:e3:bc:57:8f:05:46:b2:81:
+                    e7:82:1f:00:b3:af:e7:83:c9:e7:5b:93:d4:35:85:
+                    6b:4d:aa:2e:68:e7:aa:0a:80:2d:ed:d9:b4:eb:9b:
+                    f9:68:36:7b:bf:3b:4e:ca:c1:24:70:85:f6:0d:8f:
+                    f9:60:fd:03:53:09:9a:54:09:15:37:01:9f:86:46:
+                    20:cc:cd:79:eb:8e:0b:09:98:16:fd:02:75:b4:bc:
+                    b6:1e:ba:29:8b:24:5f:12:24:ae:ae:be:cd:7d:f5:
+                    f0:1a:d8:57:8e:18:ff:51:fc:c9:00:7a:6f:95:cc:
+                    19:53:c5:b3:e2:7b:03:6a:bb:e5:95:a3:be:8b:35:
+                    17:16:99:68:50:f8:2d:fb:cb:86:cf:fd:39:39:c8:
+                    9b:e6:af:bd:ae:18:10:ac:16:fc:4a:a3:a8:cc:58:
+                    42:26:a4:c3:5b:af:a5:74:6b:9b:89:a4:0b:53:8a:
+                    65:b7:62:cd:97:97:f3:85:8f:08:ea:af:20:87:1c:
+                    0b:6b:77:83:f2:1c:b6:63:94:88:94:e9:63:64:ee:
+                    52:54:06:87:93:fb:ce:fa:7a:fb:50:3b:32:96:35:
+                    12:0d:07:10:5a:fa:d7:7d:af:b0:e3:12:df:66:f0:
+                    31:2b
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Key Usage: 
+                Digital Signature, Non Repudiation, Key Encipherment
+            X509v3 Subject Alternative Name: 
+                DNS:www.freelancercheck.de, DNS:freelancercheck.de
+    Signature Algorithm: sha256WithRSAEncryption
+         1a:12:80:79:04:80:04:e5:71:b5:19:be:bc:39:f9:e2:7b:7b:
+         85:fd:4a:69:67:a6:2d:9d:e1:3f:4c:c2:05:c1:0c:b4:58:57:
+         ec:82:e0:c5:86:8f:21:3a:cb:66:12:b6:38:c2:72:b2:0a:61:
+         b2:7d:ee:ea:53:c8:2d:f0:8e:ab:5e:29:7c:aa:90:86:10:90:
+         a8:18:97:2e:c2:51:c7:72:2b:18:8d:22:be:1e:22:80:7b:0c:
+         92:8c:6c:38:65:07:60:c3:e0:11:c2:87:60:3e:ca:da:04:7e:
+         cd:b6:90:3e:67:a4:80:f1:33:c1:4b:e9:b4:14:4a:1c:6d:0c:
+         b8:f3:c5:af:34:3c:86:a5:e2:55:9b:80:49:17:98:96:bd:08:
+         b5:cc:0b:e2:45:11:e6:93:37:cf:d5:8d:5c:52:fe:25:47:c2:
+         3e:3c:eb:88:7b:a3:0b:d2:00:46:0c:09:db:ce:7d:11:d8:b4:
+         4c:86:84:11:ad:2b:66:ec:ad:be:ab:cf:31:7b:c4:44:e7:80:
+         6c:d9:21:7d:0f:01:ad:97:46:da:39:63:cc:f8:46:cf:67:1c:
+         df:7f:ff:da:82:ec:1e:e1:58:d9:3e:b3:04:80:9b:ef:f0:e7:
+         b0:50:58:58:30:be:d6:a1:cd:4e:d4:c2:6f:30:23:36:98:05:
+         83:73:58:7b
+-----BEGIN CERTIFICATE-----
+MIID6jCCAtKgAwIBAgIBATANBgkqhkiG9w0BAQsFADCBmzEwMC4GA1UEAwwnbWlu
+ZHNxdWFyZSBMb2thbGUgWmVydGlmaXppZXJ1bmdzc3RlbGxlMQwwCgYDVQQIDANO
+UlcxCzAJBgNVBAYTAkRFMSEwHwYJKoZIhvcNAQkBFhJpbmZvQG1pbmRzcXVhcmUu
+ZGUxEzARBgNVBAoMCm1pbmRzcXVhcmUxFDASBgNVBAsMC0RldmVsb3BtZW50MB4X
+DTIxMDIwMzE3MDYwOFoXDTI2MDIwMjE3MDYwOFowgYExEjAQBgNVBAMMCWxvY2Fs
+aG9zdDEMMAoGA1UECAwDTlJXMQswCQYDVQQGEwJERTEhMB8GCSqGSIb3DQEJARYS
+aW5mb0BtaW5kc3F1YXJlLmRlMRMwEQYDVQQKDAptaW5kc3F1YXJlMRgwFgYDVQQL
+DA9mcmVlbGFuY2VyY2hlY2swggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+AQC5ST1/GHzvcLJmpB8xkwweEDGwSg7jvFePBUaygeeCHwCzr+eDyedbk9Q1hWtN
+qi5o56oKgC3t2bTrm/loNnu/O07KwSRwhfYNj/lg/QNTCZpUCRU3AZ+GRiDMzXnr
+jgsJmBb9AnW0vLYeuimLJF8SJK6uvs199fAa2FeOGP9R/MkAem+VzBlTxbPiewNq
+u+WVo76LNRcWmWhQ+C37y4bP/Tk5yJvmr72uGBCsFvxKo6jMWEImpMNbr6V0a5uJ
+pAtTimW3Ys2Xl/OFjwjqryCHHAtrd4PyHLZjlIiU6WNk7lJUBoeT+876evtQOzKW
+NRINBxBa+td9r7DjEt9m8DErAgMBAAGjUTBPMAkGA1UdEwQCMAAwCwYDVR0PBAQD
+AgXgMDUGA1UdEQQuMCyCFnd3dy5mcmVlbGFuY2VyY2hlY2suZGWCEmZyZWVsYW5j
+ZXJjaGVjay5kZTANBgkqhkiG9w0BAQsFAAOCAQEAGhKAeQSABOVxtRm+vDn54nt7
+hf1KaWemLZ3hP0zCBcEMtFhX7ILgxYaPITrLZhK2OMJysgphsn3u6lPILfCOq14p
+fKqQhhCQqBiXLsJRx3IrGI0ivh4igHsMkoxsOGUHYMPgEcKHYD7K2gR+zbaQPmek
+gPEzwUvptBRKHG0MuPPFrzQ8hqXiVZuASReYlr0ItcwL4kUR5pM3z9WNXFL+JUfC
+PjzriHujC9IARgwJ2859Edi0TIaEEa0rZuytvqvPMXvEROeAbNkhfQ8BrZdG2jlj
+zPhGz2cc33//2oLsHuFY2T6zBICb7/DnsFBYWDC+1qHNTtTCbzAjNpgFg3NYew==
+-----END CERTIFICATE-----
