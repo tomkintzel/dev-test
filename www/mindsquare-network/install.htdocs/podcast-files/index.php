@@ -7,7 +7,7 @@ error_reporting( 0 );
 ini_set( 'display_errors', '0' );
 
 // Informationen über den Request sammeln
-$redirect_uri = $_SERVER[ 'REDIRECT_URL' ];
+$redirect_uri = $_SERVER[ 'REQUEST_URI' ];
 $server_name = $_SERVER[ 'SERVER_NAME' ];
 $filename = dirname( __FILE__, 2 ) . preg_replace( '/\/$/', '', $redirect_uri );
 

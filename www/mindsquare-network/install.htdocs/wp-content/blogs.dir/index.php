@@ -7,7 +7,7 @@ error_reporting( 0 );
 ini_set( 'display_errors', '0' );
 
 // Informationen über den Request sammeln
-$redirect_uri = $_SERVER[ 'REDIRECT_URL' ];
+$redirect_uri = $_SERVER[ 'REQUEST_URI' ];
 $server_name = $_SERVER[ 'SERVER_NAME' ];
 if ( $_GET['blog_id'] === '50' ) {
 	$filename = dirname( __FILE__ ) . '/' . $_GET['blog_id'] . preg_replace( '/\/$/', '', preg_replace( '/^\/blog/i', '', $redirect_uri ) );
