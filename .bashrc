@@ -30,19 +30,44 @@ if [ -z "$(ss -lntu | grep ':11211')" ]; then
 fi
 
 # Führt ein PHP-Befehl mit festen mappings aus
-function php56 {
+function php5 {
 	if [[ "$(pwd)" == "$DEV_DIR/www"* ]]; then
 		PWD=$(pwd)
 		DIFF=${PWD//"$DEV_DIR/www"/}
-		FILE="/var/www/html$DIFF/$1"
-		docker exec $(docker-compose ps -q php_56) php "$FILE"
+		WORKING="/var/www/html$DIFF"
+		if [ -z "$1" ]; then
+			docker exec -it -w "$WORKING" $(docker-compose ps -q php_56) bash
+		else
+			docker exec $(docker-compose ps -q php_56) php "$WORKING/$1"
+		fi
+	else
+		docker exec -it $(docker-compose ps -q php_56) bash
 	fi
 }
-function php72 {
+function php7 {
 	if [[ "$(pwd)" == "$DEV_DIR/www"* ]]; then
 		PWD=$(pwd)
 		DIFF=${PWD//"$DEV_DIR/www"/}
-		FILE="/var/www/html$DIFF/$1"
-		docker exec $(docker-compose ps -q php_72) php "$FILE"
+		WORKING="/var/www/html$DIFF"
+		if [ -z "$1" ]; then
+			docker exec -it -w "$WORKING" $(docker-compose ps -q php_72) bash
+		else
+			docker exec $(docker-compose ps -q php_72) php "$WORKING/$1"
+		fi
+	else
+		docker exec -it $(docker-compose ps -q php_72) bash
 	fi
 }
+function apache {
+	if [[ "$(pwd)" == "$DEV_DIR/www"* ]]; then
+		PWD=$(pwd)
+		DIFF=${PWD//"$DEV_DIR/www"/}
+		WORKING="/var/www/html$DIFF"
+		docker exec -it -w "$WORKING" $(docker-compose ps -q apache2) bash
+	else
+		docker exec -it $(docker-compose ps -q apache2) bash
+	fi
+}
+
+# Einstellungen für NodeJS
+export NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/cacert.crt
