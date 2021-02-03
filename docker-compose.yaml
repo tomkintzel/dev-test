@@ -73,7 +73,7 @@ services:
     image: httpd:2.4
     volumes:
       # data
-      - ./www/:/usr/local/apache2/htdocs/
+      - ./www/:/var/www/html/
 
       # config
       - ./config/apache2/httpd.conf:/usr/local/apache2/conf/httpd.conf
@@ -81,7 +81,7 @@ services:
       - ./config/ssl/:/usr/local/apache2/conf/ssl/
 
       # logs
-      - ./logs/apache2/:/usr/local/apache2/logs/
+      - ./logs/apache2/:/var/www/logs/
     ports:
       - "80:80"
       - "443:443"
