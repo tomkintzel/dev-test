@@ -27,6 +27,29 @@ Dazu folgende Befehle mit euren Daten eingeben.
     git config --global core.autocrlf input 
 
 
+<a name="ssh"/>
+
+## SSH einrichten
+
+In diesem Zuge kann auch direkt der .ssh Ordner im root Verzeichnis erstellt werden.  
+
+    mkdir ~/.ssh
+    
+Nun wird der Public Key aus dem Windows(falls vorhanden) in das Linux System kopiert. Geht zunächst in euren Benutzer Ordner und kopiert die beiden id_rsa Dateien und fügt sie
+in den neu erstellten Ordner auf dem Linux System ein. Am schnellsten gelangt ihr in euer root Verzeichnis über die Adresszeile 
+eures Windows Explorer. Dazu tippt ihr ein  
+
+    \\wsl$
+    
+Nun wählt ihr eure Distro aus. Jetzt können die Dateien in den .ssh Ordner eingefügt werden.
+
+Um eine spätere Fehlermeldung zu vermeiden.
+
+	chmod 400 ~/.ssh/id_rsa
+
+ausführen.
+
+
 <a name="node"/>
 
 ## Node per NVM installieren
