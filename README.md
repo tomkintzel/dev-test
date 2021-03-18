@@ -6,6 +6,7 @@ Beinhaltet:
 
 - [Vorbereitungen](./docs/prepwindows.md)
 - [Installation](./docs/INSTALLWINDOWS.md)
+- [Neue Entwicklungsumgebung](./docs/ubuntu2004.md)
 
 
 ## TODO  
