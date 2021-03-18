@@ -2,6 +2,8 @@
 ### Erst verwenden, wenn das Live System auf PHP 8 geudated wurde
 
 ### Inhaltsverzeichnis
+- [GIT](#git)
+- [SSH](#ssh)
 - [NODEJS](#node)
 - [DOCKER](#docker)
 - [Docker-compose](#docker-compose)
@@ -11,6 +13,19 @@
 - [Git Flow](#flow)
 
 # Es wird angenommen, dass ihr root Rechte habt. Daher die Befehle ohne sudo.
+
+
+<a name="git"/>
+
+## Git einrichten
+In der Regel ist mittlerweile Git standardmäßig installiert. Daher muss nur noch eure Config angepasst werden.
+
+Dazu folgende Befehle mit euren Daten eingeben.
+	
+	git config --global user.name "Daniel Ricciardo"
+    git config --global user.email "john@doe.com"  
+    git config --global core.autocrlf input 
+
 
 <a name="node"/>
 
